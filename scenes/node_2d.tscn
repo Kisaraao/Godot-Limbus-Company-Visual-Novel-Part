@@ -1,0 +1,242 @@
+[gd_scene format=3 uid="uid://bkonq7nts2hd"]
+
+[ext_resource type="Script" uid="uid://35qxtk52effj" path="res://scripts/GameManager.cs" id="1_f6ptj"]
+[ext_resource type="FontFile" uid="uid://h8qv423ypm73" path="res://font/SarasaUiSC-Bold.ttf" id="1_wtcfe"]
+[ext_resource type="Texture2D" uid="uid://dbos68pvdg3sx" path="res://img/background/Story_ring_finger.webp" id="2_hh0fu"]
+[ext_resource type="FontFile" uid="uid://caltks5x77ake" path="res://font/SarasaUiSC-SemiBold.ttf" id="2_rnjyy"]
+[ext_resource type="Resource" uid="uid://bihag4ov0kxy8" path="res://stories/test.tres" id="2_xtx0q"]
+[ext_resource type="Texture2D" uid="uid://do54sxjd7smq4" path="res://img/ui/cover.png" id="3_3m5ht"]
+[ext_resource type="Texture2D" uid="uid://bjkxadhrb1ojt" path="res://img/ui/ui2.png" id="3_04qyp"]
+[ext_resource type="Texture2D" uid="uid://8dr7jpyjdn46" path="res://img/ui/Label_UI.png" id="4_4vge2"]
+[ext_resource type="Texture2D" uid="uid://b7jnt5stdj47u" path="res://img/ui/ui1.png" id="4_j7wrs"]
+[ext_resource type="Texture2D" uid="uid://br1ddcrllwsin" path="res://img/ui/ui4.png" id="5_dubn7"]
+[ext_resource type="Script" uid="uid://bs1pvs86xgcr6" path="res://scripts/Content.cs" id="6_08kqv"]
+[ext_resource type="Texture2D" uid="uid://dsgc5bcohq1uh" path="res://img/ui/ui3.png" id="7_fws66"]
+[ext_resource type="Script" uid="uid://c7cwyp18k5ngd" path="res://scripts/PlaceContent.cs" id="14_ifa78"]
+[ext_resource type="Script" uid="uid://dl62b30dnkllw" path="res://scripts/Camera.cs" id="14_xtx0q"]
+
+[node name="Root" type="CanvasLayer" unique_id=985754036 node_paths=PackedStringArray("camera", "pure_color_filter", "content_label", "content", "title", "speaker", "speaker_label", "speaker_badge", "place", "place_name", "background", "voice", "bgm", "sound", "character_layer")]
+script = ExtResource("1_f6ptj")
+camera = NodePath("Camera")
+pure_color_filter = NodePath("Filter/ColorRect")
+content_label = NodePath("ui/Control/ContentLabel")
+content = NodePath("ui/Control/ContentLabel/Content")
+title = NodePath("ui/Control/SpeakerAndTitleLabel/Title")
+speaker = NodePath("ui/Control/SpeakerBadge/Speaker")
+speaker_label = NodePath("ui/Control/SpeakerAndTitleLabel")
+speaker_badge = NodePath("ui/Control/SpeakerBadge")
+place = NodePath("ui/Control/Place")
+place_name = NodePath("ui/Control/Place/PlaceLabel/PlaceContent")
+background = NodePath("background/Background")
+voice = NodePath("audio/Voice")
+bgm = NodePath("audio/Bgm")
+sound = NodePath("audio/Sound")
+character_layer = NodePath("characters")
+story = ExtResource("2_xtx0q")
+
+[node name="background" type="CanvasLayer" parent="." unique_id=1416895070]
+follow_viewport_enabled = true
+
+[node name="Background" type="TextureRect" parent="background" unique_id=547022977]
+anchors_preset = -1
+anchor_left = 0.10000001
+anchor_top = 0.10000001
+anchor_right = 0.9
+anchor_bottom = 0.9
+offset_right = 384.0
+offset_bottom = 216.0
+scale = Vector2(0.8, 0.8)
+texture = ExtResource("2_hh0fu")
+metadata/_edit_use_anchors_ = true
+
+[node name="characters" type="CanvasLayer" parent="." unique_id=1514502212]
+follow_viewport_enabled = true
+
+[node name="ui" type="CanvasLayer" parent="." unique_id=641361540]
+
+[node name="Control" type="Control" parent="ui" unique_id=1098980989]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+metadata/_edit_use_anchors_ = true
+
+[node name="Cover" type="TextureRect" parent="ui/Control" unique_id=2019204118]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("3_3m5ht")
+metadata/_edit_use_anchors_ = true
+
+[node name="ContentLabel" type="TextureRect" parent="ui/Control" unique_id=1604356229]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.098958336
+anchor_top = 0.75185186
+anchor_right = 0.8880208
+anchor_bottom = 1.0
+texture = ExtResource("5_dubn7")
+metadata/_edit_use_anchors_ = true
+
+[node name="Content" type="Label" parent="ui/Control/ContentLabel" unique_id=365649734]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.12277228
+anchor_top = 0.28731343
+anchor_right = 0.9029703
+anchor_bottom = 0.8794512
+theme_override_colors/font_color = Color(0.93246573, 0.803684, 0.6393559, 1)
+theme_override_colors/font_outline_color = Color(0.60784316, 0.52156866, 0.42352942, 1)
+theme_override_constants/line_spacing = -5
+theme_override_constants/outline_size = 2
+theme_override_fonts/font = ExtResource("2_rnjyy")
+theme_override_font_sizes/font_size = 28
+text = "取出■■草中的■■■，并立刻将■■研磨投入■■中，■■■需要在含有■■■的瞬间投入■■，且需添加■■的■之气息，■■■死尸需要使用■季后的■■■骸骨并在■■■状态下使用■■■进行混合。添加■■鲸油，■■■需要在不切割情况下萃取出■■■■并■■接触■■，黏度维持在■■■以上。需要制备后时长不超过■■■■的■■■■■■■■，在将其粉碎前使其维持■■■状态并在■■■■■之下■■。"
+horizontal_alignment = 1
+autowrap_mode = 1
+script = ExtResource("6_08kqv")
+metadata/_edit_use_anchors_ = true
+
+[node name="SpeakerBadge" type="TextureRect" parent="ui/Control" unique_id=1416852130]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.05781251
+anchor_top = 0.7944444
+anchor_right = 0.17467879
+anchor_bottom = 0.8454305
+offset_right = -8.38327
+offset_bottom = 26.934998
+rotation = -0.12217305
+texture = ExtResource("4_j7wrs")
+stretch_mode = 2
+metadata/_edit_use_anchors_ = true
+
+[node name="Speaker" type="Label" parent="ui/Control/SpeakerBadge" unique_id=670029048]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.02137223
+anchor_top = 0.053989317
+anchor_right = 0.9816037
+anchor_bottom = 0.94423324
+theme_override_colors/font_color = Color(1, 1, 1, 1)
+theme_override_colors/font_shadow_color = Color(0, 0, 0, 1)
+theme_override_constants/line_spacing = -5
+theme_override_constants/shadow_offset_x = 1
+theme_override_constants/shadow_offset_y = 1
+theme_override_fonts/font = ExtResource("1_wtcfe")
+theme_override_font_sizes/font_size = 32
+text = "正在卖酸奶的一般人类嘎子"
+horizontal_alignment = 1
+vertical_alignment = 1
+autowrap_mode = 1
+metadata/_edit_use_anchors_ = true
+
+[node name="SpeakerAndTitleLabel" type="TextureRect" parent="ui/Control" unique_id=1285136346]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = -0.00052083336
+anchor_top = 0.7259259
+anchor_right = 0.14895834
+anchor_bottom = 0.8666667
+texture = ExtResource("3_04qyp")
+stretch_mode = 2
+metadata/_edit_use_anchors_ = true
+
+[node name="Title" type="Label" parent="ui/Control/SpeakerAndTitleLabel" unique_id=43995641]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.27874565
+anchor_top = 0.17763118
+anchor_right = 0.99695146
+anchor_bottom = 0.34917083
+offset_right = -4.7140503
+offset_bottom = 24.925972
+rotation = -0.12217305
+theme_override_colors/font_color = Color(0.62352943, 0.41568628, 0.23137255, 1)
+theme_override_colors/font_shadow_color = Color(0, 0, 0, 1)
+theme_override_constants/line_spacing = -5
+theme_override_constants/shadow_offset_x = 1
+theme_override_constants/shadow_offset_y = 1
+theme_override_fonts/font = ExtResource("1_wtcfe")
+theme_override_font_sizes/font_size = 22
+text = "我操你们他妈干嘛呢？他妈干嘛呢！！！"
+horizontal_alignment = 1
+vertical_alignment = 1
+autowrap_mode = 1
+text_overrun_behavior = 3
+metadata/_edit_use_anchors_ = true
+
+[node name="Place" type="Node2D" parent="ui/Control" unique_id=2013651298]
+
+[node name="PlaceLabel" type="TextureRect" parent="ui/Control/Place" unique_id=1198176219]
+anchors_preset = -1
+offset_top = 54.0
+offset_right = 393.0
+offset_bottom = 145.0
+rotation = -0.08726646
+texture = ExtResource("4_4vge2")
+metadata/_edit_use_anchors_ = true
+
+[node name="PlaceContent" type="Label" parent="ui/Control/Place/PlaceLabel" unique_id=1170182981]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.048469383
+anchor_top = 0.085261375
+anchor_right = 0.9390546
+anchor_bottom = 0.8874592
+theme_override_colors/font_color = Color(0.93333334, 0.8039216, 0.6392157, 1)
+theme_override_colors/font_shadow_color = Color(0, 0, 0, 1)
+theme_override_constants/line_spacing = -5
+theme_override_constants/shadow_offset_x = 1
+theme_override_constants/shadow_offset_y = 1
+theme_override_fonts/font = ExtResource("1_wtcfe")
+theme_override_font_sizes/font_size = 32
+text = "我们的生态面包店，究竟会变成什么样子……"
+horizontal_alignment = 1
+vertical_alignment = 1
+autowrap_mode = 1
+text_overrun_behavior = 3
+script = ExtResource("14_ifa78")
+metadata/_edit_use_anchors_ = true
+
+[node name="PlaceLabel1" type="TextureRect" parent="ui/Control/Place" unique_id=1846268742]
+anchors_preset = -1
+offset_left = 140.0
+offset_right = 225.0
+offset_bottom = 50.0
+texture = ExtResource("7_fws66")
+stretch_mode = 2
+metadata/_edit_use_anchors_ = true
+
+[node name="Filter" type="CanvasLayer" parent="." unique_id=1097986116]
+metadata/_edit_use_anchors_ = true
+
+[node name="ColorRect" type="ColorRect" parent="Filter" unique_id=1003995466]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+color = Color(1, 1, 1, 0)
+metadata/_edit_use_anchors_ = true
+
+[node name="Camera" type="Camera2D" parent="." unique_id=846416779]
+position = Vector2(960, 540)
+ignore_rotation = false
+limit_enabled = false
+position_smoothing_enabled = true
+rotation_smoothing_enabled = true
+script = ExtResource("14_xtx0q")
+metadata/_edit_lock_ = true
+
+[node name="audio" type="CanvasLayer" parent="." unique_id=9009672]
+
+[node name="Sound" type="AudioStreamPlayer" parent="audio" unique_id=1339577158]
+
+[node name="Voice" type="AudioStreamPlayer" parent="audio" unique_id=66030436]
+
+[node name="Bgm" type="AudioStreamPlayer" parent="audio" unique_id=1410432910]
+volume_db = -18.0

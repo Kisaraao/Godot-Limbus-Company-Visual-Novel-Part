@@ -1,0 +1,15 @@
+# Godot 4+ specific ignores
+.godot/
+/android/
+audio/
+img.
+font/
+places/
+stories/
+characters/
+project.godot
+icon.svg
+icon.svg.import
+123.csproj
+123.sln
+export.presets.cfg
