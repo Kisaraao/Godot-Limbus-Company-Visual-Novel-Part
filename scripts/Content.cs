@@ -1,20 +1,14 @@
 using Godot;
-using System;
-using System.Numerics;
 
 public partial class Content : Label
 {
+	[Export] TextureRect background;
 	private string origin_str;
 	private int current_char_index = 0;
 	public bool typing = false;
 	public double total_time = 0;
 	public double print_speed = 0.04;
-	// Called when the node enters the scene tree for the first time.
-	public override void _Ready()
-	{
-	}
 
-	// Called every frame. 'delta' is the elapsed time since the previous frame.
 	public override void _Process(double delta)
 	{
 		if (!typing) return;
@@ -43,5 +37,23 @@ public partial class Content : Label
 		Text = origin_str;
 		current_char_index = 0;
 		total_time = 0;
+	}
+
+	public void set_content(Dialogue current)
+	{
+		HorizontalAlignment = current.content_horizontal_alignment;
+		print_speed = current.print_speed;
+
+		var screen_width = GetViewport().GetVisibleRect().Size.X;
+		var screen_height = GetViewport().GetVisibleRect().Size.Y;
+		
+		background.Position = new Vector2(
+			(screen_width - background.Texture.GetWidth()) / 2 + current.offset_content.X,
+			screen_height - background.Texture.GetHeight() + current.offset_content.Y
+		);
+
+		if (current.hide_content) { background.Hide(); } else { background.Show(); }
+
+		switch_text(current.content);
 	}
 }

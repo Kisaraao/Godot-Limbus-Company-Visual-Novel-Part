@@ -12,26 +12,20 @@
 [ext_resource type="Texture2D" uid="uid://br1ddcrllwsin" path="res://img/ui/ui4.png" id="5_dubn7"]
 [ext_resource type="Script" uid="uid://bs1pvs86xgcr6" path="res://scripts/Content.cs" id="6_08kqv"]
 [ext_resource type="Texture2D" uid="uid://dsgc5bcohq1uh" path="res://img/ui/ui3.png" id="7_fws66"]
+[ext_resource type="Script" uid="uid://c2hfqvx8pec3d" path="res://scripts/Speaker.cs" id="10_xtx0q"]
 [ext_resource type="Script" uid="uid://c7cwyp18k5ngd" path="res://scripts/PlaceContent.cs" id="14_ifa78"]
 [ext_resource type="Script" uid="uid://dl62b30dnkllw" path="res://scripts/Camera.cs" id="14_xtx0q"]
+[ext_resource type="Script" uid="uid://b3gsce5mlroai" path="res://scripts/AudioManager.cs" id="16_3kg8w"]
 
-[node name="Root" type="CanvasLayer" unique_id=985754036 node_paths=PackedStringArray("camera", "pure_color_filter", "content_label", "content", "title", "speaker", "speaker_label", "speaker_badge", "place", "place_name", "background", "voice", "bgm", "sound", "character_layer")]
+[node name="Root" type="CanvasLayer" unique_id=985754036 node_paths=PackedStringArray("camera", "pure_color_filter", "content", "speaker", "place_name", "character_layer", "audio")]
 script = ExtResource("1_f6ptj")
 camera = NodePath("Camera")
 pure_color_filter = NodePath("Filter/ColorRect")
-content_label = NodePath("ui/Control/ContentLabel")
 content = NodePath("ui/Control/ContentLabel/Content")
-title = NodePath("ui/Control/SpeakerAndTitleLabel/Title")
 speaker = NodePath("ui/Control/SpeakerBadge/Speaker")
-speaker_label = NodePath("ui/Control/SpeakerAndTitleLabel")
-speaker_badge = NodePath("ui/Control/SpeakerBadge")
-place = NodePath("ui/Control/Place")
 place_name = NodePath("ui/Control/Place/PlaceLabel/PlaceContent")
-background = NodePath("background/Background")
-voice = NodePath("audio/Voice")
-bgm = NodePath("audio/Bgm")
-sound = NodePath("audio/Sound")
 character_layer = NodePath("characters")
+audio = NodePath("audio")
 story = ExtResource("2_xtx0q")
 
 [node name="background" type="CanvasLayer" parent="." unique_id=1416895070]
@@ -83,7 +77,7 @@ anchor_bottom = 1.0
 texture = ExtResource("5_dubn7")
 metadata/_edit_use_anchors_ = true
 
-[node name="Content" type="Label" parent="ui/Control/ContentLabel" unique_id=365649734]
+[node name="Content" type="Label" parent="ui/Control/ContentLabel" unique_id=365649734 node_paths=PackedStringArray("background")]
 layout_mode = 1
 anchors_preset = -1
 anchor_left = 0.12277228
@@ -100,6 +94,7 @@ text = "取出■■草中的■■■，并立刻将■■研磨投入■■中
 horizontal_alignment = 1
 autowrap_mode = 1
 script = ExtResource("6_08kqv")
+background = NodePath("..")
 metadata/_edit_use_anchors_ = true
 
 [node name="SpeakerBadge" type="TextureRect" parent="ui/Control" unique_id=1416852130]
@@ -116,7 +111,7 @@ texture = ExtResource("4_j7wrs")
 stretch_mode = 2
 metadata/_edit_use_anchors_ = true
 
-[node name="Speaker" type="Label" parent="ui/Control/SpeakerBadge" unique_id=670029048]
+[node name="Speaker" type="Label" parent="ui/Control/SpeakerBadge" unique_id=670029048 node_paths=PackedStringArray("title", "speaker_badge", "speaker_label")]
 layout_mode = 1
 anchors_preset = -1
 anchor_left = 0.02137223
@@ -134,6 +129,10 @@ text = "正在卖酸奶的一般人类嘎子"
 horizontal_alignment = 1
 vertical_alignment = 1
 autowrap_mode = 1
+script = ExtResource("10_xtx0q")
+title = NodePath("../../SpeakerAndTitleLabel/Title")
+speaker_badge = NodePath("..")
+speaker_label = NodePath("../../SpeakerAndTitleLabel")
 metadata/_edit_use_anchors_ = true
 
 [node name="SpeakerAndTitleLabel" type="TextureRect" parent="ui/Control" unique_id=1285136346]
@@ -182,7 +181,7 @@ rotation = -0.08726646
 texture = ExtResource("4_4vge2")
 metadata/_edit_use_anchors_ = true
 
-[node name="PlaceContent" type="Label" parent="ui/Control/Place/PlaceLabel" unique_id=1170182981]
+[node name="PlaceContent" type="Label" parent="ui/Control/Place/PlaceLabel" unique_id=1170182981 node_paths=PackedStringArray("place", "background")]
 layout_mode = 1
 anchors_preset = -1
 anchor_left = 0.048469383
@@ -202,6 +201,8 @@ vertical_alignment = 1
 autowrap_mode = 1
 text_overrun_behavior = 3
 script = ExtResource("14_ifa78")
+place = NodePath("../..")
+background = NodePath("../../../../../background/Background")
 metadata/_edit_use_anchors_ = true
 
 [node name="PlaceLabel1" type="TextureRect" parent="ui/Control/Place" unique_id=1846268742]
@@ -232,11 +233,16 @@ rotation_smoothing_enabled = true
 script = ExtResource("14_xtx0q")
 metadata/_edit_lock_ = true
 
-[node name="audio" type="CanvasLayer" parent="." unique_id=9009672]
+[node name="audio" type="CanvasLayer" parent="." unique_id=9009672 node_paths=PackedStringArray("voice", "bgm", "sound")]
+script = ExtResource("16_3kg8w")
+voice = NodePath("Voice")
+bgm = NodePath("Bgm")
+sound = NodePath("Sound")
 
 [node name="Sound" type="AudioStreamPlayer" parent="audio" unique_id=1339577158]
 
 [node name="Voice" type="AudioStreamPlayer" parent="audio" unique_id=66030436]
+volume_db = -5.0
 
 [node name="Bgm" type="AudioStreamPlayer" parent="audio" unique_id=1410432910]
 volume_db = -18.0

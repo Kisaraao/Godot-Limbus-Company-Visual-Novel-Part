@@ -1,5 +1,4 @@
 using Godot;
-using System;
 
 public partial class PlaceContent : Label
 {
@@ -7,12 +6,6 @@ public partial class PlaceContent : Label
 	public double total_time = 0;
 	public string origin_str;
 	public int current_char_index = 0;
-	// Called when the node enters the scene tree for the first time.
-	public override void _Ready()
-	{
-	}
-
-	// Called every frame. 'delta' is the elapsed time since the previous frame.
 	public override void _Process(double delta)
 	{
 		if (!typing) return;
@@ -35,5 +28,26 @@ public partial class PlaceContent : Label
 		current_char_index = 0;
 		total_time = 0;
 		typing = true;
+	}
+
+	[Export] public Node2D place;
+	[Export] public TextureRect background;
+
+	public void set_place(Dialogue current)
+	{
+		string name = current.mute_place ? current.name_mute_place : current.place.name;
+		switch_text(name);
+		background.Texture = current.place.texture;
+		background.Scale = current.background_scale;
+		
+		var screen_width = GetViewport().GetVisibleRect().Size.X;
+		var screen_height = GetViewport().GetVisibleRect().Size.Y;
+
+		background.Position = new Vector2(
+			(screen_width - background.Texture.GetWidth() * background.Scale.X) / 2 + current.background_offset.X,
+			(screen_height - background.Texture.GetHeight() * background.Scale.Y) / 2 + current.background_offset.Y
+			 );
+
+		if (current.hide_place) { place.Hide(); } else { place.Show(); }
 	}
 }
