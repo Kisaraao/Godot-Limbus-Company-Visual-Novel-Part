@@ -1,13 +1,15 @@
 using Godot;
 
-public partial class Content : Label
+public partial class Content : Control
 {
-	[Export] TextureRect background;
 	private string origin_str;
 	private int current_char_index = 0;
 	public bool typing = false;
 	public double total_time = 0;
 	public double print_speed = 0.04;
+
+	[Export] TextureRect background;
+	[Export] Label content;
 
 	public override void _Process(double delta)
 	{
@@ -15,7 +17,7 @@ public partial class Content : Label
 		total_time += delta;
 		while (total_time >= print_speed && current_char_index < origin_str.Length)
 		{
-			Text += origin_str[current_char_index++];
+			content.Text += origin_str[current_char_index++];
 			total_time -= print_speed;
 		}
 
@@ -25,23 +27,23 @@ public partial class Content : Label
 	public void switch_text(string str)
 	{
 		origin_str = str;
-		Text = "";
+		content.Text = "";
 		current_char_index = 0;
 		total_time = 0;
 		typing = true;
 	}
 
-	public void end_typing()
+	public void skip_typing()
 	{
 		typing = false;
-		Text = origin_str;
+		content.Text = origin_str;
 		current_char_index = 0;
 		total_time = 0;
 	}
 
 	public void set_content(Dialogue current)
 	{
-		HorizontalAlignment = current.content_horizontal_alignment;
+		content.HorizontalAlignment = current.content_horizontal_alignment;
 		print_speed = current.print_speed;
 
 		var screen_width = GetViewport().GetVisibleRect().Size.X;
@@ -52,7 +54,7 @@ public partial class Content : Label
 			screen_height - background.Texture.GetHeight() + current.offset_content.Y
 		);
 
-		if (current.hide_content) { background.Hide(); } else { background.Show(); }
+		Visible = !current.hide_content;
 
 		switch_text(current.content);
 	}

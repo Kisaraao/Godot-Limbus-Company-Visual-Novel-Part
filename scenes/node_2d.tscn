@@ -8,6 +8,7 @@
 [ext_resource type="Texture2D" uid="uid://do54sxjd7smq4" path="res://img/ui/cover.png" id="3_3m5ht"]
 [ext_resource type="Texture2D" uid="uid://bjkxadhrb1ojt" path="res://img/ui/ui2.png" id="3_04qyp"]
 [ext_resource type="Texture2D" uid="uid://8dr7jpyjdn46" path="res://img/ui/Label_UI.png" id="4_4vge2"]
+[ext_resource type="Texture2D" uid="uid://86xc64sosnvu" path="res://img/background/Story_dust_pit.webp" id="4_coh8c"]
 [ext_resource type="Texture2D" uid="uid://b7jnt5stdj47u" path="res://img/ui/ui1.png" id="4_j7wrs"]
 [ext_resource type="Texture2D" uid="uid://br1ddcrllwsin" path="res://img/ui/ui4.png" id="5_dubn7"]
 [ext_resource type="Script" uid="uid://bs1pvs86xgcr6" path="res://scripts/Content.cs" id="6_08kqv"]
@@ -15,38 +16,48 @@
 [ext_resource type="Script" uid="uid://c2hfqvx8pec3d" path="res://scripts/Speaker.cs" id="10_xtx0q"]
 [ext_resource type="Script" uid="uid://c7cwyp18k5ngd" path="res://scripts/PlaceContent.cs" id="14_ifa78"]
 [ext_resource type="Script" uid="uid://dl62b30dnkllw" path="res://scripts/Camera.cs" id="14_xtx0q"]
+[ext_resource type="Texture2D" uid="uid://b1ok8w5xpdr3c" path="res://img/ui/btn_hide_ui.png" id="15_x63s8"]
 [ext_resource type="Script" uid="uid://b3gsce5mlroai" path="res://scripts/AudioManager.cs" id="16_3kg8w"]
+[ext_resource type="Texture2D" uid="uid://b3e6wdtwupbv" path="res://img/ui/ui5.png" id="16_qv8l0"]
+[ext_resource type="Texture2D" uid="uid://bi2nuklxmsp54" path="res://img/ui/btn_menu.png" id="18_k6u5g"]
+[ext_resource type="Script" uid="uid://u4loda6i5t2w" path="res://scripts/ButtonMenu.cs" id="19_coh8c"]
 
-[node name="Root" type="CanvasLayer" unique_id=985754036 node_paths=PackedStringArray("camera", "pure_color_filter", "content", "speaker", "place_name", "character_layer", "audio")]
+[node name="Root" type="CanvasLayer" unique_id=985754036 node_paths=PackedStringArray("camera", "pure_color_filter", "content", "speaker", "place_name", "buttons", "character_layer", "audio")]
 script = ExtResource("1_f6ptj")
 camera = NodePath("Camera")
 pure_color_filter = NodePath("Filter/ColorRect")
-content = NodePath("ui/Control/ContentLabel/Content")
-speaker = NodePath("ui/Control/SpeakerBadge/Speaker")
-place_name = NodePath("ui/Control/Place/PlaceLabel/PlaceContent")
+content = NodePath("ui/Control/Content")
+speaker = NodePath("ui/Control/Speaker")
+place_name = NodePath("ui/Control/Place")
+buttons = NodePath("ui/Control/Button")
 character_layer = NodePath("characters")
 audio = NodePath("audio")
 story = ExtResource("2_xtx0q")
 
-[node name="background" type="CanvasLayer" parent="." unique_id=1416895070]
-follow_viewport_enabled = true
+[node name="Sprite2D" type="Sprite2D" parent="." unique_id=1106684066]
+visible = false
+position = Vector2(960, 540)
+texture = ExtResource("2_hh0fu")
+metadata/_edit_lock_ = true
 
-[node name="Background" type="TextureRect" parent="background" unique_id=547022977]
+[node name="Background" type="TextureRect" parent="." unique_id=547022977]
 anchors_preset = -1
 anchor_left = 0.10000001
-anchor_top = 0.10000001
+anchor_top = 0.121296294
 anchor_right = 0.9
-anchor_bottom = 0.9
+anchor_bottom = 0.9212963
 offset_right = 384.0
 offset_bottom = 216.0
 scale = Vector2(0.8, 0.8)
-texture = ExtResource("2_hh0fu")
+texture = ExtResource("4_coh8c")
 metadata/_edit_use_anchors_ = true
 
 [node name="characters" type="CanvasLayer" parent="." unique_id=1514502212]
+layer = 3
 follow_viewport_enabled = true
 
 [node name="ui" type="CanvasLayer" parent="." unique_id=641361540]
+layer = 5
 
 [node name="Control" type="Control" parent="ui" unique_id=1098980989]
 layout_mode = 3
@@ -65,25 +76,33 @@ anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
 texture = ExtResource("3_3m5ht")
+metadata/_edit_lock_ = true
+
+[node name="Content" type="Control" parent="ui/Control" unique_id=1958305035 node_paths=PackedStringArray("background", "content")]
+layout_mode = 1
+anchors_preset = 0
+script = ExtResource("6_08kqv")
+background = NodePath("Background")
+content = NodePath("Content")
 metadata/_edit_use_anchors_ = true
 
-[node name="ContentLabel" type="TextureRect" parent="ui/Control" unique_id=1604356229]
+[node name="Background" type="TextureRect" parent="ui/Control/Content" unique_id=1604356229]
 layout_mode = 1
 anchors_preset = -1
-anchor_left = 0.098958336
-anchor_top = 0.75185186
-anchor_right = 0.8880208
-anchor_bottom = 1.0
+offset_left = 179.0
+offset_top = 832.0
+offset_right = 1694.0
+offset_bottom = 1080.0
 texture = ExtResource("5_dubn7")
 metadata/_edit_use_anchors_ = true
 
-[node name="Content" type="Label" parent="ui/Control/ContentLabel" unique_id=365649734 node_paths=PackedStringArray("background")]
+[node name="Content" type="Label" parent="ui/Control/Content" unique_id=365649734]
 layout_mode = 1
 anchors_preset = -1
-anchor_left = 0.12277228
-anchor_top = 0.28731343
-anchor_right = 0.9029703
-anchor_bottom = 0.8794512
+offset_left = 371.0
+offset_top = 911.0
+offset_right = 1554.0
+offset_bottom = 1066.0
 theme_override_colors/font_color = Color(0.93246573, 0.803684, 0.6393559, 1)
 theme_override_colors/font_outline_color = Color(0.60784316, 0.52156866, 0.42352942, 1)
 theme_override_constants/line_spacing = -5
@@ -93,69 +112,44 @@ theme_override_font_sizes/font_size = 28
 text = "取出■■草中的■■■，并立刻将■■研磨投入■■中，■■■需要在含有■■■的瞬间投入■■，且需添加■■的■之气息，■■■死尸需要使用■季后的■■■骸骨并在■■■状态下使用■■■进行混合。添加■■鲸油，■■■需要在不切割情况下萃取出■■■■并■■接触■■，黏度维持在■■■以上。需要制备后时长不超过■■■■的■■■■■■■■，在将其粉碎前使其维持■■■状态并在■■■■■之下■■。"
 horizontal_alignment = 1
 autowrap_mode = 1
-script = ExtResource("6_08kqv")
-background = NodePath("..")
 metadata/_edit_use_anchors_ = true
 
-[node name="SpeakerBadge" type="TextureRect" parent="ui/Control" unique_id=1416852130]
-layout_mode = 1
-anchors_preset = -1
-anchor_left = 0.05781251
-anchor_top = 0.7944444
-anchor_right = 0.17467879
-anchor_bottom = 0.8454305
-offset_right = -8.38327
-offset_bottom = 26.934998
+[node name="Speaker" type="Control" parent="ui/Control" unique_id=1461464320 node_paths=PackedStringArray("background", "badge", "title", "speaker")]
+anchors_preset = 0
+script = ExtResource("10_xtx0q")
+background = NodePath("Background")
+badge = NodePath("Badge")
+title = NodePath("Title")
+speaker = NodePath("Speaker")
+metadata/_edit_use_anchors_ = true
+
+[node name="Badge" type="TextureRect" parent="ui/Control/Speaker" unique_id=1416852130]
+layout_mode = 0
+offset_left = 111.000015
+offset_top = 856.0
+offset_right = 327.0
+offset_bottom = 938.0
 rotation = -0.12217305
 texture = ExtResource("4_j7wrs")
 stretch_mode = 2
 metadata/_edit_use_anchors_ = true
 
-[node name="Speaker" type="Label" parent="ui/Control/SpeakerBadge" unique_id=670029048 node_paths=PackedStringArray("title", "speaker_badge", "speaker_label")]
-layout_mode = 1
-anchors_preset = -1
-anchor_left = 0.02137223
-anchor_top = 0.053989317
-anchor_right = 0.9816037
-anchor_bottom = 0.94423324
-theme_override_colors/font_color = Color(1, 1, 1, 1)
-theme_override_colors/font_shadow_color = Color(0, 0, 0, 1)
-theme_override_constants/line_spacing = -5
-theme_override_constants/shadow_offset_x = 1
-theme_override_constants/shadow_offset_y = 1
-theme_override_fonts/font = ExtResource("1_wtcfe")
-theme_override_font_sizes/font_size = 32
-text = "正在卖酸奶的一般人类嘎子"
-horizontal_alignment = 1
-vertical_alignment = 1
-autowrap_mode = 1
-script = ExtResource("10_xtx0q")
-title = NodePath("../../SpeakerAndTitleLabel/Title")
-speaker_badge = NodePath("..")
-speaker_label = NodePath("../../SpeakerAndTitleLabel")
-metadata/_edit_use_anchors_ = true
-
-[node name="SpeakerAndTitleLabel" type="TextureRect" parent="ui/Control" unique_id=1285136346]
-layout_mode = 1
-anchors_preset = -1
-anchor_left = -0.00052083336
-anchor_top = 0.7259259
-anchor_right = 0.14895834
-anchor_bottom = 0.8666667
+[node name="Background" type="TextureRect" parent="ui/Control/Speaker" unique_id=1285136346]
+layout_mode = 0
+offset_top = 782.0
+offset_right = 287.0
+offset_bottom = 934.0
 texture = ExtResource("3_04qyp")
 stretch_mode = 2
 metadata/_edit_use_anchors_ = true
 
-[node name="Title" type="Label" parent="ui/Control/SpeakerAndTitleLabel" unique_id=43995641]
-layout_mode = 1
-anchors_preset = -1
-anchor_left = 0.27874565
-anchor_top = 0.17763118
-anchor_right = 0.99695146
-anchor_bottom = 0.34917083
-offset_right = -4.7140503
-offset_bottom = 24.925972
-rotation = -0.12217305
+[node name="Title" type="Label" parent="ui/Control/Speaker" unique_id=43995641]
+layout_mode = 0
+offset_left = 81.432625
+offset_top = 809.00006
+offset_right = 280.0
+offset_bottom = 859.8506
+rotation = -0.1308997
 theme_override_colors/font_color = Color(0.62352943, 0.41568628, 0.23137255, 1)
 theme_override_colors/font_shadow_color = Color(0, 0, 0, 1)
 theme_override_constants/line_spacing = -5
@@ -170,9 +164,36 @@ autowrap_mode = 1
 text_overrun_behavior = 3
 metadata/_edit_use_anchors_ = true
 
-[node name="Place" type="Node2D" parent="ui/Control" unique_id=2013651298]
+[node name="Speaker" type="Label" parent="ui/Control/Speaker" unique_id=670029048]
+layout_mode = 0
+offset_left = 116.12154
+offset_top = 859.83154
+offset_right = 323.0
+offset_bottom = 933.4097
+rotation = -0.1308997
+theme_override_colors/font_color = Color(1, 1, 1, 1)
+theme_override_colors/font_shadow_color = Color(0, 0, 0, 1)
+theme_override_constants/line_spacing = -5
+theme_override_constants/shadow_offset_x = 1
+theme_override_constants/shadow_offset_y = 1
+theme_override_fonts/font = ExtResource("1_wtcfe")
+theme_override_font_sizes/font_size = 32
+text = "正在卖酸奶的一般人类嘎子"
+horizontal_alignment = 1
+vertical_alignment = 1
+autowrap_mode = 1
+metadata/_edit_use_anchors_ = true
 
-[node name="PlaceLabel" type="TextureRect" parent="ui/Control/Place" unique_id=1198176219]
+[node name="Place" type="Control" parent="ui/Control" unique_id=530888677 node_paths=PackedStringArray("background", "badge", "decoration", "place_content")]
+anchors_preset = 0
+script = ExtResource("14_ifa78")
+background = NodePath("../../../Background")
+badge = NodePath("Badge")
+decoration = NodePath("Decoration")
+place_content = NodePath("Place")
+
+[node name="Badge" type="TextureRect" parent="ui/Control/Place" unique_id=1198176219]
+layout_mode = 1
 anchors_preset = -1
 offset_top = 54.0
 offset_right = 393.0
@@ -181,13 +202,24 @@ rotation = -0.08726646
 texture = ExtResource("4_4vge2")
 metadata/_edit_use_anchors_ = true
 
-[node name="PlaceContent" type="Label" parent="ui/Control/Place/PlaceLabel" unique_id=1170182981 node_paths=PackedStringArray("place", "background")]
+[node name="Decoration" type="TextureRect" parent="ui/Control/Place" unique_id=1846268742]
 layout_mode = 1
 anchors_preset = -1
-anchor_left = 0.048469383
-anchor_top = 0.085261375
-anchor_right = 0.9390546
-anchor_bottom = 0.8874592
+offset_left = 140.0
+offset_right = 225.0
+offset_bottom = 50.0
+texture = ExtResource("7_fws66")
+stretch_mode = 2
+metadata/_edit_use_anchors_ = true
+
+[node name="Place" type="Label" parent="ui/Control/Place" unique_id=1170182981]
+layout_mode = 1
+anchors_preset = -1
+offset_left = 19.652205
+offset_top = 60.069077
+offset_right = 369.6522
+offset_bottom = 133.06908
+rotation = -0.08726646
 theme_override_colors/font_color = Color(0.93333334, 0.8039216, 0.6392157, 1)
 theme_override_colors/font_shadow_color = Color(0, 0, 0, 1)
 theme_override_constants/line_spacing = -5
@@ -200,29 +232,61 @@ horizontal_alignment = 1
 vertical_alignment = 1
 autowrap_mode = 1
 text_overrun_behavior = 3
-script = ExtResource("14_ifa78")
-place = NodePath("../..")
-background = NodePath("../../../../../background/Background")
 metadata/_edit_use_anchors_ = true
 
-[node name="PlaceLabel1" type="TextureRect" parent="ui/Control/Place" unique_id=1846268742]
+[node name="Button" type="Control" parent="ui/Control" unique_id=683842729]
+anchors_preset = 0
+offset_right = 40.0
+offset_bottom = 40.0
+
+[node name="badge" type="TextureRect" parent="ui/Control/Button" unique_id=1299271008]
+layout_mode = 0
+anchor_left = 32.925
+anchor_top = 0.85
+anchor_right = 48.0
+anchor_bottom = 2.75
+texture = ExtResource("16_qv8l0")
+metadata/_edit_use_anchors_ = true
+
+[node name="ButtonHideUI" type="Button" parent="ui/Control/Button" unique_id=751494782]
+layout_mode = 1
 anchors_preset = -1
-offset_left = 140.0
-offset_right = 225.0
-offset_bottom = 50.0
-texture = ExtResource("7_fws66")
-stretch_mode = 2
+anchor_left = 31.875
+anchor_top = 0.75
+anchor_right = 34.15
+anchor_bottom = 3.0
+mouse_default_cursor_shape = 2
+icon = ExtResource("15_x63s8")
+flat = true
+metadata/_edit_use_anchors_ = true
+
+[node name="ButtonMenu" type="Button" parent="ui/Control/Button" unique_id=1461689774]
+layout_mode = 0
+anchor_left = 43.65
+anchor_top = 0.75
+anchor_right = 45.9
+anchor_bottom = 3.0
+mouse_default_cursor_shape = 2
+toggle_mode = true
+icon = ExtResource("18_k6u5g")
+flat = true
+script = ExtResource("19_coh8c")
 metadata/_edit_use_anchors_ = true
 
 [node name="Filter" type="CanvasLayer" parent="." unique_id=1097986116]
+layer = 4
 metadata/_edit_use_anchors_ = true
 
 [node name="ColorRect" type="ColorRect" parent="Filter" unique_id=1003995466]
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2
 color = Color(1, 1, 1, 0)
 metadata/_edit_use_anchors_ = true
+metadata/_edit_lock_ = true
 
 [node name="Camera" type="Camera2D" parent="." unique_id=846416779]
 position = Vector2(960, 540)
@@ -246,3 +310,7 @@ volume_db = -5.0
 
 [node name="Bgm" type="AudioStreamPlayer" parent="audio" unique_id=1410432910]
 volume_db = -18.0
+
+[connection signal="gui_input" from="ui/Control" to="." method="_on_control_gui_input"]
+[connection signal="pressed" from="ui/Control/Button/ButtonHideUI" to="." method="_on_button_pressed"]
+[connection signal="toggled" from="ui/Control/Button/ButtonMenu" to="ui/Control/Button/ButtonMenu" method="_on_toggled"]

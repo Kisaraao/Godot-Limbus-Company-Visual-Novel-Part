@@ -1,11 +1,17 @@
 using Godot;
 
-public partial class PlaceContent : Label
+public partial class PlaceContent : Control
 {
 	public bool typing = false;
 	public double total_time = 0;
 	public string origin_str;
 	public int current_char_index = 0;
+
+	[Export] public TextureRect background;
+	[Export] public TextureRect badge;
+	[Export] public TextureRect decoration;
+	[Export] public Label place_content;
+
 	public override void _Process(double delta)
 	{
 		if (!typing) return;
@@ -13,7 +19,7 @@ public partial class PlaceContent : Label
 		total_time += delta;
 		while (total_time >= 0.05 && current_char_index < origin_str.Length)
 		{
-			Text += origin_str[current_char_index++];
+			place_content.Text += origin_str[current_char_index++];
 			total_time -= 0.05;
 		}
 
@@ -24,14 +30,11 @@ public partial class PlaceContent : Label
 	{
 		if (origin_str == str) return;
 		origin_str = str;
-		Text = "";
+		place_content.Text = "";
 		current_char_index = 0;
 		total_time = 0;
 		typing = true;
 	}
-
-	[Export] public Node2D place;
-	[Export] public TextureRect background;
 
 	public void set_place(Dialogue current)
 	{
@@ -45,9 +48,9 @@ public partial class PlaceContent : Label
 
 		background.Position = new Vector2(
 			(screen_width - background.Texture.GetWidth() * background.Scale.X) / 2 + current.background_offset.X,
-			(screen_height - background.Texture.GetHeight() * background.Scale.Y) / 2 + current.background_offset.Y
+			(screen_height - background.Texture.GetHeight() * background.Scale.Y) / 2 + 15 + current.background_offset.Y
 			 );
 
-		if (current.hide_place) { place.Hide(); } else { place.Show(); }
+		Visible = !current.hide_place;
 	}
 }
