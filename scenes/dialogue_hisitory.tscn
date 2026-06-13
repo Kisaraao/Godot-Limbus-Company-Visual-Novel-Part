@@ -1,0 +1,327 @@
+[gd_scene format=3 uid="uid://e2umq3qjpcxk"]
+
+[ext_resource type="Script" uid="uid://dir62s8ynqhin" path="res://scripts/PopupHisitory.cs" id="1_jtv0a"]
+[ext_resource type="FontFile" uid="uid://caltks5x77ake" path="res://font/SarasaUiSC-SemiBold.ttf" id="2_gwbpl"]
+[ext_resource type="Texture2D" uid="uid://bomrik3cx1rtr" path="res://img/ui/history_background.png" id="2_j1ek4"]
+[ext_resource type="Texture2D" uid="uid://1hmfl7dwobnm" path="res://img/ui/portrait_background.png" id="3_y03np"]
+[ext_resource type="Texture2D" uid="uid://di7uokcyuq1ir" path="res://img/ui/portrait.png" id="3_yrdtc"]
+[ext_resource type="Shader" uid="uid://b73n1tdoiwfv0" path="res://shader/outline.gdshader" id="4_jtv0a"]
+[ext_resource type="Texture2D" uid="uid://dp2er7iycq4lp" path="res://img/character/valencina/valencina-default.webp" id="4_rukyd"]
+[ext_resource type="Texture2D" uid="uid://ty0rmu84ljxq" path="res://img/ui/btn_background_long.png" id="5_qcr6q"]
+[ext_resource type="Texture2D" uid="uid://dxx420tv6o6tq" path="res://img/ui/btn_play.png" id="5_yrdtc"]
+[ext_resource type="FontFile" uid="uid://h8qv423ypm73" path="res://font/SarasaUiSC-Bold.ttf" id="6_mkwyj"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_jtv0a"]
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_jtv0a"]
+shader = ExtResource("4_jtv0a")
+
+[node name="PopupPanel" type="PopupPanel" unique_id=338270815]
+oversampling_override = 1.0
+initial_position = 1
+size = Vector2i(1207, 651)
+visible = true
+max_size = Vector2i(1207, 651)
+theme_override_styles/panel = SubResource("StyleBoxEmpty_jtv0a")
+script = ExtResource("1_jtv0a")
+
+[node name="Background" type="Sprite2D" parent="." unique_id=611564402]
+position = Vector2(604, 326)
+texture = ExtResource("2_j1ek4")
+
+[node name="ScrollContainer" type="ScrollContainer" parent="Background" unique_id=605541723]
+anchors_preset = -1
+anchor_left = 0.07580779
+anchor_top = 0.1298003
+anchor_right = 0.9283347
+anchor_bottom = 0.735023
+offset_left = -603.5
+offset_top = -325.5
+offset_right = -603.5
+offset_bottom = -325.5
+horizontal_scroll_mode = 0
+vertical_scroll_mode = 3
+metadata/_edit_use_anchors_ = true
+
+[node name="VBoxContainer" type="VBoxContainer" parent="Background/ScrollContainer" unique_id=1909154778]
+custom_minimum_size = Vector2(1010, 0)
+layout_mode = 2
+theme_override_constants/separation = 40
+metadata/_edit_use_anchors_ = true
+
+[node name="HBoxContainer" type="HBoxContainer" parent="Background/ScrollContainer/VBoxContainer" unique_id=1497878141]
+layout_mode = 2
+theme_override_constants/separation = 35
+alignment = 1
+metadata/_edit_use_anchors_ = true
+
+[node name="VBoxContainer" type="VBoxContainer" parent="Background/ScrollContainer/VBoxContainer/HBoxContainer" unique_id=1782251927]
+layout_mode = 2
+alignment = 1
+
+[node name="Portrait" type="TextureRect" parent="Background/ScrollContainer/VBoxContainer/HBoxContainer/VBoxContainer" unique_id=714338640]
+clip_children = 1
+layout_mode = 2
+texture = ExtResource("3_y03np")
+stretch_mode = 3
+metadata/_edit_use_anchors_ = true
+
+[node name="Background" type="ColorRect" parent="Background/ScrollContainer/VBoxContainer/HBoxContainer/VBoxContainer/Portrait" unique_id=276086203]
+custom_minimum_size = Vector2(126, 126)
+layout_mode = 1
+anchors_preset = -1
+anchor_left = -1.0634921
+anchor_right = 2.6587303
+anchor_bottom = 2.8125887
+offset_bottom = -1.7609863
+scale = Vector2(1, 1.0050749)
+color = Color(0.1764706, 0.101960786, 0.11764706, 1)
+metadata/_edit_use_anchors_ = true
+
+[node name="Character" type="TextureRect" parent="Background/ScrollContainer/VBoxContainer/HBoxContainer/VBoxContainer/Portrait" unique_id=549875004]
+material = SubResource("ShaderMaterial_jtv0a")
+layout_mode = 1
+anchors_preset = -1
+anchor_left = -1.0714288
+anchor_top = -0.008064424
+anchor_right = 1.6396823
+anchor_bottom = 4.782258
+offset_right = 512.4
+offset_bottom = 891.0
+scale = Vector2(0.4, 0.4)
+texture = ExtResource("4_rukyd")
+metadata/_edit_use_anchors_ = true
+
+[node name="Border" type="TextureRect" parent="Background/ScrollContainer/VBoxContainer/HBoxContainer/VBoxContainer/Portrait" unique_id=1443716019]
+layout_mode = 1
+anchors_preset = -1
+anchor_top = -0.008064547
+anchor_right = 1.0
+anchor_bottom = 1.0
+texture = ExtResource("3_yrdtc")
+stretch_mode = 3
+metadata/_edit_use_anchors_ = true
+
+[node name="Label" type="Label" parent="Background/ScrollContainer/VBoxContainer/HBoxContainer/VBoxContainer" unique_id=290636618]
+layout_mode = 2
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_constants/line_spacing = -5
+theme_override_fonts/font = ExtResource("2_gwbpl")
+theme_override_font_sizes/font_size = 23
+text = "瓦伦希娜"
+horizontal_alignment = 1
+vertical_alignment = 1
+autowrap_mode = 1
+metadata/_edit_use_anchors_ = true
+
+[node name="Label2" type="Label" parent="Background/ScrollContainer/VBoxContainer/HBoxContainer" unique_id=104091227]
+custom_minimum_size = Vector2(700, 0)
+layout_mode = 2
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_constants/line_spacing = -5
+theme_override_fonts/font = ExtResource("6_mkwyj")
+theme_override_font_sizes/font_size = 28
+text = "取出■■草中的■■■，并立刻将■■研磨投入■■中，■■■需要在含有■■■的瞬间投入■■，且需添加■■的■之气息，■■■死尸需要使用■季后的■■■骸骨并在■■■状态下使用■■■进行混合。添加■■鲸油，■■■需要在不切割情况下萃取出■■■■并■■接触■■，黏度维持在■■■以上。需要制备后时长不超过■■■■的■■■■■■■■，在将其粉碎前使其维持■■■状态并在■■■■■之下■■。"
+vertical_alignment = 1
+autowrap_mode = 3
+metadata/_edit_use_anchors_ = true
+
+[node name="Button" type="Button" parent="Background/ScrollContainer/VBoxContainer/HBoxContainer" unique_id=442775209]
+custom_minimum_size = Vector2(75, 0)
+layout_mode = 2
+mouse_default_cursor_shape = 2
+icon = ExtResource("5_yrdtc")
+flat = true
+expand_icon = true
+metadata/_edit_use_anchors_ = true
+
+[node name="HBoxContainer2" type="HBoxContainer" parent="Background/ScrollContainer/VBoxContainer" unique_id=1941966683]
+layout_mode = 2
+theme_override_constants/separation = 35
+alignment = 1
+metadata/_edit_use_anchors_ = true
+
+[node name="VBoxContainer" type="VBoxContainer" parent="Background/ScrollContainer/VBoxContainer/HBoxContainer2" unique_id=1818587323]
+layout_mode = 2
+alignment = 1
+
+[node name="Portrait" type="TextureRect" parent="Background/ScrollContainer/VBoxContainer/HBoxContainer2/VBoxContainer" unique_id=1805117689]
+clip_children = 1
+layout_mode = 2
+texture = ExtResource("3_y03np")
+stretch_mode = 3
+metadata/_edit_use_anchors_ = true
+
+[node name="Background" type="ColorRect" parent="Background/ScrollContainer/VBoxContainer/HBoxContainer2/VBoxContainer/Portrait" unique_id=1595583797]
+custom_minimum_size = Vector2(126, 126)
+layout_mode = 1
+anchors_preset = -1
+anchor_left = -1.0634921
+anchor_right = 2.6587303
+anchor_bottom = 2.8125887
+offset_bottom = -1.7609863
+scale = Vector2(1, 1.0050749)
+color = Color(0.1764706, 0.101960786, 0.11764706, 1)
+metadata/_edit_use_anchors_ = true
+
+[node name="Character" type="TextureRect" parent="Background/ScrollContainer/VBoxContainer/HBoxContainer2/VBoxContainer/Portrait" unique_id=222170918]
+material = SubResource("ShaderMaterial_jtv0a")
+layout_mode = 1
+anchors_preset = -1
+anchor_left = -1.0714288
+anchor_top = -0.008064424
+anchor_right = 1.6396823
+anchor_bottom = 4.782258
+offset_right = 512.4
+offset_bottom = 891.0
+scale = Vector2(0.4, 0.4)
+texture = ExtResource("4_rukyd")
+metadata/_edit_use_anchors_ = true
+
+[node name="Border" type="TextureRect" parent="Background/ScrollContainer/VBoxContainer/HBoxContainer2/VBoxContainer/Portrait" unique_id=1579970368]
+layout_mode = 1
+anchors_preset = -1
+anchor_top = -0.008064547
+anchor_right = 1.0
+anchor_bottom = 1.0
+texture = ExtResource("3_yrdtc")
+stretch_mode = 3
+metadata/_edit_use_anchors_ = true
+
+[node name="Label" type="Label" parent="Background/ScrollContainer/VBoxContainer/HBoxContainer2/VBoxContainer" unique_id=1688948210]
+layout_mode = 2
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_constants/line_spacing = -5
+theme_override_fonts/font = ExtResource("2_gwbpl")
+theme_override_font_sizes/font_size = 23
+text = "瓦伦希娜"
+horizontal_alignment = 1
+vertical_alignment = 1
+autowrap_mode = 1
+metadata/_edit_use_anchors_ = true
+
+[node name="Label2" type="Label" parent="Background/ScrollContainer/VBoxContainer/HBoxContainer2" unique_id=178070253]
+custom_minimum_size = Vector2(700, 0)
+layout_mode = 2
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_constants/line_spacing = -5
+theme_override_fonts/font = ExtResource("6_mkwyj")
+theme_override_font_sizes/font_size = 28
+text = "怎么，打不中吗？"
+vertical_alignment = 1
+autowrap_mode = 3
+metadata/_edit_use_anchors_ = true
+
+[node name="Button" type="Button" parent="Background/ScrollContainer/VBoxContainer/HBoxContainer2" unique_id=1311775442]
+custom_minimum_size = Vector2(75, 0)
+layout_mode = 2
+mouse_default_cursor_shape = 2
+icon = ExtResource("5_yrdtc")
+flat = true
+expand_icon = true
+metadata/_edit_use_anchors_ = true
+
+[node name="HBoxContainer3" type="HBoxContainer" parent="Background/ScrollContainer/VBoxContainer" unique_id=729370224]
+layout_mode = 2
+theme_override_constants/separation = 35
+alignment = 1
+metadata/_edit_use_anchors_ = true
+
+[node name="VBoxContainer" type="VBoxContainer" parent="Background/ScrollContainer/VBoxContainer/HBoxContainer3" unique_id=470174196]
+layout_mode = 2
+alignment = 1
+
+[node name="Portrait" type="TextureRect" parent="Background/ScrollContainer/VBoxContainer/HBoxContainer3/VBoxContainer" unique_id=1043383653]
+clip_children = 1
+layout_mode = 2
+texture = ExtResource("3_y03np")
+stretch_mode = 3
+metadata/_edit_use_anchors_ = true
+
+[node name="Background" type="ColorRect" parent="Background/ScrollContainer/VBoxContainer/HBoxContainer3/VBoxContainer/Portrait" unique_id=2004167164]
+custom_minimum_size = Vector2(126, 126)
+layout_mode = 1
+anchors_preset = -1
+anchor_left = -1.0634921
+anchor_right = 2.6587303
+anchor_bottom = 2.8125887
+offset_bottom = -1.7609863
+scale = Vector2(1, 1.0050749)
+color = Color(0.1764706, 0.101960786, 0.11764706, 1)
+metadata/_edit_use_anchors_ = true
+
+[node name="Character" type="TextureRect" parent="Background/ScrollContainer/VBoxContainer/HBoxContainer3/VBoxContainer/Portrait" unique_id=210800166]
+material = SubResource("ShaderMaterial_jtv0a")
+layout_mode = 1
+anchors_preset = -1
+anchor_left = -1.0714288
+anchor_top = -0.008064424
+anchor_right = 1.6396823
+anchor_bottom = 4.782258
+offset_right = 512.4
+offset_bottom = 891.0
+scale = Vector2(0.4, 0.4)
+texture = ExtResource("4_rukyd")
+metadata/_edit_use_anchors_ = true
+
+[node name="Border" type="TextureRect" parent="Background/ScrollContainer/VBoxContainer/HBoxContainer3/VBoxContainer/Portrait" unique_id=114021708]
+layout_mode = 1
+anchors_preset = -1
+anchor_top = -0.008064547
+anchor_right = 1.0
+anchor_bottom = 1.0
+texture = ExtResource("3_yrdtc")
+stretch_mode = 3
+metadata/_edit_use_anchors_ = true
+
+[node name="Label" type="Label" parent="Background/ScrollContainer/VBoxContainer/HBoxContainer3/VBoxContainer" unique_id=1198342014]
+layout_mode = 2
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_constants/line_spacing = -5
+theme_override_fonts/font = ExtResource("2_gwbpl")
+theme_override_font_sizes/font_size = 23
+text = "瓦伦希娜"
+horizontal_alignment = 1
+vertical_alignment = 1
+autowrap_mode = 1
+metadata/_edit_use_anchors_ = true
+
+[node name="Label2" type="Label" parent="Background/ScrollContainer/VBoxContainer/HBoxContainer3" unique_id=1914844551]
+custom_minimum_size = Vector2(700, 0)
+layout_mode = 2
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_constants/line_spacing = -5
+theme_override_fonts/font = ExtResource("6_mkwyj")
+theme_override_font_sizes/font_size = 28
+text = "搞什么，红色的特色。你也来了？"
+vertical_alignment = 1
+autowrap_mode = 3
+metadata/_edit_use_anchors_ = true
+
+[node name="Button" type="Button" parent="Background/ScrollContainer/VBoxContainer/HBoxContainer3" unique_id=1528774649]
+custom_minimum_size = Vector2(75, 0)
+layout_mode = 2
+mouse_default_cursor_shape = 2
+icon = ExtResource("5_yrdtc")
+flat = true
+expand_icon = true
+metadata/_edit_use_anchors_ = true
+
+[node name="Confirm" type="Button" parent="Background" unique_id=138250803]
+offset_left = -234.37494
+offset_top = 180.25
+offset_right = 234.62506
+offset_bottom = 250.25
+mouse_default_cursor_shape = 2
+theme_override_colors/font_color = Color(0.12156863, 0.10980392, 0.09411765, 1)
+theme_override_colors/font_pressed_color = Color(0.12156863, 0.10980392, 0.09411765, 1)
+theme_override_colors/font_hover_color = Color(0.12156863, 0.10980392, 0.09411765, 1)
+theme_override_fonts/font = ExtResource("6_mkwyj")
+theme_override_font_sizes/font_size = 28
+text = "确认"
+icon = ExtResource("5_qcr6q")
+flat = true
+icon_alignment = 1
+expand_icon = true
+
+[connection signal="pressed" from="Background/Confirm" to="." method="_on_confirm_pressed"]

@@ -7,8 +7,9 @@
 [ext_resource type="Resource" uid="uid://bihag4ov0kxy8" path="res://stories/test.tres" id="2_xtx0q"]
 [ext_resource type="Texture2D" uid="uid://do54sxjd7smq4" path="res://img/ui/cover.png" id="3_3m5ht"]
 [ext_resource type="Texture2D" uid="uid://bjkxadhrb1ojt" path="res://img/ui/ui2.png" id="3_04qyp"]
+[ext_resource type="PackedScene" uid="uid://e2umq3qjpcxk" path="res://scenes/dialogue_hisitory.tscn" id="3_diulx"]
+[ext_resource type="Texture2D" uid="uid://dykau781morjb" path="res://img/Snipaste_2026-06-07_13-46-18.png" id="3_pblkq"]
 [ext_resource type="Texture2D" uid="uid://8dr7jpyjdn46" path="res://img/ui/Label_UI.png" id="4_4vge2"]
-[ext_resource type="Texture2D" uid="uid://86xc64sosnvu" path="res://img/background/Story_dust_pit.webp" id="4_coh8c"]
 [ext_resource type="Texture2D" uid="uid://b7jnt5stdj47u" path="res://img/ui/ui1.png" id="4_j7wrs"]
 [ext_resource type="Texture2D" uid="uid://br1ddcrllwsin" path="res://img/ui/ui4.png" id="5_dubn7"]
 [ext_resource type="Script" uid="uid://bs1pvs86xgcr6" path="res://scripts/Content.cs" id="6_08kqv"]
@@ -18,14 +19,19 @@
 [ext_resource type="Script" uid="uid://dl62b30dnkllw" path="res://scripts/Camera.cs" id="14_xtx0q"]
 [ext_resource type="Texture2D" uid="uid://b1ok8w5xpdr3c" path="res://img/ui/btn_hide_ui.png" id="15_x63s8"]
 [ext_resource type="Script" uid="uid://b3gsce5mlroai" path="res://scripts/AudioManager.cs" id="16_3kg8w"]
+[ext_resource type="Texture2D" uid="uid://bdupr7sgj5t12" path="res://img/ui/bar.png" id="16_22dhx"]
 [ext_resource type="Texture2D" uid="uid://b3e6wdtwupbv" path="res://img/ui/ui5.png" id="16_qv8l0"]
 [ext_resource type="Texture2D" uid="uid://bi2nuklxmsp54" path="res://img/ui/btn_menu.png" id="18_k6u5g"]
 [ext_resource type="Script" uid="uid://u4loda6i5t2w" path="res://scripts/ButtonMenu.cs" id="19_coh8c"]
+[ext_resource type="Texture2D" uid="uid://c4xspxeg6kj4f" path="res://img/ui/btn_history.png" id="20_kmyi7"]
+[ext_resource type="Texture2D" uid="uid://04oav8ll1ckb" path="res://img/ui/btn_autoplay.png" id="21_22dhx"]
+[ext_resource type="Texture2D" uid="uid://d2l8fkwvh4gp6" path="res://img/ui/btn_skip.png" id="22_diulx"]
+[ext_resource type="Texture2D" uid="uid://dr51v41goi71d" path="res://img/ui/btn_config.png" id="23_nuk1v"]
 
-[node name="Root" type="CanvasLayer" unique_id=985754036 node_paths=PackedStringArray("camera", "pure_color_filter", "content", "speaker", "place_name", "buttons", "character_layer", "audio")]
+[node name="Root" type="CanvasLayer" unique_id=985754036 node_paths=PackedStringArray("camera", "pure_color_filter", "content", "speaker", "place_name", "buttons", "character_layer", "audio", "history")]
 script = ExtResource("1_f6ptj")
 camera = NodePath("Camera")
-pure_color_filter = NodePath("Filter/ColorRect")
+pure_color_filter = NodePath("ui/Control/ColorRect")
 content = NodePath("ui/Control/Content")
 speaker = NodePath("ui/Control/Speaker")
 place_name = NodePath("ui/Control/Place")
@@ -33,14 +39,18 @@ buttons = NodePath("ui/Control/Button")
 character_layer = NodePath("characters")
 audio = NodePath("audio")
 story = ExtResource("2_xtx0q")
+history = NodePath("ui/History")
 
 [node name="Sprite2D" type="Sprite2D" parent="." unique_id=1106684066]
 visible = false
 position = Vector2(960, 540)
-texture = ExtResource("2_hh0fu")
+texture = ExtResource("3_pblkq")
 metadata/_edit_lock_ = true
 
-[node name="Background" type="TextureRect" parent="." unique_id=547022977]
+[node name="Background" type="CanvasLayer" parent="." unique_id=637188220]
+follow_viewport_enabled = true
+
+[node name="Background" type="TextureRect" parent="Background" unique_id=547022977]
 anchors_preset = -1
 anchor_left = 0.10000001
 anchor_top = 0.121296294
@@ -49,7 +59,7 @@ anchor_bottom = 0.9212963
 offset_right = 384.0
 offset_bottom = 216.0
 scale = Vector2(0.8, 0.8)
-texture = ExtResource("4_coh8c")
+texture = ExtResource("2_hh0fu")
 metadata/_edit_use_anchors_ = true
 
 [node name="characters" type="CanvasLayer" parent="." unique_id=1514502212]
@@ -187,7 +197,7 @@ metadata/_edit_use_anchors_ = true
 [node name="Place" type="Control" parent="ui/Control" unique_id=530888677 node_paths=PackedStringArray("background", "badge", "decoration", "place_content")]
 anchors_preset = 0
 script = ExtResource("14_ifa78")
-background = NodePath("../../../Background")
+background = NodePath("../../../Background/Background")
 badge = NodePath("Badge")
 decoration = NodePath("Decoration")
 place_content = NodePath("Place")
@@ -239,28 +249,28 @@ anchors_preset = 0
 offset_right = 40.0
 offset_bottom = 40.0
 
-[node name="badge" type="TextureRect" parent="ui/Control/Button" unique_id=1299271008]
+[node name="Bar" type="TextureRect" parent="ui/Control/Button" unique_id=534636137]
+layout_direction = 2
 layout_mode = 0
-anchor_left = 32.925
+offset_left = 1787.0
+offset_top = 50.0
+offset_right = 1831.0
+offset_bottom = 94.0
+texture = ExtResource("16_22dhx")
+expand_mode = 2
+
+[node name="BarHead" type="TextureRect" parent="ui/Control/Button" unique_id=1299271008]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 45.775
 anchor_top = 0.85
 anchor_right = 48.0
 anchor_bottom = 2.75
 texture = ExtResource("16_qv8l0")
+expand_mode = 2
 metadata/_edit_use_anchors_ = true
 
-[node name="ButtonHideUI" type="Button" parent="ui/Control/Button" unique_id=751494782]
-layout_mode = 1
-anchors_preset = -1
-anchor_left = 31.875
-anchor_top = 0.75
-anchor_right = 34.15
-anchor_bottom = 3.0
-mouse_default_cursor_shape = 2
-icon = ExtResource("15_x63s8")
-flat = true
-metadata/_edit_use_anchors_ = true
-
-[node name="ButtonMenu" type="Button" parent="ui/Control/Button" unique_id=1461689774]
+[node name="ButtonMenu" type="Button" parent="ui/Control/Button" unique_id=1461689774 node_paths=PackedStringArray("btn_skip", "btn_autoplay", "btn_history", "btn_hide_ui", "btn_config", "bar")]
 layout_mode = 0
 anchor_left = 43.65
 anchor_top = 0.75
@@ -271,13 +281,74 @@ toggle_mode = true
 icon = ExtResource("18_k6u5g")
 flat = true
 script = ExtResource("19_coh8c")
+btn_skip = NodePath("../ButtonSkip")
+btn_autoplay = NodePath("../ButtonAutoplay")
+btn_history = NodePath("../ButtonHistory")
+btn_hide_ui = NodePath("../ButtonHideUI")
+btn_config = NodePath("../ButtonConfig")
+bar = NodePath("../Bar")
 metadata/_edit_use_anchors_ = true
 
-[node name="Filter" type="CanvasLayer" parent="." unique_id=1097986116]
-layer = 4
+[node name="ButtonConfig" type="Button" parent="ui/Control/Button" unique_id=2101749433]
+visible = false
+layout_mode = 0
+offset_left = 1649.0
+offset_top = 31.0
+offset_right = 1739.0
+offset_bottom = 120.0
+mouse_default_cursor_shape = 2
+icon = ExtResource("23_nuk1v")
+flat = true
+
+[node name="ButtonHideUI" type="Button" parent="ui/Control/Button" unique_id=751494782]
+visible = false
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 38.85
+anchor_top = 0.75
+anchor_right = 41.125
+anchor_bottom = 3.0
+mouse_default_cursor_shape = 2
+icon = ExtResource("15_x63s8")
+flat = true
 metadata/_edit_use_anchors_ = true
 
-[node name="ColorRect" type="ColorRect" parent="Filter" unique_id=1003995466]
+[node name="ButtonHistory" type="Button" parent="ui/Control/Button" unique_id=187725554]
+visible = false
+layout_mode = 0
+offset_left = 1459.0
+offset_top = 31.0
+offset_right = 1549.0
+offset_bottom = 119.0
+mouse_default_cursor_shape = 2
+icon = ExtResource("20_kmyi7")
+flat = true
+
+[node name="ButtonAutoplay" type="Button" parent="ui/Control/Button" unique_id=1549536777]
+visible = false
+layout_mode = 0
+offset_left = 1363.0
+offset_top = 30.0
+offset_right = 1453.0
+offset_bottom = 120.0
+mouse_default_cursor_shape = 2
+toggle_mode = true
+icon = ExtResource("21_22dhx")
+flat = true
+
+[node name="ButtonSkip" type="Button" parent="ui/Control/Button" unique_id=1182187048]
+visible = false
+layout_mode = 0
+offset_left = 1268.0
+offset_top = 31.0
+offset_right = 1358.0
+offset_bottom = 120.0
+mouse_default_cursor_shape = 2
+icon = ExtResource("22_diulx")
+flat = true
+
+[node name="ColorRect" type="ColorRect" parent="ui/Control" unique_id=1003995466]
+layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
@@ -287,6 +358,9 @@ mouse_filter = 2
 color = Color(1, 1, 1, 0)
 metadata/_edit_use_anchors_ = true
 metadata/_edit_lock_ = true
+
+[node name="History" parent="ui" unique_id=748955722 instance=ExtResource("3_diulx")]
+visible = false
 
 [node name="Camera" type="Camera2D" parent="." unique_id=846416779]
 position = Vector2(960, 540)
@@ -312,5 +386,8 @@ volume_db = -5.0
 volume_db = -18.0
 
 [connection signal="gui_input" from="ui/Control" to="." method="_on_control_gui_input"]
-[connection signal="pressed" from="ui/Control/Button/ButtonHideUI" to="." method="_on_button_pressed"]
 [connection signal="toggled" from="ui/Control/Button/ButtonMenu" to="ui/Control/Button/ButtonMenu" method="_on_toggled"]
+[connection signal="pressed" from="ui/Control/Button/ButtonHideUI" to="." method="_on_button_pressed"]
+[connection signal="pressed" from="ui/Control/Button/ButtonHistory" to="." method="_on_button_history_pressed"]
+[connection signal="toggled" from="ui/Control/Button/ButtonAutoplay" to="ui/Control/Button/ButtonMenu" method="_on_button_autoplay_toggled"]
+[connection signal="popup_hide" from="ui/History" to="." method="_on_history_popup_hide"]

@@ -15,9 +15,9 @@ public partial class GameManager : CanvasLayer
 	private int index = -1;
 	private bool switch_cool_down = false;
 	private float cool_down_time = 0.4f;
-	private bool hide_ui = false;
+	private bool lose_focus = false;
 
-	public Array<DialogueRecord> history_list = new Array<DialogueRecord>();
+	[Export] public PopupHisitory history;
 
 	public override void _Ready()
 	{
@@ -41,7 +41,7 @@ public partial class GameManager : CanvasLayer
 		{
 			var current = story.dialogues[index];
 
-			history_list.Add(new DialogueRecord(current.speaker, current.content));
+			history.add_record(new DialogueRecord(current.speaker, current.content, current.voice));
 
 			// on end fade
 			if (current.fade_begin)
@@ -89,37 +89,49 @@ public partial class GameManager : CanvasLayer
 	{
 		if (Input.IsActionJustReleased("next_dialogue"))
 		{
-			if (hide_ui)
+			if (lose_focus)
 			{
 				_on_button_pressed();
 				return;
 			}
-			if (!switch_cool_down)
+			if (content.typing)
+			{
+				content.skip_typing();
+				return;
+			}
+			else if (!switch_cool_down)
 			{
 				switch_dialogue();
 				switch_cool_down = true;
 				var timer_cool_down = GetTree().CreateTimer(cool_down_time);
 				timer_cool_down.Timeout += stop_cool_down;
 			}
-			else if (content.typing)
-			{
-				content.skip_typing();
-				return;
-			}
 		}
 	}
 
 	public void _on_button_pressed()
 	{
-		hide_ui = !hide_ui;
-		place_name.Visible = !hide_ui;
-		content.Visible = !hide_ui;
-		speaker.Visible = !hide_ui;
-		buttons.Visible = !hide_ui;
+		lose_focus = !lose_focus;
+		place_name.Visible = !lose_focus;
+		content.Visible = !lose_focus;
+		speaker.Visible = !lose_focus;
+		buttons.Visible = !lose_focus;
 	}
 
 	public void stop_cool_down()
 	{
 		switch_cool_down = false;
+	}
+
+	public void _on_button_history_pressed()
+	{
+		lose_focus = !lose_focus;
+		history.Popup();
+		pure_color_filter.Color = new Color("#000000b7");
+	}
+
+	public void _on_history_popup_hide()
+	{
+		pure_color_filter.Color = new Color("#ffffff00");
 	}
 }
