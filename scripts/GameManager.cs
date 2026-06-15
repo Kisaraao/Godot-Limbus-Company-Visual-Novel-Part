@@ -23,6 +23,7 @@ public partial class GameManager : CanvasLayer
 
 	public override void _Ready()
 	{
+		Input.MouseMode = Input.MouseModeEnum.Hidden;
 		var begin_timer = GetTree().CreateTimer(0.1);
 		begin_timer.Timeout += switch_dialogue;
 		timer_cool_down.Timeout += stop_cool_down;

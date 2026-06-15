@@ -27,6 +27,8 @@
 [ext_resource type="Texture2D" uid="uid://04oav8ll1ckb" path="res://img/ui/btn_autoplay.png" id="21_22dhx"]
 [ext_resource type="Texture2D" uid="uid://d2l8fkwvh4gp6" path="res://img/ui/btn_skip.png" id="22_diulx"]
 [ext_resource type="Texture2D" uid="uid://dr51v41goi71d" path="res://img/ui/btn_config.png" id="23_nuk1v"]
+[ext_resource type="Texture2D" uid="uid://swa4t1pajaop" path="res://img/ui/arrow.png" id="28_nuk1v"]
+[ext_resource type="Script" uid="uid://cujjejsgtwsoj" path="res://scripts/Mouse.cs" id="29_l0qat"]
 
 [node name="Root" type="CanvasLayer" unique_id=985754036 node_paths=PackedStringArray("camera", "pure_color_filter", "content", "speaker", "place_name", "buttons", "character_layer", "audio", "history", "timer_cool_down")]
 script = ExtResource("1_f6ptj")
@@ -382,6 +384,19 @@ volume_db = -5.0
 
 [node name="Bgm" type="AudioStreamPlayer" parent="audio" unique_id=1410432910]
 volume_db = -18.0
+
+[node name="Mouse" type="CanvasLayer" parent="." unique_id=520989835]
+layer = 999999
+
+[node name="TextureRect" type="TextureRect" parent="Mouse" unique_id=762964183]
+z_index = 999
+offset_right = 40.0
+offset_bottom = 40.0
+mouse_filter = 2
+texture = ExtResource("28_nuk1v")
+expand_mode = 2
+stretch_mode = 2
+script = ExtResource("29_l0qat")
 
 [connection signal="gui_input" from="ui/Control" to="." method="_on_control_gui_input"]
 [connection signal="toggled" from="ui/Control/Button/ButtonMenu" to="ui/Control/Button/ButtonMenu" method="_on_toggled"]
