@@ -2,9 +2,9 @@
 
 [ext_resource type="Script" uid="uid://35qxtk52effj" path="res://scripts/GameManager.cs" id="1_f6ptj"]
 [ext_resource type="FontFile" uid="uid://h8qv423ypm73" path="res://font/SarasaUiSC-Bold.ttf" id="1_wtcfe"]
+[ext_resource type="Resource" uid="uid://dpba4j4bi3k5" path="res://stories/ticket.tres" id="2_diulx"]
 [ext_resource type="Texture2D" uid="uid://dbos68pvdg3sx" path="res://img/background/Story_ring_finger.webp" id="2_hh0fu"]
 [ext_resource type="FontFile" uid="uid://caltks5x77ake" path="res://font/SarasaUiSC-SemiBold.ttf" id="2_rnjyy"]
-[ext_resource type="Resource" uid="uid://bihag4ov0kxy8" path="res://stories/test.tres" id="2_xtx0q"]
 [ext_resource type="Texture2D" uid="uid://do54sxjd7smq4" path="res://img/ui/cover.png" id="3_3m5ht"]
 [ext_resource type="Texture2D" uid="uid://bjkxadhrb1ojt" path="res://img/ui/ui2.png" id="3_04qyp"]
 [ext_resource type="PackedScene" uid="uid://e2umq3qjpcxk" path="res://scenes/dialogue_hisitory.tscn" id="3_diulx"]
@@ -38,7 +38,7 @@ place_name = NodePath("ui/Control/Place")
 buttons = NodePath("ui/Control/Button")
 character_layer = NodePath("characters")
 audio = NodePath("audio")
-story = ExtResource("2_xtx0q")
+story = ExtResource("2_diulx")
 history = NodePath("ui/History")
 
 [node name="Sprite2D" type="Sprite2D" parent="." unique_id=1106684066]
@@ -123,6 +123,9 @@ text = "取出■■草中的■■■，并立刻将■■研磨投入■■中
 horizontal_alignment = 1
 autowrap_mode = 1
 metadata/_edit_use_anchors_ = true
+
+[node name="TimerCoolDown" type="Timer" parent="ui/Control/Content" unique_id=1185789072]
+wait_time = 0.5
 
 [node name="Speaker" type="Control" parent="ui/Control" unique_id=1461464320 node_paths=PackedStringArray("background", "badge", "title", "speaker")]
 anchors_preset = 0
@@ -276,7 +279,6 @@ anchor_left = 43.65
 anchor_top = 0.75
 anchor_right = 45.9
 anchor_bottom = 3.0
-mouse_default_cursor_shape = 2
 toggle_mode = true
 icon = ExtResource("18_k6u5g")
 flat = true
@@ -287,7 +289,6 @@ btn_history = NodePath("../ButtonHistory")
 btn_hide_ui = NodePath("../ButtonHideUI")
 btn_config = NodePath("../ButtonConfig")
 bar = NodePath("../Bar")
-metadata/_edit_use_anchors_ = true
 
 [node name="ButtonConfig" type="Button" parent="ui/Control/Button" unique_id=2101749433]
 visible = false
@@ -296,7 +297,6 @@ offset_left = 1649.0
 offset_top = 31.0
 offset_right = 1739.0
 offset_bottom = 120.0
-mouse_default_cursor_shape = 2
 icon = ExtResource("23_nuk1v")
 flat = true
 
@@ -308,7 +308,6 @@ anchor_left = 38.85
 anchor_top = 0.75
 anchor_right = 41.125
 anchor_bottom = 3.0
-mouse_default_cursor_shape = 2
 icon = ExtResource("15_x63s8")
 flat = true
 metadata/_edit_use_anchors_ = true
@@ -320,7 +319,6 @@ offset_left = 1459.0
 offset_top = 31.0
 offset_right = 1549.0
 offset_bottom = 119.0
-mouse_default_cursor_shape = 2
 icon = ExtResource("20_kmyi7")
 flat = true
 
@@ -331,7 +329,6 @@ offset_left = 1363.0
 offset_top = 30.0
 offset_right = 1453.0
 offset_bottom = 120.0
-mouse_default_cursor_shape = 2
 toggle_mode = true
 icon = ExtResource("21_22dhx")
 flat = true
@@ -343,7 +340,6 @@ offset_left = 1268.0
 offset_top = 31.0
 offset_right = 1358.0
 offset_bottom = 120.0
-mouse_default_cursor_shape = 2
 icon = ExtResource("22_diulx")
 flat = true
 
@@ -359,8 +355,9 @@ color = Color(1, 1, 1, 0)
 metadata/_edit_use_anchors_ = true
 metadata/_edit_lock_ = true
 
-[node name="History" parent="ui" unique_id=748955722 instance=ExtResource("3_diulx")]
+[node name="History" parent="ui" unique_id=748955722 node_paths=PackedStringArray("voice") instance=ExtResource("3_diulx")]
 visible = false
+voice = NodePath("../../audio/Voice")
 
 [node name="Camera" type="Camera2D" parent="." unique_id=846416779]
 position = Vector2(960, 540)

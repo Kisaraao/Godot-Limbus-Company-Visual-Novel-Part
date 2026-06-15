@@ -14,8 +14,9 @@ public partial class GameManager : CanvasLayer
 	[Export] Story story;
 	private int index = -1;
 	private bool switch_cool_down = false;
-	private float cool_down_time = 0.4f;
+	private float cool_down_time = 0.5f;
 	private bool lose_focus = false;
+	private bool hide_ui = false;
 
 	[Export] public PopupHisitory history;
 
@@ -41,7 +42,7 @@ public partial class GameManager : CanvasLayer
 		{
 			var current = story.dialogues[index];
 
-			history.add_record(new DialogueRecord(current.speaker, current.content, current.voice));
+			history.add_record(new DialogueRecord(story.dialogues[index].speaker, story.dialogues[index].content, story.dialogues[index].voice));
 
 			// on end fade
 			if (current.fade_begin)
@@ -89,7 +90,8 @@ public partial class GameManager : CanvasLayer
 	{
 		if (Input.IsActionJustReleased("next_dialogue"))
 		{
-			if (lose_focus)
+			if (lose_focus) return;
+			if (hide_ui)
 			{
 				_on_button_pressed();
 				return;
@@ -111,11 +113,11 @@ public partial class GameManager : CanvasLayer
 
 	public void _on_button_pressed()
 	{
-		lose_focus = !lose_focus;
-		place_name.Visible = !lose_focus;
-		content.Visible = !lose_focus;
-		speaker.Visible = !lose_focus;
-		buttons.Visible = !lose_focus;
+		hide_ui = !hide_ui;
+		place_name.Visible = !hide_ui;
+		content.Visible = !hide_ui;
+		speaker.Visible = !hide_ui;
+		buttons.Visible = !hide_ui;
 	}
 
 	public void stop_cool_down()
@@ -125,13 +127,14 @@ public partial class GameManager : CanvasLayer
 
 	public void _on_button_history_pressed()
 	{
-		lose_focus = !lose_focus;
+		lose_focus = true;
 		history.Popup();
 		pure_color_filter.Color = new Color("#000000b7");
 	}
 
 	public void _on_history_popup_hide()
 	{
+		lose_focus = false;
 		pure_color_filter.Color = new Color("#ffffff00");
 	}
 }

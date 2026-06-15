@@ -1,0 +1,102 @@
+[gd_scene format=3 uid="uid://cvnt2h2x2hml0"]
+
+[ext_resource type="Texture2D" uid="uid://1hmfl7dwobnm" path="res://img/ui/portrait_background.png" id="1_bmw5x"]
+[ext_resource type="Script" uid="uid://de6qga6emxahb" path="res://scripts/Record.cs" id="1_fl1m8"]
+[ext_resource type="Shader" uid="uid://b73n1tdoiwfv0" path="res://shader/outline.gdshader" id="2_fl1m8"]
+[ext_resource type="Texture2D" uid="uid://di7uokcyuq1ir" path="res://img/ui/portrait.png" id="4_bp0cq"]
+[ext_resource type="FontFile" uid="uid://caltks5x77ake" path="res://font/SarasaUiSC-SemiBold.ttf" id="5_54cvv"]
+[ext_resource type="FontFile" uid="uid://h8qv423ypm73" path="res://font/SarasaUiSC-Bold.ttf" id="6_gufn7"]
+[ext_resource type="Texture2D" uid="uid://dxx420tv6o6tq" path="res://img/ui/btn_play.png" id="7_kq5x1"]
+[ext_resource type="Script" uid="uid://cl05irxqyem1r" path="res://scripts/RecordVoiceButton.cs" id="9_1d2kr"]
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_jtv0a"]
+shader = ExtResource("2_fl1m8")
+
+[node name="HBoxContainer" type="HBoxContainer" unique_id=1197251643 node_paths=PackedStringArray("content", "name", "portrait", "background", "btn_voice")]
+theme_override_constants/separation = 35
+alignment = 1
+script = ExtResource("1_fl1m8")
+content = NodePath("Label2")
+name = NodePath("VBoxContainer/Label")
+portrait = NodePath("VBoxContainer/Portrait/Character")
+background = NodePath("VBoxContainer/Portrait/Background")
+btn_voice = NodePath("Button")
+metadata/_edit_use_anchors_ = true
+
+[node name="VBoxContainer" type="VBoxContainer" parent="." unique_id=1855906959]
+layout_mode = 2
+alignment = 1
+
+[node name="Portrait" type="TextureRect" parent="VBoxContainer" unique_id=94053167]
+clip_children = 1
+layout_mode = 2
+texture = ExtResource("1_bmw5x")
+stretch_mode = 3
+metadata/_edit_use_anchors_ = true
+
+[node name="Background" type="ColorRect" parent="VBoxContainer/Portrait" unique_id=2004251880]
+custom_minimum_size = Vector2(126, 126)
+layout_mode = 1
+anchors_preset = -1
+anchor_left = -1.0634921
+anchor_right = 2.6587303
+anchor_bottom = 2.8125887
+offset_bottom = -1.7609863
+scale = Vector2(1, 1.0050749)
+color = Color(0.1764706, 0.101960786, 0.11764706, 1)
+metadata/_edit_use_anchors_ = true
+
+[node name="Character" type="TextureRect" parent="VBoxContainer/Portrait" unique_id=754083268]
+material = SubResource("ShaderMaterial_jtv0a")
+layout_mode = 1
+anchors_preset = -1
+scale = Vector2(0.4, 0.4)
+metadata/_edit_use_anchors_ = true
+
+[node name="Border" type="TextureRect" parent="VBoxContainer/Portrait" unique_id=769841002]
+layout_mode = 1
+anchors_preset = -1
+anchor_top = -0.008064547
+anchor_right = 1.0
+anchor_bottom = 1.0
+texture = ExtResource("4_bp0cq")
+stretch_mode = 3
+metadata/_edit_use_anchors_ = true
+
+[node name="Label" type="Label" parent="VBoxContainer" unique_id=1310091499]
+custom_minimum_size = Vector2(126, 0)
+layout_mode = 2
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_constants/line_spacing = -5
+theme_override_fonts/font = ExtResource("5_54cvv")
+theme_override_font_sizes/font_size = 23
+text = "瓦伦希娜"
+horizontal_alignment = 1
+vertical_alignment = 1
+autowrap_mode = 1
+metadata/_edit_use_anchors_ = true
+
+[node name="Label2" type="Label" parent="." unique_id=666205904]
+custom_minimum_size = Vector2(700, 0)
+layout_mode = 2
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_constants/line_spacing = -5
+theme_override_fonts/font = ExtResource("6_gufn7")
+theme_override_font_sizes/font_size = 28
+text = "取出■■草中的■■■，并立刻将■■研磨投入■■中，■■■需要在含有■■■的瞬间投入■■，且需添加■■的■之气息，■■■死尸需要使用■季后的■■■骸骨并在■■■状态下使用■■■进行混合。添加■■鲸油，■■■需要在不切割情况下萃取出■■■■并■■接触■■，黏度维持在■■■以上。需要制备后时长不超过■■■■的■■■■■■■■，在将其粉碎前使其维持■■■状态并在■■■■■之下■■。"
+vertical_alignment = 1
+autowrap_mode = 3
+metadata/_edit_use_anchors_ = true
+
+[node name="Button" type="Button" parent="." unique_id=1129285407]
+custom_minimum_size = Vector2(75, 0)
+layout_mode = 2
+icon = ExtResource("7_kq5x1")
+flat = true
+expand_icon = true
+script = ExtResource("9_1d2kr")
+metadata/_edit_use_anchors_ = true
+
+[connection signal="mouse_entered" from="Button" to="Button" method="_on_mouse_entered"]
+[connection signal="mouse_exited" from="Button" to="Button" method="_on_mouse_exited"]
+[connection signal="pressed" from="Button" to="." method="_on_button_pressed"]

@@ -15,7 +15,7 @@ public partial class CharacterRuntime : Sprite2D
 			if(t.emotion == data.emotion)
 			{
 				Texture = t.texture;
-				Scale = data.offset_scale == Vector2.Zero ? t.scale : data.offset_scale;
+				Scale = data.offset_scale == Vector2.Zero ? t.scale + data.character.tex_common_scale : data.offset_scale;
 				offset = t.offset;
 				break;
 			}
@@ -23,7 +23,7 @@ public partial class CharacterRuntime : Sprite2D
 
 		float screen_width = GetViewport().GetVisibleRect().Size.X;
 
-		Position = new Vector2(screen_width / 2 + (int)(screen_width * data.X_index * 0.05) + data.offset.X + offset.X, data.offset.Y + offset.Y);
+		Position = new Vector2(screen_width / 2 + (int)(screen_width * data.X_index * 0.05) + data.offset.X + offset.X + data.character.tex_common_offset.X, data.character.tex_common_offset.Y + data.offset.Y + offset.Y);
 
 		if (data.gray) Modulate = new Color("#3d3d3d");
 		if (data.black) Modulate = Colors.Black;
