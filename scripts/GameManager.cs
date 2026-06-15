@@ -19,11 +19,13 @@ public partial class GameManager : CanvasLayer
 	private bool hide_ui = false;
 
 	[Export] public PopupHisitory history;
+	[Export] public Timer timer_cool_down;
 
 	public override void _Ready()
 	{
 		var begin_timer = GetTree().CreateTimer(0.1);
 		begin_timer.Timeout += switch_dialogue;
+		timer_cool_down.Timeout += stop_cool_down;
 	}
 
 	public void switch_dialogue(){
@@ -105,8 +107,12 @@ public partial class GameManager : CanvasLayer
 			{
 				switch_dialogue();
 				switch_cool_down = true;
-				var timer_cool_down = GetTree().CreateTimer(cool_down_time);
-				timer_cool_down.Timeout += stop_cool_down;
+				if (timer_cool_down.IsStopped())
+				{
+					timer_cool_down.Stop();
+					timer_cool_down.WaitTime = 0.5;
+				}
+				timer_cool_down.Start();
 			}
 		}
 	}

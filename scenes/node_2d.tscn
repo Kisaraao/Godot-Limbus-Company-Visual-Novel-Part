@@ -28,7 +28,7 @@
 [ext_resource type="Texture2D" uid="uid://d2l8fkwvh4gp6" path="res://img/ui/btn_skip.png" id="22_diulx"]
 [ext_resource type="Texture2D" uid="uid://dr51v41goi71d" path="res://img/ui/btn_config.png" id="23_nuk1v"]
 
-[node name="Root" type="CanvasLayer" unique_id=985754036 node_paths=PackedStringArray("camera", "pure_color_filter", "content", "speaker", "place_name", "buttons", "character_layer", "audio", "history")]
+[node name="Root" type="CanvasLayer" unique_id=985754036 node_paths=PackedStringArray("camera", "pure_color_filter", "content", "speaker", "place_name", "buttons", "character_layer", "audio", "history", "timer_cool_down")]
 script = ExtResource("1_f6ptj")
 camera = NodePath("Camera")
 pure_color_filter = NodePath("ui/Control/ColorRect")
@@ -40,6 +40,7 @@ character_layer = NodePath("characters")
 audio = NodePath("audio")
 story = ExtResource("2_diulx")
 history = NodePath("ui/History")
+timer_cool_down = NodePath("ui/Control/Content/TimerCoolDown")
 
 [node name="Sprite2D" type="Sprite2D" parent="." unique_id=1106684066]
 visible = false
