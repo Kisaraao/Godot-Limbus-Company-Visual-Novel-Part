@@ -30,6 +30,9 @@ public partial class CharacterRuntime : Sprite2D
 
 		if (data.fade_in)
 		{
+			var modu = Modulate;
+			modu.A = 0.0f;
+			Modulate = modu;
 			var fade_tween = GetTree().CreateTween();
 			fade_tween.TweenProperty(this, "modulate:a", 1.0f, data.fade_in_duration);
 		}

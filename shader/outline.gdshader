@@ -6,9 +6,10 @@ void vertex() {
 
 void fragment() {
 	// Called for every pixel the material is visible on.
-	vec2 right_uv = UV + TEXTURE_PIXEL_SIZE * vec2(10, 0);
+	vec2 strength = vec2(15, 0);
+	vec2 right_uv = UV + TEXTURE_PIXEL_SIZE * strength;
 	vec4 right_color = texture(TEXTURE, right_uv);
-	vec2 left_uv = UV - TEXTURE_PIXEL_SIZE * vec2(10, 0);
+	vec2 left_uv = UV - TEXTURE_PIXEL_SIZE * strength;
 	vec4 left_color = texture(TEXTURE, left_uv);
 	if(right_color.a > 0.9f && COLOR.a < 0.5f){
 		COLOR = vec4(0, 0, 0, 1);

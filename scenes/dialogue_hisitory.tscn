@@ -8,8 +8,9 @@
 
 [sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_jtv0a"]
 
-[node name="PopupPanel" type="PopupPanel" unique_id=338270815 node_paths=PackedStringArray("record_list", "btn_confirm")]
+[node name="PopupPanel" type="PopupPanel" unique_id=338270815 node_paths=PackedStringArray("record_list", "btn_confirm", "scroll")]
 oversampling_override = 1.0
+title = "History"
 initial_position = 1
 size = Vector2i(1207, 651)
 visible = true
@@ -19,6 +20,7 @@ script = ExtResource("1_jtv0a")
 record_list = NodePath("Background/ScrollContainer/VBoxContainer")
 scene_record = ExtResource("2_qcr6q")
 btn_confirm = NodePath("Background/Confirm")
+scroll = NodePath("Background/ScrollContainer")
 
 [node name="Background" type="Sprite2D" parent="." unique_id=611564402]
 position = Vector2(604, 326)
@@ -26,16 +28,15 @@ texture = ExtResource("2_j1ek4")
 
 [node name="ScrollContainer" type="ScrollContainer" parent="Background" unique_id=605541723]
 anchors_preset = -1
-anchor_left = 0.07580779
-anchor_top = 0.1298003
-anchor_right = 0.9283347
-anchor_bottom = 0.735023
+anchor_left = 0.07995029
+anchor_top = 0.15130569
+anchor_right = 0.9200497
+anchor_bottom = 0.7227343
 offset_left = -603.5
 offset_top = -325.5
 offset_right = -603.5
 offset_bottom = -325.5
 horizontal_scroll_mode = 0
-vertical_scroll_mode = 3
 metadata/_edit_use_anchors_ = true
 
 [node name="VBoxContainer" type="VBoxContainer" parent="Background/ScrollContainer" unique_id=1909154778]

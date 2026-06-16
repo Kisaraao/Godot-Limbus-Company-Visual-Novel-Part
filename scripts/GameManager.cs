@@ -12,21 +12,27 @@ public partial class GameManager : CanvasLayer
 	[Export] CanvasLayer character_layer;
 	[Export] AudioManager audio;
 	[Export] Story story;
+	[Export] Control ui;
 	private int index = -1;
 	private bool switch_cool_down = false;
 	private float cool_down_time = 0.5f;
 	private bool lose_focus = false;
 	private bool hide_ui = false;
-
+	private bool auto_play = false;
 	[Export] public PopupHisitory history;
 	[Export] public Timer timer_cool_down;
+	[Export] public AudioUI UI_sound;
+	public bool fading = false;
+	public Tween fade_tween;
 
 	public override void _Ready()
 	{
-		Input.MouseMode = Input.MouseModeEnum.Hidden;
 		var begin_timer = GetTree().CreateTimer(0.1);
 		begin_timer.Timeout += switch_dialogue;
 		timer_cool_down.Timeout += stop_cool_down;
+		fade_tween = GetTree().CreateTween();
+		fade_tween.Stop();
+		ui.GrabFocus();
 	}
 
 	public void switch_dialogue(){
@@ -50,17 +56,30 @@ public partial class GameManager : CanvasLayer
 			// on end fade
 			if (current.fade_begin)
 			{
-				fade(current.fade_begin_start_color, current.fade_begin_target_color, current.fade_begin_duration);
+				if (fade_tween.IsRunning())
+				{
+					fade_tween.Finished += () => fade(current.fade_begin_start_color, current.fade_begin_target_color, current.fade_begin_duration);
+					fade_tween.Finished += () => change_canvas(current);
+					return;
+				}
+				else
+				{
+					fade(current.fade_begin_start_color, current.fade_begin_target_color, current.fade_begin_duration);
+				}
 			}
-
-			clear_character();
-			add_character(current);
-			place_name.set_place(current);
-			speaker.set_speaker(current);
-			audio.set_audio(current);
-			camera.set_camera(current);
-			content.set_content(current);
+			change_canvas(current);
 		}
+	}
+
+	public void change_canvas(Dialogue current)
+	{
+		clear_character();
+		add_character(current);
+		place_name.set_place(current);
+		speaker.set_speaker(current);
+		audio.set_audio(current);
+		camera.set_camera(current);
+		content.set_content(current);
 	}
 
 	public void clear_character()
@@ -84,14 +103,16 @@ public partial class GameManager : CanvasLayer
 	public void fade(Color begin_color, Color end_color, float duration)
 	{
 		pure_color_filter.Color = begin_color;
-		var fade_tween = GetTree().CreateTween();
+		fade_tween.Stop();
+		fade_tween.Kill();
+		fade_tween = GetTree().CreateTween();
 		fade_tween.SetEase(Tween.EaseType.InOut);
 		fade_tween.TweenProperty(pure_color_filter, "color", end_color, duration);
 	}
 	
 	public void _on_control_gui_input(InputEvent e)
 	{
-		if (Input.IsActionJustReleased("next_dialogue"))
+		if (e.IsActionReleased("next_dialogue"))
 		{
 			if (lose_focus) return;
 			if (hide_ui)
@@ -104,7 +125,9 @@ public partial class GameManager : CanvasLayer
 				content.skip_typing();
 				return;
 			}
-			else if (!switch_cool_down)
+			UI_sound.playSound("click");
+			
+			if (!switch_cool_down)
 			{
 				switch_dialogue();
 				switch_cool_down = true;
@@ -120,6 +143,7 @@ public partial class GameManager : CanvasLayer
 
 	public void _on_button_pressed()
 	{
+		UI_sound.playSound("click");
 		hide_ui = !hide_ui;
 		place_name.Visible = !hide_ui;
 		content.Visible = !hide_ui;
@@ -134,6 +158,7 @@ public partial class GameManager : CanvasLayer
 
 	public void _on_button_history_pressed()
 	{
+		UI_sound.playSound("click");
 		lose_focus = true;
 		history.Popup();
 		pure_color_filter.Color = new Color("#000000b7");
@@ -141,7 +166,14 @@ public partial class GameManager : CanvasLayer
 
 	public void _on_history_popup_hide()
 	{
+		UI_sound.playSound("click");
 		lose_focus = false;
 		pure_color_filter.Color = new Color("#ffffff00");
+	}
+
+	public void _on_button_autoplay_toggled(bool is_toggled)
+	{
+		UI_sound.playSound("click");
+		auto_play = is_toggled;
 	}
 }

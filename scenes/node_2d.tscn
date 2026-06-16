@@ -3,12 +3,11 @@
 [ext_resource type="Script" uid="uid://35qxtk52effj" path="res://scripts/GameManager.cs" id="1_f6ptj"]
 [ext_resource type="FontFile" uid="uid://h8qv423ypm73" path="res://font/SarasaUiSC-Bold.ttf" id="1_wtcfe"]
 [ext_resource type="Resource" uid="uid://dpba4j4bi3k5" path="res://stories/ticket.tres" id="2_diulx"]
-[ext_resource type="Texture2D" uid="uid://dbos68pvdg3sx" path="res://img/background/Story_ring_finger.webp" id="2_hh0fu"]
 [ext_resource type="FontFile" uid="uid://caltks5x77ake" path="res://font/SarasaUiSC-SemiBold.ttf" id="2_rnjyy"]
 [ext_resource type="Texture2D" uid="uid://do54sxjd7smq4" path="res://img/ui/cover.png" id="3_3m5ht"]
 [ext_resource type="Texture2D" uid="uid://bjkxadhrb1ojt" path="res://img/ui/ui2.png" id="3_04qyp"]
 [ext_resource type="PackedScene" uid="uid://e2umq3qjpcxk" path="res://scenes/dialogue_hisitory.tscn" id="3_diulx"]
-[ext_resource type="Texture2D" uid="uid://dykau781morjb" path="res://img/Snipaste_2026-06-07_13-46-18.png" id="3_pblkq"]
+[ext_resource type="Texture2D" uid="uid://r25be2riy8vc" path="res://img/background/Story_thumb.webp" id="3_nuk1v"]
 [ext_resource type="Texture2D" uid="uid://8dr7jpyjdn46" path="res://img/ui/Label_UI.png" id="4_4vge2"]
 [ext_resource type="Texture2D" uid="uid://b7jnt5stdj47u" path="res://img/ui/ui1.png" id="4_j7wrs"]
 [ext_resource type="Texture2D" uid="uid://br1ddcrllwsin" path="res://img/ui/ui4.png" id="5_dubn7"]
@@ -27,10 +26,12 @@
 [ext_resource type="Texture2D" uid="uid://04oav8ll1ckb" path="res://img/ui/btn_autoplay.png" id="21_22dhx"]
 [ext_resource type="Texture2D" uid="uid://d2l8fkwvh4gp6" path="res://img/ui/btn_skip.png" id="22_diulx"]
 [ext_resource type="Texture2D" uid="uid://dr51v41goi71d" path="res://img/ui/btn_config.png" id="23_nuk1v"]
+[ext_resource type="AudioStream" uid="uid://bdugii64ecac3" path="res://audio/sound/click.mp3" id="27_l0qat"]
 [ext_resource type="Texture2D" uid="uid://swa4t1pajaop" path="res://img/ui/arrow.png" id="28_nuk1v"]
+[ext_resource type="Script" uid="uid://dab7tc6smps6f" path="res://scripts/AudioUI.cs" id="28_wpu3o"]
 [ext_resource type="Script" uid="uid://cujjejsgtwsoj" path="res://scripts/Mouse.cs" id="29_l0qat"]
 
-[node name="Root" type="CanvasLayer" unique_id=985754036 node_paths=PackedStringArray("camera", "pure_color_filter", "content", "speaker", "place_name", "buttons", "character_layer", "audio", "history", "timer_cool_down")]
+[node name="Root" type="CanvasLayer" unique_id=985754036 node_paths=PackedStringArray("camera", "pure_color_filter", "content", "speaker", "place_name", "buttons", "character_layer", "audio", "ui", "history", "timer_cool_down", "UI_sound")]
 script = ExtResource("1_f6ptj")
 camera = NodePath("Camera")
 pure_color_filter = NodePath("ui/Control/ColorRect")
@@ -41,14 +42,10 @@ buttons = NodePath("ui/Control/Button")
 character_layer = NodePath("characters")
 audio = NodePath("audio")
 story = ExtResource("2_diulx")
+ui = NodePath("ui/Control")
 history = NodePath("ui/History")
 timer_cool_down = NodePath("ui/Control/Content/TimerCoolDown")
-
-[node name="Sprite2D" type="Sprite2D" parent="." unique_id=1106684066]
-visible = false
-position = Vector2(960, 540)
-texture = ExtResource("3_pblkq")
-metadata/_edit_lock_ = true
+UI_sound = NodePath("audio/UI")
 
 [node name="Background" type="CanvasLayer" parent="." unique_id=637188220]
 follow_viewport_enabled = true
@@ -62,7 +59,7 @@ anchor_bottom = 0.9212963
 offset_right = 384.0
 offset_bottom = 216.0
 scale = Vector2(0.8, 0.8)
-texture = ExtResource("2_hh0fu")
+texture = ExtResource("3_nuk1v")
 metadata/_edit_use_anchors_ = true
 
 [node name="characters" type="CanvasLayer" parent="." unique_id=1514502212]
@@ -79,6 +76,7 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
+focus_mode = 2
 metadata/_edit_use_anchors_ = true
 
 [node name="Cover" type="TextureRect" parent="ui/Control" unique_id=2019204118]
@@ -117,7 +115,7 @@ offset_top = 911.0
 offset_right = 1554.0
 offset_bottom = 1066.0
 theme_override_colors/font_color = Color(0.93246573, 0.803684, 0.6393559, 1)
-theme_override_colors/font_outline_color = Color(0.60784316, 0.52156866, 0.42352942, 1)
+theme_override_colors/font_outline_color = Color(0.4670772, 0.39319018, 0.30885565, 1)
 theme_override_constants/line_spacing = -5
 theme_override_constants/outline_size = 2
 theme_override_fonts/font = ExtResource("2_rnjyy")
@@ -221,8 +219,8 @@ metadata/_edit_use_anchors_ = true
 [node name="Decoration" type="TextureRect" parent="ui/Control/Place" unique_id=1846268742]
 layout_mode = 1
 anchors_preset = -1
-offset_left = 140.0
-offset_right = 225.0
+offset_left = 155.0
+offset_right = 240.0
 offset_bottom = 50.0
 texture = ExtResource("7_fws66")
 stretch_mode = 2
@@ -276,7 +274,7 @@ texture = ExtResource("16_qv8l0")
 expand_mode = 2
 metadata/_edit_use_anchors_ = true
 
-[node name="ButtonMenu" type="Button" parent="ui/Control/Button" unique_id=1461689774 node_paths=PackedStringArray("btn_skip", "btn_autoplay", "btn_history", "btn_hide_ui", "btn_config", "bar")]
+[node name="ButtonMenu" type="Button" parent="ui/Control/Button" unique_id=1461689774 node_paths=PackedStringArray("btn_skip", "btn_autoplay", "btn_history", "btn_hide_ui", "btn_config", "bar", "UI_sound")]
 layout_mode = 0
 anchor_left = 43.65
 anchor_top = 0.75
@@ -292,6 +290,7 @@ btn_history = NodePath("../ButtonHistory")
 btn_hide_ui = NodePath("../ButtonHideUI")
 btn_config = NodePath("../ButtonConfig")
 bar = NodePath("../Bar")
+UI_sound = NodePath("../../../../audio/UI")
 
 [node name="ButtonConfig" type="Button" parent="ui/Control/Button" unique_id=2101749433]
 visible = false
@@ -358,9 +357,10 @@ color = Color(1, 1, 1, 0)
 metadata/_edit_use_anchors_ = true
 metadata/_edit_lock_ = true
 
-[node name="History" parent="ui" unique_id=748955722 node_paths=PackedStringArray("voice") instance=ExtResource("3_diulx")]
+[node name="History" parent="ui" unique_id=748955722 node_paths=PackedStringArray("voice", "UI_sound") instance=ExtResource("3_diulx")]
 visible = false
 voice = NodePath("../../audio/Voice")
+UI_sound = NodePath("../../audio/UI")
 
 [node name="Camera" type="Camera2D" parent="." unique_id=846416779]
 position = Vector2(960, 540)
@@ -380,10 +380,15 @@ sound = NodePath("Sound")
 [node name="Sound" type="AudioStreamPlayer" parent="audio" unique_id=1339577158]
 
 [node name="Voice" type="AudioStreamPlayer" parent="audio" unique_id=66030436]
-volume_db = -5.0
+volume_db = -10.0
 
 [node name="Bgm" type="AudioStreamPlayer" parent="audio" unique_id=1410432910]
 volume_db = -18.0
+
+[node name="UI" type="AudioStreamPlayer" parent="audio" unique_id=272578537]
+stream = ExtResource("27_l0qat")
+volume_db = 5.0
+script = ExtResource("28_wpu3o")
 
 [node name="Mouse" type="CanvasLayer" parent="." unique_id=520989835]
 layer = 999999
@@ -399,8 +404,15 @@ stretch_mode = 2
 script = ExtResource("29_l0qat")
 
 [connection signal="gui_input" from="ui/Control" to="." method="_on_control_gui_input"]
+[connection signal="mouse_entered" from="ui/Control/Button/ButtonMenu" to="ui/Control/Button/ButtonMenu" method="_on_mouse_entered"]
 [connection signal="toggled" from="ui/Control/Button/ButtonMenu" to="ui/Control/Button/ButtonMenu" method="_on_toggled"]
+[connection signal="mouse_entered" from="ui/Control/Button/ButtonConfig" to="ui/Control/Button/ButtonMenu" method="_on_button_config_mouse_entered"]
+[connection signal="mouse_entered" from="ui/Control/Button/ButtonHideUI" to="ui/Control/Button/ButtonMenu" method="_on_button_hide_ui_mouse_entered"]
 [connection signal="pressed" from="ui/Control/Button/ButtonHideUI" to="." method="_on_button_pressed"]
+[connection signal="mouse_entered" from="ui/Control/Button/ButtonHistory" to="ui/Control/Button/ButtonMenu" method="_on_button_history_mouse_entered"]
 [connection signal="pressed" from="ui/Control/Button/ButtonHistory" to="." method="_on_button_history_pressed"]
+[connection signal="mouse_entered" from="ui/Control/Button/ButtonAutoplay" to="ui/Control/Button/ButtonMenu" method="_on_button_autoplay_mouse_entered"]
+[connection signal="toggled" from="ui/Control/Button/ButtonAutoplay" to="." method="_on_button_autoplay_toggled"]
 [connection signal="toggled" from="ui/Control/Button/ButtonAutoplay" to="ui/Control/Button/ButtonMenu" method="_on_button_autoplay_toggled"]
+[connection signal="mouse_entered" from="ui/Control/Button/ButtonSkip" to="ui/Control/Button/ButtonMenu" method="_on_button_skip_mouse_entered"]
 [connection signal="popup_hide" from="ui/History" to="." method="_on_history_popup_hide"]

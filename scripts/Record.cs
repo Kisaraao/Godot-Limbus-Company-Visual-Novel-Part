@@ -1,7 +1,7 @@
 using Godot;
 
 [GlobalClass]
-public partial class Record : HBoxContainer
+public partial class Record : VBoxContainer
 {
 	public DialogueRecord data;
 	[Export] public Label content;
@@ -10,6 +10,7 @@ public partial class Record : HBoxContainer
 	[Export] public ColorRect background;
 	[Export] public AudioStreamPlayer voice;
 	[Export] public Button btn_voice;
+	[Export] public AudioUI UI_sound;
 	public override void _Ready()
 	{
 		content.Text = data.content;
@@ -26,5 +27,10 @@ public partial class Record : HBoxContainer
 		voice.Stop();
 		voice.Stream = data.voice;
 		voice.Play();
+	}
+
+	public void _on_button_mouse_entered()
+	{
+		UI_sound.playSound("hover");
 	}
 }

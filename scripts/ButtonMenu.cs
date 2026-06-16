@@ -8,20 +8,16 @@ public partial class ButtonMenu : Button
 	[Export] public Button btn_hide_ui;
 	[Export] public Button btn_config;
 	[Export] public TextureRect bar;
-
+	[Export] public AudioUI UI_sound;
 	public bool shrinking = false;
 
 	public void _on_toggled(bool is_toggled)
 	{
+		UI_sound.playSound("click");
 		if (shrinking) return;
 
 		shrinking = true;
 		Modulate = is_toggled ? new Color(1.572f, 1.572f, 1.572f) : Colors.White;
-		// btn_skip.Visible = is_toggled;
-		// btn_autoplay.Visible = is_toggled;
-		// btn_history.Visible = is_toggled;
-		// btn_hide_ui.Visible = is_toggled;
-		// btn_config.Visible = is_toggled;
 
 		if (is_toggled)
 		{
@@ -83,6 +79,37 @@ public partial class ButtonMenu : Button
 
 	public void _on_button_autoplay_toggled(bool is_toggled)
 	{
+		UI_sound.playSound("click");
 		btn_autoplay.Modulate = is_toggled ? new Color(1.9f, 1.9f, 1.9f, 1.0f) : Colors.White;
+	}
+
+	public void _on_mouse_entered()
+	{
+		UI_sound.playSound("hover");
+	}
+
+	public void _on_button_config_mouse_entered()
+	{
+		UI_sound.playSound("hover");
+	}
+
+	public void _on_button_hide_ui_mouse_entered()
+	{
+		UI_sound.playSound("hover");
+	}
+
+	public void _on_button_history_mouse_entered()
+	{
+		UI_sound.playSound("hover");
+	}
+
+	public void _on_button_autoplay_mouse_entered()
+	{
+		UI_sound.playSound("hover");
+	}
+
+	public void _on_button_skip_mouse_entered()
+	{
+		UI_sound.playSound("hover");
 	}
 }
