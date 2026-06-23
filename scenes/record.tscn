@@ -16,7 +16,7 @@ shader = ExtResource("2_fl1m8")
 [node name="VBoxContainer" type="VBoxContainer" unique_id=487352536 node_paths=PackedStringArray("content", "name", "portrait", "background", "btn_voice")]
 offset_right = 905.0
 offset_bottom = 245.0
-theme_override_constants/separation = 25
+theme_override_constants/separation = 15
 alignment = 1
 script = ExtResource("1_fl1m8")
 content = NodePath("HBoxContainer/Label2")
@@ -88,7 +88,7 @@ metadata/_edit_use_anchors_ = true
 custom_minimum_size = Vector2(700, 0)
 layout_mode = 2
 theme_override_colors/font_color = Color(0, 0, 0, 1)
-theme_override_constants/line_spacing = -5
+theme_override_constants/line_spacing = -3
 theme_override_fonts/font = ExtResource("6_gufn7")
 theme_override_font_sizes/font_size = 28
 text = "取出■■草中的■■■，并立刻将■■研磨投入■■中，■■■需要在含有■■■的瞬间投入■■，且需添加■■的■之气息，■■■死尸需要使用■季后的■■■骸骨并在■■■状态下使用■■■进行混合。添加■■鲸油，■■■需要在不切割情况下萃取出■■■■并■■接触■■，黏度维持在■■■以上。需要制备后时长不超过■■■■的■■■■■■■■，在将其粉碎前使其维持■■■状态并在■■■■■之下■■。"
@@ -111,7 +111,7 @@ layout_mode = 2
 texture = ExtResource("9_bp0cq")
 expand_mode = 5
 
-[connection signal="mouse_entered" from="HBoxContainer/Button" to="HBoxContainer/Button" method="_on_mouse_entered"]
 [connection signal="mouse_entered" from="HBoxContainer/Button" to="." method="_on_button_mouse_entered"]
+[connection signal="mouse_entered" from="HBoxContainer/Button" to="HBoxContainer/Button" method="_on_mouse_entered"]
 [connection signal="mouse_exited" from="HBoxContainer/Button" to="HBoxContainer/Button" method="_on_mouse_exited"]
 [connection signal="pressed" from="HBoxContainer/Button" to="." method="_on_button_pressed"]

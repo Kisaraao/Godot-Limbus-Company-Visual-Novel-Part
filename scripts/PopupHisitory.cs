@@ -8,6 +8,7 @@ public partial class PopupHisitory : PopupPanel
 	[Export] public Button btn_confirm;
 	[Export] public AudioUI UI_sound;
 	[Export] public ScrollContainer scroll;
+	[Export] public Control body;
 	public void add_record(DialogueRecord data)
 	{
 		Record rc = scene_record.Instantiate<Record>();
@@ -31,5 +32,13 @@ public partial class PopupHisitory : PopupPanel
 	public void _on_confirm_mouse_exited()
 	{
 		btn_confirm.Modulate = Colors.White;
+	}
+
+	public void _on_about_to_popup()
+	{
+		body.OffsetTransformPosition = new Vector2(0, -15);
+		var tween = GetTree().CreateTween();
+		tween.TweenProperty(body, "offset_transform_position", Vector2.Zero, 0.1);
+		tween.Finished += () => body.OffsetTransformPosition = Vector2.Zero;
 	}
 }

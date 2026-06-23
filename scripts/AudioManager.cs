@@ -5,6 +5,7 @@ public partial class AudioManager : CanvasLayer
 	[Export] AudioStreamPlayer voice;
 	[Export] AudioStreamPlayer bgm;
 	[Export] AudioStreamPlayer sound;
+	[Export] AudioUI ui;
 	public void set_audio(Dialogue current)
 	{
 		voice.Stream = current.voice == null ? null : current.voice;
@@ -19,5 +20,10 @@ public partial class AudioManager : CanvasLayer
 			bgm.Stream = current.bgm == null ? null : current.bgm;
 			bgm.Play();
 		}
+	}
+
+	public void playSound(string name)
+	{
+		ui.playSound(name);
 	}
 }

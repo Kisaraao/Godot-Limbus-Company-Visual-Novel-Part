@@ -8,7 +8,7 @@
 
 [sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_jtv0a"]
 
-[node name="PopupPanel" type="PopupPanel" unique_id=338270815 node_paths=PackedStringArray("record_list", "btn_confirm", "scroll")]
+[node name="PopupPanel" type="PopupPanel" unique_id=338270815 node_paths=PackedStringArray("record_list", "btn_confirm", "scroll", "body")]
 oversampling_override = 1.0
 title = "History"
 initial_position = 1
@@ -17,16 +17,25 @@ visible = true
 max_size = Vector2i(1207, 651)
 theme_override_styles/panel = SubResource("StyleBoxEmpty_jtv0a")
 script = ExtResource("1_jtv0a")
-record_list = NodePath("Background/ScrollContainer/VBoxContainer")
+record_list = NodePath("Control/Background/ScrollContainer/VBoxContainer")
 scene_record = ExtResource("2_qcr6q")
-btn_confirm = NodePath("Background/Confirm")
-scroll = NodePath("Background/ScrollContainer")
+btn_confirm = NodePath("Control/Background/Confirm")
+scroll = NodePath("Control/Background/ScrollContainer")
+body = NodePath("Control")
 
-[node name="Background" type="Sprite2D" parent="." unique_id=611564402]
+[node name="Control" type="Control" parent="." unique_id=1087317026]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_transform_enabled = true
+metadata/_edit_use_anchors_ = true
+
+[node name="Background" type="Sprite2D" parent="Control" unique_id=611564402]
 position = Vector2(604, 326)
 texture = ExtResource("2_j1ek4")
 
-[node name="ScrollContainer" type="ScrollContainer" parent="Background" unique_id=605541723]
+[node name="ScrollContainer" type="ScrollContainer" parent="Control/Background" unique_id=605541723]
 anchors_preset = -1
 anchor_left = 0.07995029
 anchor_top = 0.15130569
@@ -37,15 +46,16 @@ offset_top = -325.5
 offset_right = -603.5
 offset_bottom = -325.5
 horizontal_scroll_mode = 0
+vertical_scroll_mode = 3
 metadata/_edit_use_anchors_ = true
 
-[node name="VBoxContainer" type="VBoxContainer" parent="Background/ScrollContainer" unique_id=1909154778]
+[node name="VBoxContainer" type="VBoxContainer" parent="Control/Background/ScrollContainer" unique_id=1909154778]
 custom_minimum_size = Vector2(1010, 0)
 layout_mode = 2
-theme_override_constants/separation = 40
+theme_override_constants/separation = 15
 metadata/_edit_use_anchors_ = true
 
-[node name="Confirm" type="Button" parent="Background" unique_id=138250803]
+[node name="Confirm" type="Button" parent="Control/Background" unique_id=138250803]
 offset_left = -234.37494
 offset_top = 180.25
 offset_right = 234.62506
@@ -61,8 +71,9 @@ flat = true
 icon_alignment = 1
 expand_icon = true
 
+[connection signal="about_to_popup" from="." to="." method="_on_about_to_popup"]
 [connection signal="mouse_entered" from="." to="." method="_on_mouse_entered"]
 [connection signal="mouse_exited" from="." to="." method="_on_mouse_exited"]
-[connection signal="mouse_entered" from="Background/Confirm" to="." method="_on_confirm_mouse_entered"]
-[connection signal="mouse_exited" from="Background/Confirm" to="." method="_on_confirm_mouse_exited"]
-[connection signal="pressed" from="Background/Confirm" to="." method="_on_confirm_pressed"]
+[connection signal="mouse_entered" from="Control/Background/Confirm" to="." method="_on_confirm_mouse_entered"]
+[connection signal="mouse_exited" from="Control/Background/Confirm" to="." method="_on_confirm_mouse_exited"]
+[connection signal="pressed" from="Control/Background/Confirm" to="." method="_on_confirm_pressed"]

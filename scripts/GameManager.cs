@@ -4,14 +4,13 @@ using Godot.Collections;
 public partial class GameManager : CanvasLayer
 {
 	[Export] Camera camera;
-	[Export] ColorRect pure_color_filter;
+	[Export] Filter filter;
 	[Export] Content content;
 	[Export] Speaker speaker;
 	[Export] PlaceContent place_name;
 	[Export] Control buttons;
-	[Export] CanvasLayer character_layer;
+	[Export] CharacterManager character_manager;
 	[Export] AudioManager audio;
-	[Export] Story story;
 	[Export] Control ui;
 	private int index = -1;
 	private bool switch_cool_down = false;
@@ -21,17 +20,12 @@ public partial class GameManager : CanvasLayer
 	private bool auto_play = false;
 	[Export] public PopupHisitory history;
 	[Export] public Timer timer_cool_down;
-	[Export] public AudioUI UI_sound;
-	public bool fading = false;
-	public Tween fade_tween;
-
+	[Export] Story story;
 	public override void _Ready()
 	{
 		var begin_timer = GetTree().CreateTimer(0.1);
 		begin_timer.Timeout += switch_dialogue;
-		timer_cool_down.Timeout += stop_cool_down;
-		fade_tween = GetTree().CreateTween();
-		fade_tween.Stop();
+		timer_cool_down.Timeout += () => switch_cool_down = false;
 		ui.GrabFocus();
 	}
 
@@ -42,7 +36,7 @@ public partial class GameManager : CanvasLayer
 		// on end fade
 		if (index != -1 && story.dialogues[index].fade_end)
 		{
-			fade(story.dialogues[index].fade_end_start_color, story.dialogues[index].fade_end_target_color, story.dialogues[index].fade_end_duration);
+			filter.fade(story.dialogues[index].fade_end_start_color, story.dialogues[index].fade_end_target_color, story.dialogues[index].fade_end_duration);
 		}
 
 		if (index + 1 < story.dialogues.Count && !switch_cool_down) index++; else return;
@@ -56,15 +50,15 @@ public partial class GameManager : CanvasLayer
 			// on end fade
 			if (current.fade_begin)
 			{
-				if (fade_tween.IsRunning())
+				if (filter.fade_tween.IsRunning())
 				{
-					fade_tween.Finished += () => fade(current.fade_begin_start_color, current.fade_begin_target_color, current.fade_begin_duration);
-					fade_tween.Finished += () => change_canvas(current);
+					filter.fade_tween.Finished += () => filter.fade(current.fade_begin_start_color, current.fade_begin_target_color, current.fade_begin_duration);
+					filter.fade_tween.Finished += () => change_canvas(current);
 					return;
 				}
 				else
 				{
-					fade(current.fade_begin_start_color, current.fade_begin_target_color, current.fade_begin_duration);
+					filter.fade(current.fade_begin_start_color, current.fade_begin_target_color, current.fade_begin_duration);
 				}
 			}
 			change_canvas(current);
@@ -73,41 +67,13 @@ public partial class GameManager : CanvasLayer
 
 	public void change_canvas(Dialogue current)
 	{
-		clear_character();
-		add_character(current);
+		character_manager.clear();
+		character_manager.add_character(current.characters);
 		place_name.set_place(current);
 		speaker.set_speaker(current);
 		audio.set_audio(current);
 		camera.set_camera(current);
 		content.set_content(current);
-	}
-
-	public void clear_character()
-	{
-		foreach (CharacterRuntime son in character_layer.GetChildren())
-		{
-			son.clear();
-		}
-	}
-
-	public void add_character(Dialogue current)
-	{
-		foreach (var ch in current.characters)
-		{
-			CharacterRuntime character = new CharacterRuntime();
-			character.data = ch;
-			character_layer.AddChild(character);
-		}
-	}
-
-	public void fade(Color begin_color, Color end_color, float duration)
-	{
-		pure_color_filter.Color = begin_color;
-		fade_tween.Stop();
-		fade_tween.Kill();
-		fade_tween = GetTree().CreateTween();
-		fade_tween.SetEase(Tween.EaseType.InOut);
-		fade_tween.TweenProperty(pure_color_filter, "color", end_color, duration);
 	}
 	
 	public void _on_control_gui_input(InputEvent e)
@@ -125,10 +91,10 @@ public partial class GameManager : CanvasLayer
 				content.skip_typing();
 				return;
 			}
-			UI_sound.playSound("click");
 			
 			if (!switch_cool_down)
 			{
+				audio.playSound("click");
 				switch_dialogue();
 				switch_cool_down = true;
 				if (timer_cool_down.IsStopped())
@@ -143,7 +109,7 @@ public partial class GameManager : CanvasLayer
 
 	public void _on_button_pressed()
 	{
-		UI_sound.playSound("click");
+		audio.playSound("click");
 		hide_ui = !hide_ui;
 		place_name.Visible = !hide_ui;
 		content.Visible = !hide_ui;
@@ -151,29 +117,24 @@ public partial class GameManager : CanvasLayer
 		buttons.Visible = !hide_ui;
 	}
 
-	public void stop_cool_down()
-	{
-		switch_cool_down = false;
-	}
-
 	public void _on_button_history_pressed()
 	{
-		UI_sound.playSound("click");
+		audio.playSound("click");
 		lose_focus = true;
 		history.Popup();
-		pure_color_filter.Color = new Color("#000000b7");
+		filter.Color = new Color("#000000b7");
 	}
 
 	public void _on_history_popup_hide()
 	{
-		UI_sound.playSound("click");
+		audio.playSound("click");
 		lose_focus = false;
-		pure_color_filter.Color = new Color("#ffffff00");
+		filter.Color = new Color("#ffffff00");
 	}
 
 	public void _on_button_autoplay_toggled(bool is_toggled)
 	{
-		UI_sound.playSound("click");
+		audio.playSound("click");
 		auto_play = is_toggled;
 	}
 }
