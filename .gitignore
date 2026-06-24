@@ -9,7 +9,8 @@ stories/
 characters/
 project.godot
 icon.svg
-icon.svg.import
 123.csproj
 123.sln
 export.presets.cfg
+*.import
+*.uid

@@ -10,7 +10,7 @@ public partial class Record : VBoxContainer
 	[Export] public ColorRect background;
 	[Export] public AudioStreamPlayer voice;
 	[Export] public Button btn_voice;
-	[Export] public AudioUI UI_sound;
+	[Export] public AudioManager audio;
 	public override void _Ready()
 	{
 		content.Text = data.content;
@@ -31,6 +31,6 @@ public partial class Record : VBoxContainer
 
 	public void _on_button_mouse_entered()
 	{
-		UI_sound.playSound("hover");
+		audio.playSound("hover");
 	}
 }

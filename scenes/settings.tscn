@@ -1,0 +1,345 @@
+[gd_scene format=3 uid="uid://bbrbulgg3uydo"]
+
+[ext_resource type="Texture2D" uid="uid://bomrik3cx1rtr" path="res://img/ui/history_background.png" id="1_5p8wc"]
+[ext_resource type="Script" uid="uid://7ueax5bclv2o" path="res://scripts/SettingsPopup.cs" id="1_gjs24"]
+[ext_resource type="FontFile" uid="uid://h8qv423ypm73" path="res://font/SarasaUiSC-Bold.ttf" id="2_r6d6q"]
+[ext_resource type="Texture2D" uid="uid://bxi6dn5xyykbt" path="res://img/ui/btn_audio_on.png" id="3_6wm04"]
+[ext_resource type="Texture2D" uid="uid://c6ykh0tambyes" path="res://img/ui/drag_handle.png" id="3_f4mfi"]
+[ext_resource type="Texture2D" uid="uid://bg8yr2ifeg1pd" path="res://img/ui/btn_audio_off.png" id="4_gis3k"]
+[ext_resource type="Texture2D" uid="uid://duiqihh2rihpx" path="res://img/ui/line.png" id="5_es4n0"]
+[ext_resource type="Texture2D" uid="uid://ty0rmu84ljxq" path="res://img/ui/btn_background_long.png" id="7_83j8s"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_36l1p"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_f4mfi"]
+content_margin_left = 4.0
+content_margin_top = 8.0
+content_margin_right = 4.0
+content_margin_bottom = 8.0
+bg_color = Color(0, 0, 0, 0)
+border_width_left = 2
+border_width_top = 2
+border_width_right = 2
+border_width_bottom = 2
+border_color = Color(0, 0, 0, 1)
+corner_detail = 20
+anti_aliasing = false
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_es4n0"]
+content_margin_left = 4.0
+content_margin_top = 8.0
+content_margin_right = 4.0
+content_margin_bottom = 8.0
+bg_color = Color(0, 0, 0, 1)
+
+[node name="PopupPanel" type="PopupPanel" unique_id=824280376 node_paths=PackedStringArray("total", "bgm", "sound", "voice", "btn_confirm", "btn_default", "body")]
+oversampling_override = 1.0
+initial_position = 1
+size = Vector2i(1207, 651)
+visible = true
+always_on_top = true
+theme_override_styles/panel = SubResource("StyleBoxEmpty_36l1p")
+script = ExtResource("1_gjs24")
+total = NodePath("Control/Background/VBoxContainer/ScrollContainer/VBoxContainer/Total/VBoxContainer/HBoxContainer/HSlider")
+bgm = NodePath("Control/Background/VBoxContainer/ScrollContainer/VBoxContainer/BGM/VBoxContainer/HBoxContainer/HSlider")
+sound = NodePath("Control/Background/VBoxContainer/ScrollContainer/VBoxContainer/Sound/VBoxContainer/HBoxContainer/HSlider")
+voice = NodePath("Control/Background/VBoxContainer/ScrollContainer/VBoxContainer/Voice/VBoxContainer/HBoxContainer/HSlider")
+btn_confirm = NodePath("Control/Background/VBoxContainer/HBoxContainer/Confirm")
+btn_default = NodePath("Control/Background/VBoxContainer/ScrollContainer/VBoxContainer/Default")
+body = NodePath("Control")
+
+[node name="Control" type="Control" parent="." unique_id=1637320025]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_transform_enabled = true
+metadata/_edit_use_anchors_ = true
+
+[node name="Background" type="TextureRect" parent="Control" unique_id=456764278]
+layout_mode = 0
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_right = -1167.0
+offset_bottom = -611.0
+texture = ExtResource("1_5p8wc")
+metadata/_edit_use_anchors_ = true
+
+[node name="VBoxContainer" type="VBoxContainer" parent="Control/Background" unique_id=1577017470]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.047224525
+anchor_top = 0.09677419
+anchor_right = 0.95111847
+anchor_bottom = 0.9170507
+theme_override_constants/separation = -15
+alignment = 1
+metadata/_edit_use_anchors_ = true
+
+[node name="ScrollContainer" type="ScrollContainer" parent="Control/Background/VBoxContainer" unique_id=1637347980]
+custom_minimum_size = Vector2(0, 430)
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
+horizontal_scroll_mode = 0
+vertical_scroll_mode = 3
+metadata/_edit_use_anchors_ = true
+
+[node name="VBoxContainer" type="VBoxContainer" parent="Control/Background/VBoxContainer/ScrollContainer" unique_id=2179042]
+custom_minimum_size = Vector2(1030, 0)
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
+theme_override_constants/separation = 40
+alignment = 1
+
+[node name="Total" type="HBoxContainer" parent="Control/Background/VBoxContainer/ScrollContainer/VBoxContainer" unique_id=1517687732]
+layout_mode = 2
+theme_override_constants/separation = 50
+alignment = 1
+
+[node name="VBoxContainer" type="VBoxContainer" parent="Control/Background/VBoxContainer/ScrollContainer/VBoxContainer/Total" unique_id=1337615965]
+layout_mode = 2
+theme_override_constants/separation = 25
+
+[node name="HBoxContainer" type="HBoxContainer" parent="Control/Background/VBoxContainer/ScrollContainer/VBoxContainer/Total/VBoxContainer" unique_id=1277025914]
+layout_mode = 2
+theme_override_constants/separation = 60
+alignment = 1
+
+[node name="Label" type="Label" parent="Control/Background/VBoxContainer/ScrollContainer/VBoxContainer/Total/VBoxContainer/HBoxContainer" unique_id=2135332888]
+custom_minimum_size = Vector2(160, 0)
+layout_mode = 2
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_constants/line_spacing = 3
+theme_override_fonts/font = ExtResource("2_r6d6q")
+theme_override_font_sizes/font_size = 38
+text = "总音量"
+
+[node name="HSlider" type="HSlider" parent="Control/Background/VBoxContainer/ScrollContainer/VBoxContainer/Total/VBoxContainer/HBoxContainer" unique_id=193353603]
+custom_minimum_size = Vector2(500, 25)
+layout_mode = 2
+size_flags_vertical = 4
+layout_direction = 2
+theme_override_icons/grabber = ExtResource("3_f4mfi")
+theme_override_icons/grabber_highlight = ExtResource("3_f4mfi")
+theme_override_icons/grabber_disabled = ExtResource("3_f4mfi")
+theme_override_icons/tick = ExtResource("3_f4mfi")
+theme_override_styles/slider = SubResource("StyleBoxFlat_f4mfi")
+theme_override_styles/grabber_area = SubResource("StyleBoxFlat_es4n0")
+theme_override_styles/grabber_area_highlight = SubResource("StyleBoxFlat_es4n0")
+max_value = 1.0
+step = 0.01
+value = 1.0
+scrollable = false
+
+[node name="Button" type="CheckButton" parent="Control/Background/VBoxContainer/ScrollContainer/VBoxContainer/Total/VBoxContainer/HBoxContainer" unique_id=466951562]
+layout_mode = 2
+theme_override_icons/checked = ExtResource("4_gis3k")
+theme_override_icons/unchecked = ExtResource("3_6wm04")
+
+[node name="TextureRect" type="TextureRect" parent="Control/Background/VBoxContainer/ScrollContainer/VBoxContainer/Total/VBoxContainer" unique_id=157960485]
+layout_mode = 2
+texture = ExtResource("5_es4n0")
+expand_mode = 5
+
+[node name="BGM" type="HBoxContainer" parent="Control/Background/VBoxContainer/ScrollContainer/VBoxContainer" unique_id=1046299718]
+layout_mode = 2
+theme_override_constants/separation = 50
+alignment = 1
+
+[node name="VBoxContainer" type="VBoxContainer" parent="Control/Background/VBoxContainer/ScrollContainer/VBoxContainer/BGM" unique_id=1867929636]
+layout_mode = 2
+theme_override_constants/separation = 25
+
+[node name="HBoxContainer" type="HBoxContainer" parent="Control/Background/VBoxContainer/ScrollContainer/VBoxContainer/BGM/VBoxContainer" unique_id=966920999]
+layout_mode = 2
+theme_override_constants/separation = 60
+alignment = 1
+
+[node name="Label" type="Label" parent="Control/Background/VBoxContainer/ScrollContainer/VBoxContainer/BGM/VBoxContainer/HBoxContainer" unique_id=43256081]
+custom_minimum_size = Vector2(160, 0)
+layout_mode = 2
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_constants/line_spacing = 3
+theme_override_fonts/font = ExtResource("2_r6d6q")
+theme_override_font_sizes/font_size = 38
+text = "BGM"
+
+[node name="HSlider" type="HSlider" parent="Control/Background/VBoxContainer/ScrollContainer/VBoxContainer/BGM/VBoxContainer/HBoxContainer" unique_id=315924395]
+custom_minimum_size = Vector2(500, 25)
+layout_mode = 2
+size_flags_vertical = 4
+layout_direction = 2
+theme_override_icons/grabber = ExtResource("3_f4mfi")
+theme_override_icons/grabber_highlight = ExtResource("3_f4mfi")
+theme_override_icons/grabber_disabled = ExtResource("3_f4mfi")
+theme_override_icons/tick = ExtResource("3_f4mfi")
+theme_override_styles/slider = SubResource("StyleBoxFlat_f4mfi")
+theme_override_styles/grabber_area = SubResource("StyleBoxFlat_es4n0")
+theme_override_styles/grabber_area_highlight = SubResource("StyleBoxFlat_es4n0")
+max_value = 1.0
+step = 0.01
+value = 0.5
+scrollable = false
+
+[node name="Button" type="CheckButton" parent="Control/Background/VBoxContainer/ScrollContainer/VBoxContainer/BGM/VBoxContainer/HBoxContainer" unique_id=604482877]
+layout_mode = 2
+theme_override_icons/checked = ExtResource("4_gis3k")
+theme_override_icons/unchecked = ExtResource("3_6wm04")
+
+[node name="TextureRect" type="TextureRect" parent="Control/Background/VBoxContainer/ScrollContainer/VBoxContainer/BGM/VBoxContainer" unique_id=31932117]
+layout_mode = 2
+texture = ExtResource("5_es4n0")
+expand_mode = 5
+
+[node name="Sound" type="HBoxContainer" parent="Control/Background/VBoxContainer/ScrollContainer/VBoxContainer" unique_id=1372335384]
+layout_mode = 2
+theme_override_constants/separation = 50
+alignment = 1
+
+[node name="VBoxContainer" type="VBoxContainer" parent="Control/Background/VBoxContainer/ScrollContainer/VBoxContainer/Sound" unique_id=681255353]
+layout_mode = 2
+theme_override_constants/separation = 25
+
+[node name="HBoxContainer" type="HBoxContainer" parent="Control/Background/VBoxContainer/ScrollContainer/VBoxContainer/Sound/VBoxContainer" unique_id=664362816]
+layout_mode = 2
+theme_override_constants/separation = 60
+alignment = 1
+
+[node name="Label" type="Label" parent="Control/Background/VBoxContainer/ScrollContainer/VBoxContainer/Sound/VBoxContainer/HBoxContainer" unique_id=1812242811]
+custom_minimum_size = Vector2(160, 0)
+layout_mode = 2
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_constants/line_spacing = 3
+theme_override_fonts/font = ExtResource("2_r6d6q")
+theme_override_font_sizes/font_size = 38
+text = "音效音量"
+
+[node name="HSlider" type="HSlider" parent="Control/Background/VBoxContainer/ScrollContainer/VBoxContainer/Sound/VBoxContainer/HBoxContainer" unique_id=971211359]
+custom_minimum_size = Vector2(500, 25)
+layout_mode = 2
+size_flags_vertical = 4
+layout_direction = 2
+theme_override_icons/grabber = ExtResource("3_f4mfi")
+theme_override_icons/grabber_highlight = ExtResource("3_f4mfi")
+theme_override_icons/grabber_disabled = ExtResource("3_f4mfi")
+theme_override_icons/tick = ExtResource("3_f4mfi")
+theme_override_styles/slider = SubResource("StyleBoxFlat_f4mfi")
+theme_override_styles/grabber_area = SubResource("StyleBoxFlat_es4n0")
+theme_override_styles/grabber_area_highlight = SubResource("StyleBoxFlat_es4n0")
+max_value = 1.0
+step = 0.01
+value = 1.0
+scrollable = false
+
+[node name="Button" type="CheckButton" parent="Control/Background/VBoxContainer/ScrollContainer/VBoxContainer/Sound/VBoxContainer/HBoxContainer" unique_id=1919538190]
+layout_mode = 2
+theme_override_icons/checked = ExtResource("4_gis3k")
+theme_override_icons/unchecked = ExtResource("3_6wm04")
+
+[node name="TextureRect" type="TextureRect" parent="Control/Background/VBoxContainer/ScrollContainer/VBoxContainer/Sound/VBoxContainer" unique_id=872928155]
+layout_mode = 2
+texture = ExtResource("5_es4n0")
+expand_mode = 5
+
+[node name="Voice" type="HBoxContainer" parent="Control/Background/VBoxContainer/ScrollContainer/VBoxContainer" unique_id=1832649415]
+layout_mode = 2
+theme_override_constants/separation = 50
+alignment = 1
+
+[node name="VBoxContainer" type="VBoxContainer" parent="Control/Background/VBoxContainer/ScrollContainer/VBoxContainer/Voice" unique_id=456885591]
+layout_mode = 2
+theme_override_constants/separation = 25
+
+[node name="HBoxContainer" type="HBoxContainer" parent="Control/Background/VBoxContainer/ScrollContainer/VBoxContainer/Voice/VBoxContainer" unique_id=68226572]
+layout_mode = 2
+theme_override_constants/separation = 60
+alignment = 1
+
+[node name="Label" type="Label" parent="Control/Background/VBoxContainer/ScrollContainer/VBoxContainer/Voice/VBoxContainer/HBoxContainer" unique_id=8858014]
+custom_minimum_size = Vector2(160, 0)
+layout_mode = 2
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_constants/line_spacing = 3
+theme_override_fonts/font = ExtResource("2_r6d6q")
+theme_override_font_sizes/font_size = 38
+text = "语音音量"
+
+[node name="HSlider" type="HSlider" parent="Control/Background/VBoxContainer/ScrollContainer/VBoxContainer/Voice/VBoxContainer/HBoxContainer" unique_id=753277097]
+custom_minimum_size = Vector2(500, 25)
+layout_mode = 2
+size_flags_vertical = 4
+layout_direction = 2
+theme_override_icons/grabber = ExtResource("3_f4mfi")
+theme_override_icons/grabber_highlight = ExtResource("3_f4mfi")
+theme_override_icons/grabber_disabled = ExtResource("3_f4mfi")
+theme_override_icons/tick = ExtResource("3_f4mfi")
+theme_override_styles/slider = SubResource("StyleBoxFlat_f4mfi")
+theme_override_styles/grabber_area = SubResource("StyleBoxFlat_es4n0")
+theme_override_styles/grabber_area_highlight = SubResource("StyleBoxFlat_es4n0")
+max_value = 1.0
+step = 0.01
+value = 0.75
+scrollable = false
+
+[node name="Button" type="CheckButton" parent="Control/Background/VBoxContainer/ScrollContainer/VBoxContainer/Voice/VBoxContainer/HBoxContainer" unique_id=983003886]
+layout_mode = 2
+theme_override_icons/checked = ExtResource("4_gis3k")
+theme_override_icons/unchecked = ExtResource("3_6wm04")
+
+[node name="TextureRect" type="TextureRect" parent="Control/Background/VBoxContainer/ScrollContainer/VBoxContainer/Voice/VBoxContainer" unique_id=1994583060]
+layout_mode = 2
+texture = ExtResource("5_es4n0")
+expand_mode = 5
+
+[node name="Default" type="Button" parent="Control/Background/VBoxContainer/ScrollContainer/VBoxContainer" unique_id=165765025]
+custom_minimum_size = Vector2(300, 55)
+layout_mode = 2
+size_flags_horizontal = 8
+size_flags_vertical = 4
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_colors/font_pressed_color = Color(0, 0, 0, 1)
+theme_override_colors/font_hover_color = Color(0, 0, 0, 1)
+theme_override_fonts/font = ExtResource("2_r6d6q")
+theme_override_font_sizes/font_size = 28
+text = "恢复默认"
+icon = ExtResource("7_83j8s")
+flat = true
+icon_alignment = 1
+expand_icon = true
+
+[node name="HBoxContainer" type="HBoxContainer" parent="Control/Background/VBoxContainer" unique_id=1036774214]
+layout_mode = 2
+theme_override_constants/separation = 25
+alignment = 1
+
+[node name="Confirm" type="Button" parent="Control/Background/VBoxContainer/HBoxContainer" unique_id=1401690464]
+custom_minimum_size = Vector2(450, 100)
+layout_mode = 2
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_colors/font_pressed_color = Color(0, 0, 0, 1)
+theme_override_colors/font_hover_color = Color(0, 0, 0, 1)
+theme_override_fonts/font = ExtResource("2_r6d6q")
+theme_override_font_sizes/font_size = 28
+text = "确认"
+icon = ExtResource("7_83j8s")
+flat = true
+icon_alignment = 1
+expand_icon = true
+
+[connection signal="about_to_popup" from="." to="." method="_on_about_to_popup"]
+[connection signal="drag_ended" from="Control/Background/VBoxContainer/ScrollContainer/VBoxContainer/Total/VBoxContainer/HBoxContainer/HSlider" to="." method="_on_total_drag_ended"]
+[connection signal="toggled" from="Control/Background/VBoxContainer/ScrollContainer/VBoxContainer/Total/VBoxContainer/HBoxContainer/Button" to="." method="_on_total_button_toggled"]
+[connection signal="drag_ended" from="Control/Background/VBoxContainer/ScrollContainer/VBoxContainer/BGM/VBoxContainer/HBoxContainer/HSlider" to="." method="_on_bgm_drag_ended"]
+[connection signal="toggled" from="Control/Background/VBoxContainer/ScrollContainer/VBoxContainer/BGM/VBoxContainer/HBoxContainer/Button" to="." method="_on_bgm_button_toggled"]
+[connection signal="drag_ended" from="Control/Background/VBoxContainer/ScrollContainer/VBoxContainer/Sound/VBoxContainer/HBoxContainer/HSlider" to="." method="_on_sound_drag_ended"]
+[connection signal="toggled" from="Control/Background/VBoxContainer/ScrollContainer/VBoxContainer/Sound/VBoxContainer/HBoxContainer/Button" to="." method="_on_sound_button_toggled"]
+[connection signal="drag_ended" from="Control/Background/VBoxContainer/ScrollContainer/VBoxContainer/Voice/VBoxContainer/HBoxContainer/HSlider" to="." method="_on_voice_drag_ended"]
+[connection signal="toggled" from="Control/Background/VBoxContainer/ScrollContainer/VBoxContainer/Voice/VBoxContainer/HBoxContainer/Button" to="." method="_on_voice_button_toggled"]
+[connection signal="mouse_entered" from="Control/Background/VBoxContainer/ScrollContainer/VBoxContainer/Default" to="." method="_on_default_mouse_entered"]
+[connection signal="mouse_exited" from="Control/Background/VBoxContainer/ScrollContainer/VBoxContainer/Default" to="." method="_on_default_mouse_exited"]
+[connection signal="pressed" from="Control/Background/VBoxContainer/ScrollContainer/VBoxContainer/Default" to="." method="_on_default_pressed"]
+[connection signal="mouse_entered" from="Control/Background/VBoxContainer/HBoxContainer/Confirm" to="." method="_on_confirm_mouse_entered"]
+[connection signal="mouse_exited" from="Control/Background/VBoxContainer/HBoxContainer/Confirm" to="." method="_on_confirm_mouse_exited"]
+[connection signal="pressed" from="Control/Background/VBoxContainer/HBoxContainer/Confirm" to="." method="_on_confirm_pressed"]

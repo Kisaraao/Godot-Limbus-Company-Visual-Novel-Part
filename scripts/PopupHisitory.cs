@@ -6,7 +6,7 @@ public partial class PopupHisitory : PopupPanel
 	[Export] public PackedScene scene_record;
 	[Export] public AudioStreamPlayer voice;
 	[Export] public Button btn_confirm;
-	[Export] public AudioUI UI_sound;
+	[Export] public AudioManager audio;
 	[Export] public ScrollContainer scroll;
 	[Export] public Control body;
 	public void add_record(DialogueRecord data)
@@ -14,7 +14,7 @@ public partial class PopupHisitory : PopupPanel
 		Record rc = scene_record.Instantiate<Record>();
 		rc.data = data;
 		rc.voice = voice;
-		rc.UI_sound = UI_sound;
+		rc.audio = audio;
 		record_list.AddChild(rc);
 	}
 
@@ -25,7 +25,7 @@ public partial class PopupHisitory : PopupPanel
 
 	public void _on_confirm_mouse_entered()
 	{
-		UI_sound.playSound("hover");
+		audio.playSound("hover");
 		btn_confirm.Modulate = new Color(0.8f, 0.8f, 0.8f);
 	}
 

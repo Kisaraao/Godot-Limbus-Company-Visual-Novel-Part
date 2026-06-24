@@ -19,6 +19,7 @@ public partial class GameManager : CanvasLayer
 	private bool hide_ui = false;
 	private bool auto_play = false;
 	[Export] public PopupHisitory history;
+	[Export] public SettingsPopup settings;
 	[Export] public Timer timer_cool_down;
 	[Export] Story story;
 	public override void _Ready()
@@ -125,7 +126,22 @@ public partial class GameManager : CanvasLayer
 		filter.Color = new Color("#000000b7");
 	}
 
+	public void _on_settings_button_config_pressed()
+	{
+		audio.playSound("click");
+		lose_focus = true;
+		settings.Popup();
+		filter.Color = new Color("#000000b7");
+	}
+
 	public void _on_history_popup_hide()
+	{
+		audio.playSound("click");
+		lose_focus = false;
+		filter.Color = new Color("#ffffff00");
+	}
+
+	public void _on_settings_popup_hide()
 	{
 		audio.playSound("click");
 		lose_focus = false;
