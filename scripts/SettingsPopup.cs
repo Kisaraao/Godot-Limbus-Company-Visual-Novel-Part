@@ -11,11 +11,16 @@ public partial class SettingsPopup : PopupPanel
 	[Export] public Button btn_default;
 	[Export] public Control body;
 
+	public const float DEFAULT_TOTAL = 1.0f;
+	public const float DEFAULT_BGM = 0.75f;
+	public const float DEFAULT_SOUND = 1.0f;
+	public const float DEFAULT_VOICE = 0.8f;
+
 	public void _on_total_drag_ended(bool value_changed)
 	{
 		if (!value_changed) return;
 		audio.total_mul = (float)total.Value;
-		GD.Print(total.Value);
+		audio.updateVolume();
 	}
 	
 	public void _on_bgm_drag_ended(bool value_changed)
@@ -81,17 +86,17 @@ public partial class SettingsPopup : PopupPanel
 
 	public void _on_default_pressed()
 	{
-		total.Value = 1.0f;
-		audio.total_mul = 1.0f;
+		total.Value = DEFAULT_TOTAL;
+		audio.total_mul = DEFAULT_TOTAL;
 		
-		bgm.Value = 0.5f;
-		audio.bgm_mul = 0.5f;
+		bgm.Value = DEFAULT_BGM;
+		audio.bgm_mul = DEFAULT_BGM;
 		
-		sound.Value = 1.0f;
-		audio.sound_mul = 1.0f;
+		sound.Value = DEFAULT_SOUND;
+		audio.sound_mul = DEFAULT_SOUND;
 
-		voice.Value = 0.75f;
-		audio.voice_mul = 0.75f;
+		voice.Value = DEFAULT_VOICE;
+		audio.voice_mul = DEFAULT_VOICE;
 		
 		audio.updateVolume();
 	}
@@ -114,4 +119,9 @@ public partial class SettingsPopup : PopupPanel
 		tween.TweenProperty(body, "offset_transform_position", Vector2.Zero, 0.1);
 		tween.Finished += () => body.OffsetTransformPosition = Vector2.Zero;
 	}
+
+	public override void _Ready()
+    {
+        _on_default_pressed();
+    }
 }

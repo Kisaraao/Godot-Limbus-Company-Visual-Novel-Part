@@ -180,7 +180,7 @@ theme_override_styles/grabber_area = SubResource("StyleBoxFlat_es4n0")
 theme_override_styles/grabber_area_highlight = SubResource("StyleBoxFlat_es4n0")
 max_value = 1.0
 step = 0.01
-value = 0.5
+value = 0.75
 scrollable = false
 
 [node name="Button" type="CheckButton" parent="Control/Background/VBoxContainer/ScrollContainer/VBoxContainer/BGM/VBoxContainer/HBoxContainer" unique_id=604482877]
