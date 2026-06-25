@@ -2,10 +2,10 @@ using Godot;
 
 public partial class AudioManager : CanvasLayer
 {
-	[Export] AudioStreamPlayer voice;
-	[Export] AudioStreamPlayer bgm;
-	[Export] AudioStreamPlayer sound;
-	[Export] AudioUI ui;
+	[Export] public AudioStreamPlayer voice;
+	[Export] public AudioStreamPlayer bgm;
+	[Export] public AudioStreamPlayer sound;
+	[Export] public AudioUI ui;
 	
 	public float total_mul;
 	public float bgm_mul;

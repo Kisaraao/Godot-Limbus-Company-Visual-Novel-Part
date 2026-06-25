@@ -11,6 +11,9 @@ public partial class Content : Control
 	[Export] TextureRect background;
 	[Export] Label content;
 
+	public delegate void EventHandler();
+	public event EventHandler typing_end;
+
 	public override void _Process(double delta)
 	{
 		if (!typing) return;
@@ -21,7 +24,10 @@ public partial class Content : Control
 			total_time -= print_speed;
 		}
 
-		if (current_char_index >= origin_str.Length) typing = false;
+		if (current_char_index < origin_str.Length) return;
+		
+		typing = false;
+		typing_end.Invoke();
 	}
 
 	public void switch_text(string str)

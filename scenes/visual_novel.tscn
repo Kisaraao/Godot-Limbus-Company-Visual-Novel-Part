@@ -1,41 +1,43 @@
 [gd_scene format=3 uid="uid://bkonq7nts2hd"]
 
-[ext_resource type="Script" uid="uid://35qxtk52effj" path="res://scripts/GameManager.cs" id="1_f6ptj"]
-[ext_resource type="FontFile" uid="uid://h8qv423ypm73" path="res://font/SarasaUiSC-Bold.ttf" id="1_wtcfe"]
-[ext_resource type="Resource" uid="uid://dpba4j4bi3k5" path="res://stories/ticket.tres" id="2_diulx"]
-[ext_resource type="FontFile" uid="uid://caltks5x77ake" path="res://font/SarasaUiSC-SemiBold.ttf" id="2_rnjyy"]
-[ext_resource type="Texture2D" uid="uid://do54sxjd7smq4" path="res://img/ui/cover.png" id="3_3m5ht"]
-[ext_resource type="Texture2D" uid="uid://bjkxadhrb1ojt" path="res://img/ui/ui2.png" id="3_04qyp"]
-[ext_resource type="PackedScene" uid="uid://e2umq3qjpcxk" path="res://scenes/dialogue_hisitory.tscn" id="3_diulx"]
-[ext_resource type="Texture2D" uid="uid://r25be2riy8vc" path="res://img/background/Story_thumb.webp" id="3_nuk1v"]
-[ext_resource type="Texture2D" uid="uid://b7jnt5stdj47u" path="res://img/ui/ui1.png" id="4_j7wrs"]
-[ext_resource type="Script" uid="uid://c887oxeswxu0q" path="res://scripts/CharacterManager.cs" id="4_wpu3o"]
-[ext_resource type="Texture2D" uid="uid://br1ddcrllwsin" path="res://img/ui/ui4.png" id="5_dubn7"]
-[ext_resource type="Script" uid="uid://bs1pvs86xgcr6" path="res://scripts/Content.cs" id="6_08kqv"]
-[ext_resource type="Texture2D" uid="uid://dsgc5bcohq1uh" path="res://img/ui/ui3.png" id="7_fws66"]
-[ext_resource type="Script" uid="uid://c2hfqvx8pec3d" path="res://scripts/Speaker.cs" id="10_xtx0q"]
-[ext_resource type="Script" uid="uid://c7cwyp18k5ngd" path="res://scripts/PlaceContent.cs" id="14_ifa78"]
-[ext_resource type="Texture2D" uid="uid://ctlilddk5h4nn" path="res://img/ui/place_label.png" id="14_unr0g"]
-[ext_resource type="Script" uid="uid://dl62b30dnkllw" path="res://scripts/Camera.cs" id="14_xtx0q"]
-[ext_resource type="Texture2D" uid="uid://b1ok8w5xpdr3c" path="res://img/ui/btn_hide_ui.png" id="15_x63s8"]
-[ext_resource type="Script" uid="uid://b3gsce5mlroai" path="res://scripts/AudioManager.cs" id="16_3kg8w"]
-[ext_resource type="Texture2D" uid="uid://bdupr7sgj5t12" path="res://img/ui/bar.png" id="16_22dhx"]
-[ext_resource type="Texture2D" uid="uid://b3e6wdtwupbv" path="res://img/ui/ui5.png" id="16_qv8l0"]
-[ext_resource type="Texture2D" uid="uid://bi2nuklxmsp54" path="res://img/ui/btn_menu.png" id="18_k6u5g"]
-[ext_resource type="Script" uid="uid://u4loda6i5t2w" path="res://scripts/ButtonMenu.cs" id="19_coh8c"]
-[ext_resource type="Texture2D" uid="uid://c4xspxeg6kj4f" path="res://img/ui/btn_history.png" id="20_kmyi7"]
-[ext_resource type="Texture2D" uid="uid://04oav8ll1ckb" path="res://img/ui/btn_autoplay.png" id="21_22dhx"]
-[ext_resource type="Texture2D" uid="uid://d2l8fkwvh4gp6" path="res://img/ui/btn_skip.png" id="22_diulx"]
-[ext_resource type="Texture2D" uid="uid://dr51v41goi71d" path="res://img/ui/btn_config.png" id="23_nuk1v"]
-[ext_resource type="Script" uid="uid://bldkmobhgph6f" path="res://scripts/Filter.cs" id="24_g3arh"]
-[ext_resource type="PackedScene" uid="uid://bbrbulgg3uydo" path="res://scenes/settings.tscn" id="27_jt3n0"]
-[ext_resource type="AudioStream" uid="uid://bdugii64ecac3" path="res://audio/sound/click.mp3" id="27_l0qat"]
-[ext_resource type="Texture2D" uid="uid://swa4t1pajaop" path="res://img/ui/arrow.png" id="28_nuk1v"]
-[ext_resource type="Script" uid="uid://dab7tc6smps6f" path="res://scripts/AudioUI.cs" id="28_wpu3o"]
-[ext_resource type="Script" uid="uid://cujjejsgtwsoj" path="res://scripts/Mouse.cs" id="29_l0qat"]
+[ext_resource type="Script" uid="uid://35qxtk52effj" path="res://scripts/GameManager.cs" id="1_ob1se"]
+[ext_resource type="Resource" uid="uid://dpba4j4bi3k5" path="res://stories/ticket.tres" id="2_t181x"]
+[ext_resource type="Texture2D" uid="uid://r25be2riy8vc" path="res://img/background/Story_thumb.webp" id="3_e4veq"]
+[ext_resource type="PackedScene" uid="uid://epwcl1uvd6ff" path="res://scenes/selecting_level.tscn" id="3_t181x"]
+[ext_resource type="Script" uid="uid://c887oxeswxu0q" path="res://scripts/CharacterManager.cs" id="4_pv05h"]
+[ext_resource type="Texture2D" uid="uid://do54sxjd7smq4" path="res://img/ui/cover.png" id="5_yre48"]
+[ext_resource type="Script" uid="uid://bs1pvs86xgcr6" path="res://scripts/Content.cs" id="6_p2uxa"]
+[ext_resource type="Texture2D" uid="uid://br1ddcrllwsin" path="res://img/ui/ui4.png" id="7_ibo8u"]
+[ext_resource type="FontFile" uid="uid://caltks5x77ake" path="res://font/SarasaUiSC-SemiBold.ttf" id="8_m7fpp"]
+[ext_resource type="Script" uid="uid://c2hfqvx8pec3d" path="res://scripts/Speaker.cs" id="9_crtg1"]
+[ext_resource type="Texture2D" uid="uid://b7jnt5stdj47u" path="res://img/ui/ui1.png" id="10_ey4ci"]
+[ext_resource type="Texture2D" uid="uid://bjkxadhrb1ojt" path="res://img/ui/ui2.png" id="11_dnpp5"]
+[ext_resource type="FontFile" uid="uid://h8qv423ypm73" path="res://font/SarasaUiSC-Bold.ttf" id="12_nkaax"]
+[ext_resource type="Script" uid="uid://c7cwyp18k5ngd" path="res://scripts/PlaceContent.cs" id="13_5pip0"]
+[ext_resource type="Texture2D" uid="uid://ctlilddk5h4nn" path="res://img/ui/place_label.png" id="14_q4ytx"]
+[ext_resource type="Texture2D" uid="uid://dsgc5bcohq1uh" path="res://img/ui/ui3.png" id="15_b0ah5"]
+[ext_resource type="Texture2D" uid="uid://bdupr7sgj5t12" path="res://img/ui/bar.png" id="16_7hmy4"]
+[ext_resource type="Texture2D" uid="uid://b3e6wdtwupbv" path="res://img/ui/ui5.png" id="17_nmelp"]
+[ext_resource type="Texture2D" uid="uid://bi2nuklxmsp54" path="res://img/ui/btn_menu.png" id="18_3hw4u"]
+[ext_resource type="Script" uid="uid://u4loda6i5t2w" path="res://scripts/ButtonMenu.cs" id="19_p6wn2"]
+[ext_resource type="Texture2D" uid="uid://dr51v41goi71d" path="res://img/ui/btn_config.png" id="20_if0jo"]
+[ext_resource type="Texture2D" uid="uid://b1ok8w5xpdr3c" path="res://img/ui/btn_hide_ui.png" id="21_50i6c"]
+[ext_resource type="Texture2D" uid="uid://c4xspxeg6kj4f" path="res://img/ui/btn_history.png" id="22_et8rn"]
+[ext_resource type="Texture2D" uid="uid://04oav8ll1ckb" path="res://img/ui/btn_autoplay.png" id="23_quycx"]
+[ext_resource type="Texture2D" uid="uid://d2l8fkwvh4gp6" path="res://img/ui/btn_skip.png" id="24_a8axx"]
+[ext_resource type="Script" uid="uid://bldkmobhgph6f" path="res://scripts/Filter.cs" id="25_h1otn"]
+[ext_resource type="PackedScene" uid="uid://e2umq3qjpcxk" path="res://scenes/dialogue_hisitory.tscn" id="26_oethx"]
+[ext_resource type="PackedScene" uid="uid://bbrbulgg3uydo" path="res://scenes/settings.tscn" id="27_a2lqo"]
+[ext_resource type="PackedScene" uid="uid://bjbjvy0q5uqwo" path="res://scenes/skip.tscn" id="28_86t5s"]
+[ext_resource type="Script" uid="uid://dl62b30dnkllw" path="res://scripts/Camera.cs" id="29_awyyw"]
+[ext_resource type="Script" uid="uid://b3gsce5mlroai" path="res://scripts/AudioManager.cs" id="30_j56ba"]
+[ext_resource type="AudioStream" uid="uid://bdugii64ecac3" path="res://audio/sound/click.mp3" id="31_u3pqy"]
+[ext_resource type="Script" uid="uid://dab7tc6smps6f" path="res://scripts/AudioUI.cs" id="32_8v55i"]
+[ext_resource type="Texture2D" uid="uid://swa4t1pajaop" path="res://img/ui/arrow.png" id="33_bqpwx"]
+[ext_resource type="Script" uid="uid://cujjejsgtwsoj" path="res://scripts/Mouse.cs" id="34_3wm4g"]
 
-[node name="Root" type="CanvasLayer" unique_id=985754036 node_paths=PackedStringArray("camera", "filter", "content", "speaker", "place_name", "buttons", "character_manager", "audio", "ui", "history", "settings", "timer_cool_down")]
-script = ExtResource("1_f6ptj")
+[node name="Root" type="CanvasLayer" unique_id=985754036 node_paths=PackedStringArray("camera", "filter", "content", "speaker", "place_name", "buttons", "character_manager", "audio", "ui", "history", "settings", "skip", "timer_cool_down")]
+script = ExtResource("1_ob1se")
 camera = NodePath("Camera")
 filter = NodePath("ui/Control/ColorRect")
 content = NodePath("ui/Control/Content")
@@ -47,8 +49,10 @@ audio = NodePath("audio")
 ui = NodePath("ui/Control")
 history = NodePath("ui/Control/Popups/History")
 settings = NodePath("ui/Control/Popups/Settings")
+skip = NodePath("ui/Control/Popups/Skip")
 timer_cool_down = NodePath("ui/Control/Content/TimerCoolDown")
-story = ExtResource("2_diulx")
+story = ExtResource("2_t181x")
+selecting_level_scene = ExtResource("3_t181x")
 
 [node name="Background" type="CanvasLayer" parent="." unique_id=637188220]
 follow_viewport_enabled = true
@@ -62,13 +66,13 @@ anchor_bottom = 0.9212963
 offset_right = 384.0
 offset_bottom = 216.0
 scale = Vector2(0.8, 0.8)
-texture = ExtResource("3_nuk1v")
+texture = ExtResource("3_e4veq")
 metadata/_edit_use_anchors_ = true
 
 [node name="characters" type="CanvasLayer" parent="." unique_id=1514502212]
 layer = 3
 follow_viewport_enabled = true
-script = ExtResource("4_wpu3o")
+script = ExtResource("4_pv05h")
 
 [node name="ui" type="CanvasLayer" parent="." unique_id=641361540]
 layer = 5
@@ -90,13 +94,13 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
-texture = ExtResource("3_3m5ht")
+texture = ExtResource("5_yre48")
 metadata/_edit_lock_ = true
 
 [node name="Content" type="Control" parent="ui/Control" unique_id=1958305035 node_paths=PackedStringArray("background", "content")]
 layout_mode = 1
 anchors_preset = 0
-script = ExtResource("6_08kqv")
+script = ExtResource("6_p2uxa")
 background = NodePath("Background")
 content = NodePath("Content")
 
@@ -109,7 +113,7 @@ offset_right = 1704.0
 offset_bottom = 1080.0
 grow_horizontal = 2
 grow_vertical = 2
-texture = ExtResource("5_dubn7")
+texture = ExtResource("7_ibo8u")
 
 [node name="Content" type="Label" parent="ui/Control/Content" unique_id=365649734]
 layout_mode = 1
@@ -122,7 +126,7 @@ theme_override_colors/font_color = Color(0.93246573, 0.803684, 0.6393559, 1)
 theme_override_colors/font_outline_color = Color(0.4670772, 0.39319018, 0.30885565, 1)
 theme_override_constants/line_spacing = -3
 theme_override_constants/outline_size = 3
-theme_override_fonts/font = ExtResource("2_rnjyy")
+theme_override_fonts/font = ExtResource("8_m7fpp")
 theme_override_font_sizes/font_size = 28
 text = "取出■■草中的■■■，并立刻将■■研磨投入■■中，■■■需要在含有■■■的瞬间投入■■，且需添加■■的■之气息，■■■死尸需要使用■季后的■■■骸骨并在■■■状态下使用■■■进行混合。添加■■鲸油，■■■需要在不切割情况下萃取出■■■■并■■接触■■，黏度维持在■■■以上。需要制备后时长不超过■■■■的■■■■■■■■，在将其粉碎前使其维持■■■状态并在■■■■■之下■■。"
 horizontal_alignment = 1
@@ -134,7 +138,7 @@ wait_time = 0.5
 
 [node name="Speaker" type="Control" parent="ui/Control" unique_id=1461464320 node_paths=PackedStringArray("background", "badge", "title", "speaker")]
 anchors_preset = 0
-script = ExtResource("10_xtx0q")
+script = ExtResource("9_crtg1")
 background = NodePath("Background")
 badge = NodePath("Badge")
 title = NodePath("Title")
@@ -148,7 +152,7 @@ offset_top = 856.0
 offset_right = 327.0
 offset_bottom = 938.0
 rotation = -0.12217305
-texture = ExtResource("4_j7wrs")
+texture = ExtResource("10_ey4ci")
 stretch_mode = 2
 metadata/_edit_use_anchors_ = true
 
@@ -157,7 +161,7 @@ layout_mode = 0
 offset_top = 782.0
 offset_right = 287.0
 offset_bottom = 934.0
-texture = ExtResource("3_04qyp")
+texture = ExtResource("11_dnpp5")
 stretch_mode = 2
 metadata/_edit_use_anchors_ = true
 
@@ -173,7 +177,7 @@ theme_override_colors/font_shadow_color = Color(0, 0, 0, 1)
 theme_override_constants/line_spacing = -5
 theme_override_constants/shadow_offset_x = 1
 theme_override_constants/shadow_offset_y = 1
-theme_override_fonts/font = ExtResource("1_wtcfe")
+theme_override_fonts/font = ExtResource("12_nkaax")
 theme_override_font_sizes/font_size = 22
 text = "我操你们他妈干嘛呢？他妈干嘛呢！！！"
 horizontal_alignment = 1
@@ -194,7 +198,7 @@ theme_override_colors/font_shadow_color = Color(0, 0, 0, 1)
 theme_override_constants/line_spacing = -5
 theme_override_constants/shadow_offset_x = 1
 theme_override_constants/shadow_offset_y = 1
-theme_override_fonts/font = ExtResource("1_wtcfe")
+theme_override_fonts/font = ExtResource("12_nkaax")
 theme_override_font_sizes/font_size = 32
 text = "正在卖酸奶的一般人类嘎子"
 horizontal_alignment = 1
@@ -204,7 +208,7 @@ metadata/_edit_use_anchors_ = true
 
 [node name="Place" type="Control" parent="ui/Control" unique_id=530888677 node_paths=PackedStringArray("background", "badge", "decoration", "place_content")]
 anchors_preset = 0
-script = ExtResource("14_ifa78")
+script = ExtResource("13_5pip0")
 background = NodePath("../../../Background/Background")
 badge = NodePath("Badge")
 decoration = NodePath("Decoration")
@@ -217,7 +221,7 @@ offset_top = 54.0
 offset_right = 393.0
 offset_bottom = 145.0
 rotation = -0.08726646
-texture = ExtResource("14_unr0g")
+texture = ExtResource("14_q4ytx")
 metadata/_edit_use_anchors_ = true
 
 [node name="Decoration" type="TextureRect" parent="ui/Control/Place" unique_id=1846268742]
@@ -226,7 +230,7 @@ anchors_preset = -1
 offset_left = 150.0
 offset_right = 235.0
 offset_bottom = 50.0
-texture = ExtResource("7_fws66")
+texture = ExtResource("15_b0ah5")
 stretch_mode = 2
 metadata/_edit_use_anchors_ = true
 
@@ -243,7 +247,7 @@ theme_override_colors/font_shadow_color = Color(0, 0, 0, 1)
 theme_override_constants/line_spacing = -5
 theme_override_constants/shadow_offset_x = 1
 theme_override_constants/shadow_offset_y = 1
-theme_override_fonts/font = ExtResource("1_wtcfe")
+theme_override_fonts/font = ExtResource("12_nkaax")
 theme_override_font_sizes/font_size = 32
 text = "我们的生态面包店，究竟会变成什么样子……"
 horizontal_alignment = 1
@@ -264,7 +268,7 @@ offset_top = 50.0
 offset_right = 1831.0
 offset_bottom = 94.0
 layout_direction = 2
-texture = ExtResource("16_22dhx")
+texture = ExtResource("16_7hmy4")
 expand_mode = 2
 
 [node name="BarHead" type="TextureRect" parent="ui/Control/Button" unique_id=1299271008]
@@ -274,7 +278,7 @@ anchor_left = 45.775
 anchor_top = 0.85
 anchor_right = 48.0
 anchor_bottom = 2.75
-texture = ExtResource("16_qv8l0")
+texture = ExtResource("17_nmelp")
 expand_mode = 2
 metadata/_edit_use_anchors_ = true
 
@@ -285,9 +289,9 @@ anchor_top = 0.75
 anchor_right = 45.9
 anchor_bottom = 3.0
 toggle_mode = true
-icon = ExtResource("18_k6u5g")
+icon = ExtResource("18_3hw4u")
 flat = true
-script = ExtResource("19_coh8c")
+script = ExtResource("19_p6wn2")
 btn_skip = NodePath("../ButtonSkip")
 btn_autoplay = NodePath("../ButtonAutoplay")
 btn_history = NodePath("../ButtonHistory")
@@ -303,7 +307,7 @@ offset_left = 1649.0
 offset_top = 31.0
 offset_right = 1739.0
 offset_bottom = 120.0
-icon = ExtResource("23_nuk1v")
+icon = ExtResource("20_if0jo")
 flat = true
 
 [node name="ButtonHideUI" type="Button" parent="ui/Control/Button" unique_id=751494782]
@@ -314,7 +318,7 @@ anchor_left = 38.85
 anchor_top = 0.75
 anchor_right = 41.125
 anchor_bottom = 3.0
-icon = ExtResource("15_x63s8")
+icon = ExtResource("21_50i6c")
 flat = true
 metadata/_edit_use_anchors_ = true
 
@@ -325,7 +329,7 @@ offset_left = 1459.0
 offset_top = 31.0
 offset_right = 1549.0
 offset_bottom = 119.0
-icon = ExtResource("20_kmyi7")
+icon = ExtResource("22_et8rn")
 flat = true
 
 [node name="ButtonAutoplay" type="Button" parent="ui/Control/Button" unique_id=1549536777]
@@ -336,7 +340,7 @@ offset_top = 30.0
 offset_right = 1453.0
 offset_bottom = 120.0
 toggle_mode = true
-icon = ExtResource("21_22dhx")
+icon = ExtResource("23_quycx")
 flat = true
 
 [node name="ButtonSkip" type="Button" parent="ui/Control/Button" unique_id=1182187048]
@@ -346,7 +350,7 @@ offset_left = 1268.0
 offset_top = 31.0
 offset_right = 1358.0
 offset_bottom = 120.0
-icon = ExtResource("22_diulx")
+icon = ExtResource("24_a8axx")
 flat = true
 
 [node name="ColorRect" type="ColorRect" parent="ui/Control" unique_id=1003995466]
@@ -358,7 +362,7 @@ grow_horizontal = 2
 grow_vertical = 2
 mouse_filter = 2
 color = Color(1, 1, 1, 0)
-script = ExtResource("24_g3arh")
+script = ExtResource("25_h1otn")
 metadata/_edit_use_anchors_ = true
 metadata/_edit_lock_ = true
 
@@ -368,14 +372,19 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 mouse_filter = 2
 
-[node name="History" parent="ui/Control/Popups" unique_id=748955722 node_paths=PackedStringArray("voice", "audio") instance=ExtResource("3_diulx")]
+[node name="History" parent="ui/Control/Popups" unique_id=748955722 node_paths=PackedStringArray("voice", "audio") instance=ExtResource("26_oethx")]
 initial_position = 2
 visible = false
 voice = NodePath("../../../../audio/Voice")
 audio = NodePath("../../../../audio")
 
-[node name="Settings" parent="ui/Control/Popups" unique_id=824280376 node_paths=PackedStringArray("audio") instance=ExtResource("27_jt3n0")]
+[node name="Settings" parent="ui/Control/Popups" unique_id=824280376 node_paths=PackedStringArray("audio") instance=ExtResource("27_a2lqo")]
 visible = false
+audio = NodePath("../../../../audio")
+
+[node name="Skip" parent="ui/Control/Popups" unique_id=35594976 node_paths=PackedStringArray("manager", "audio") instance=ExtResource("28_86t5s")]
+visible = false
+manager = NodePath("../../../..")
 audio = NodePath("../../../../audio")
 
 [node name="Camera" type="Camera2D" parent="." unique_id=846416779]
@@ -384,11 +393,11 @@ ignore_rotation = false
 limit_enabled = false
 position_smoothing_enabled = true
 rotation_smoothing_enabled = true
-script = ExtResource("14_xtx0q")
+script = ExtResource("29_awyyw")
 metadata/_edit_lock_ = true
 
 [node name="audio" type="CanvasLayer" parent="." unique_id=9009672 node_paths=PackedStringArray("voice", "bgm", "sound", "ui")]
-script = ExtResource("16_3kg8w")
+script = ExtResource("30_j56ba")
 voice = NodePath("Voice")
 bgm = NodePath("Bgm")
 sound = NodePath("Sound")
@@ -402,9 +411,9 @@ volume_db = -10.0
 [node name="Bgm" type="AudioStreamPlayer" parent="audio" unique_id=1410432910]
 
 [node name="UI" type="AudioStreamPlayer" parent="audio" unique_id=272578537]
-stream = ExtResource("27_l0qat")
+stream = ExtResource("31_u3pqy")
 volume_db = 10.0
-script = ExtResource("28_wpu3o")
+script = ExtResource("32_8v55i")
 
 [node name="Mouse" type="CanvasLayer" parent="." unique_id=520989835]
 layer = 999999
@@ -414,10 +423,10 @@ z_index = 999
 offset_right = 40.0
 offset_bottom = 40.0
 mouse_filter = 2
-texture = ExtResource("28_nuk1v")
+texture = ExtResource("33_bqpwx")
 expand_mode = 2
 stretch_mode = 2
-script = ExtResource("29_l0qat")
+script = ExtResource("34_3wm4g")
 
 [connection signal="gui_input" from="ui/Control" to="." method="_on_control_gui_input"]
 [connection signal="mouse_entered" from="ui/Control/Button/ButtonMenu" to="ui/Control/Button/ButtonMenu" method="_on_mouse_entered"]
@@ -432,6 +441,8 @@ script = ExtResource("29_l0qat")
 [connection signal="toggled" from="ui/Control/Button/ButtonAutoplay" to="." method="_on_button_autoplay_toggled"]
 [connection signal="toggled" from="ui/Control/Button/ButtonAutoplay" to="ui/Control/Button/ButtonMenu" method="_on_button_autoplay_toggled"]
 [connection signal="mouse_entered" from="ui/Control/Button/ButtonSkip" to="ui/Control/Button/ButtonMenu" method="_on_button_skip_mouse_entered"]
+[connection signal="pressed" from="ui/Control/Button/ButtonSkip" to="." method="_on_button_skip_pressed"]
 [connection signal="about_to_popup" from="ui/Control/Popups/History" to="." method="_on_history_about_to_popup"]
 [connection signal="popup_hide" from="ui/Control/Popups/History" to="." method="_on_history_popup_hide"]
 [connection signal="popup_hide" from="ui/Control/Popups/Settings" to="." method="_on_settings_popup_hide"]
+[connection signal="popup_hide" from="ui/Control/Popups/Skip" to="." method="_on_skip_popup_hide"]
