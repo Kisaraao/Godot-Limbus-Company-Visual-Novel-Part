@@ -7,24 +7,12 @@
 [ext_resource type="Script" uid="uid://c887oxeswxu0q" path="res://scripts/CharacterManager.cs" id="4_pv05h"]
 [ext_resource type="Texture2D" uid="uid://do54sxjd7smq4" path="res://img/ui/cover.png" id="5_yre48"]
 [ext_resource type="Script" uid="uid://bs1pvs86xgcr6" path="res://scripts/Content.cs" id="6_p2uxa"]
-[ext_resource type="Texture2D" uid="uid://br1ddcrllwsin" path="res://img/ui/ui4.png" id="7_ibo8u"]
 [ext_resource type="FontFile" uid="uid://caltks5x77ake" path="res://font/SarasaUiSC-SemiBold.ttf" id="8_m7fpp"]
 [ext_resource type="Script" uid="uid://c2hfqvx8pec3d" path="res://scripts/Speaker.cs" id="9_crtg1"]
-[ext_resource type="Texture2D" uid="uid://b7jnt5stdj47u" path="res://img/ui/ui1.png" id="10_ey4ci"]
-[ext_resource type="Texture2D" uid="uid://bjkxadhrb1ojt" path="res://img/ui/ui2.png" id="11_dnpp5"]
 [ext_resource type="FontFile" uid="uid://h8qv423ypm73" path="res://font/SarasaUiSC-Bold.ttf" id="12_nkaax"]
 [ext_resource type="Script" uid="uid://c7cwyp18k5ngd" path="res://scripts/PlaceContent.cs" id="13_5pip0"]
-[ext_resource type="Texture2D" uid="uid://ctlilddk5h4nn" path="res://img/ui/place_label.png" id="14_q4ytx"]
-[ext_resource type="Texture2D" uid="uid://dsgc5bcohq1uh" path="res://img/ui/ui3.png" id="15_b0ah5"]
-[ext_resource type="Texture2D" uid="uid://bdupr7sgj5t12" path="res://img/ui/bar.png" id="16_7hmy4"]
-[ext_resource type="Texture2D" uid="uid://b3e6wdtwupbv" path="res://img/ui/ui5.png" id="17_nmelp"]
-[ext_resource type="Texture2D" uid="uid://bi2nuklxmsp54" path="res://img/ui/btn_menu.png" id="18_3hw4u"]
+[ext_resource type="Texture2D" uid="uid://bboep21yjyvq3" path="res://img/ui/atlas_ui_2.png" id="15_t181x"]
 [ext_resource type="Script" uid="uid://u4loda6i5t2w" path="res://scripts/ButtonMenu.cs" id="19_p6wn2"]
-[ext_resource type="Texture2D" uid="uid://dr51v41goi71d" path="res://img/ui/btn_config.png" id="20_if0jo"]
-[ext_resource type="Texture2D" uid="uid://b1ok8w5xpdr3c" path="res://img/ui/btn_hide_ui.png" id="21_50i6c"]
-[ext_resource type="Texture2D" uid="uid://c4xspxeg6kj4f" path="res://img/ui/btn_history.png" id="22_et8rn"]
-[ext_resource type="Texture2D" uid="uid://04oav8ll1ckb" path="res://img/ui/btn_autoplay.png" id="23_quycx"]
-[ext_resource type="Texture2D" uid="uid://d2l8fkwvh4gp6" path="res://img/ui/btn_skip.png" id="24_a8axx"]
 [ext_resource type="Script" uid="uid://bldkmobhgph6f" path="res://scripts/Filter.cs" id="25_h1otn"]
 [ext_resource type="PackedScene" uid="uid://e2umq3qjpcxk" path="res://scenes/dialogue_hisitory.tscn" id="26_oethx"]
 [ext_resource type="PackedScene" uid="uid://bbrbulgg3uydo" path="res://scenes/settings.tscn" id="27_a2lqo"]
@@ -33,8 +21,70 @@
 [ext_resource type="Script" uid="uid://b3gsce5mlroai" path="res://scripts/AudioManager.cs" id="30_j56ba"]
 [ext_resource type="AudioStream" uid="uid://bdugii64ecac3" path="res://audio/sound/click.mp3" id="31_u3pqy"]
 [ext_resource type="Script" uid="uid://dab7tc6smps6f" path="res://scripts/AudioUI.cs" id="32_8v55i"]
-[ext_resource type="Texture2D" uid="uid://swa4t1pajaop" path="res://img/ui/arrow.png" id="33_bqpwx"]
 [ext_resource type="Script" uid="uid://cujjejsgtwsoj" path="res://scripts/Mouse.cs" id="34_3wm4g"]
+[ext_resource type="Texture2D" uid="uid://d0o7q5mj1mm4v" path="res://img/ui/atlas_ui_1.png" id="34_t181x"]
+
+[sub_resource type="CompressedTexture2D" id="CompressedTexture2D_ue5ap"]
+load_path = "res://.godot/imported/atlas_ui_2.png-75bfddee3a7fce67bfe2f35075d9e0cc.ctex"
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_cbdyv"]
+atlas = SubResource("CompressedTexture2D_ue5ap")
+region = Rect2(8, 1232, 1497, 236)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_yre48"]
+atlas = ExtResource("15_t181x")
+region = Rect2(882, 844, 216, 78)
+
+[sub_resource type="CompressedTexture2D" id="CompressedTexture2D_cbdyv"]
+load_path = "res://.godot/imported/atlas_ui_2.png-75bfddee3a7fce67bfe2f35075d9e0cc.ctex"
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_j3uxw"]
+atlas = SubResource("CompressedTexture2D_cbdyv")
+region = Rect2(54, 1002, 285, 151)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_e4veq"]
+atlas = ExtResource("15_t181x")
+region = Rect2(9, 777, 368, 80)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_pv05h"]
+atlas = ExtResource("15_t181x")
+region = Rect2(413, 1062, 85, 49)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_ue5ap"]
+atlas = ExtResource("34_t181x")
+region = Rect2(43, 1, 45, 43)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_2v3hy"]
+atlas = ExtResource("15_t181x")
+region = Rect2(640, 1062, 88, 75)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_qlroj"]
+atlas = ExtResource("34_t181x")
+region = Rect2(175, 83, 82, 81)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_snxuf"]
+atlas = ExtResource("34_t181x")
+region = Rect2(685, 0, 82, 80)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_p2uxa"]
+atlas = ExtResource("34_t181x")
+region = Rect2(585, 1, 82, 81)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_gi5jc"]
+atlas = ExtResource("34_t181x")
+region = Rect2(491, 0, 81, 80)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_lpxjx"]
+atlas = ExtResource("34_t181x")
+region = Rect2(397, 1, 81, 80)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_15sja"]
+atlas = ExtResource("34_t181x")
+region = Rect2(299, 0, 80, 80)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_t181x"]
+atlas = ExtResource("34_t181x")
+region = Rect2(0, 1, 31, 58)
 
 [node name="Root" type="CanvasLayer" unique_id=985754036 node_paths=PackedStringArray("camera", "filter", "content", "speaker", "place_name", "buttons", "character_manager", "audio", "ui", "history", "settings", "skip", "timer_cool_down")]
 script = ExtResource("1_ob1se")
@@ -113,7 +163,7 @@ offset_right = 1704.0
 offset_bottom = 1080.0
 grow_horizontal = 2
 grow_vertical = 2
-texture = ExtResource("7_ibo8u")
+texture = SubResource("AtlasTexture_cbdyv")
 
 [node name="Content" type="Label" parent="ui/Control/Content" unique_id=365649734]
 layout_mode = 1
@@ -152,7 +202,7 @@ offset_top = 856.0
 offset_right = 327.0
 offset_bottom = 938.0
 rotation = -0.12217305
-texture = ExtResource("10_ey4ci")
+texture = SubResource("AtlasTexture_yre48")
 stretch_mode = 2
 metadata/_edit_use_anchors_ = true
 
@@ -161,7 +211,7 @@ layout_mode = 0
 offset_top = 782.0
 offset_right = 287.0
 offset_bottom = 934.0
-texture = ExtResource("11_dnpp5")
+texture = SubResource("AtlasTexture_j3uxw")
 stretch_mode = 2
 metadata/_edit_use_anchors_ = true
 
@@ -221,7 +271,7 @@ offset_top = 54.0
 offset_right = 393.0
 offset_bottom = 145.0
 rotation = -0.08726646
-texture = ExtResource("14_q4ytx")
+texture = SubResource("AtlasTexture_e4veq")
 metadata/_edit_use_anchors_ = true
 
 [node name="Decoration" type="TextureRect" parent="ui/Control/Place" unique_id=1846268742]
@@ -230,7 +280,7 @@ anchors_preset = -1
 offset_left = 150.0
 offset_right = 235.0
 offset_bottom = 50.0
-texture = ExtResource("15_b0ah5")
+texture = SubResource("AtlasTexture_pv05h")
 stretch_mode = 2
 metadata/_edit_use_anchors_ = true
 
@@ -238,9 +288,9 @@ metadata/_edit_use_anchors_ = true
 layout_mode = 1
 anchors_preset = -1
 offset_left = 19.652205
-offset_top = 60.069077
+offset_top = 63.069077
 offset_right = 369.6522
-offset_bottom = 133.06908
+offset_bottom = 136.06908
 rotation = -0.08726646
 theme_override_colors/font_color = Color(0.93333334, 0.8039216, 0.6392157, 1)
 theme_override_colors/font_shadow_color = Color(0, 0, 0, 1)
@@ -268,7 +318,7 @@ offset_top = 50.0
 offset_right = 1831.0
 offset_bottom = 94.0
 layout_direction = 2
-texture = ExtResource("16_7hmy4")
+texture = SubResource("AtlasTexture_ue5ap")
 expand_mode = 2
 
 [node name="BarHead" type="TextureRect" parent="ui/Control/Button" unique_id=1299271008]
@@ -278,7 +328,7 @@ anchor_left = 45.775
 anchor_top = 0.85
 anchor_right = 48.0
 anchor_bottom = 2.75
-texture = ExtResource("17_nmelp")
+texture = SubResource("AtlasTexture_2v3hy")
 expand_mode = 2
 metadata/_edit_use_anchors_ = true
 
@@ -289,25 +339,25 @@ anchor_top = 0.75
 anchor_right = 45.9
 anchor_bottom = 3.0
 toggle_mode = true
-icon = ExtResource("18_3hw4u")
+icon = SubResource("AtlasTexture_qlroj")
 flat = true
 script = ExtResource("19_p6wn2")
 btn_skip = NodePath("../ButtonSkip")
 btn_autoplay = NodePath("../ButtonAutoplay")
 btn_history = NodePath("../ButtonHistory")
 btn_hide_ui = NodePath("../ButtonHideUI")
-btn_config = NodePath("../ButtonConfig")
+btn_config = NodePath("../ButtonSetting")
 bar = NodePath("../Bar")
 UI_sound = NodePath("../../../../audio/UI")
 
-[node name="ButtonConfig" type="Button" parent="ui/Control/Button" unique_id=2101749433]
+[node name="ButtonSetting" type="Button" parent="ui/Control/Button" unique_id=2101749433]
 visible = false
 layout_mode = 0
 offset_left = 1649.0
 offset_top = 31.0
 offset_right = 1739.0
 offset_bottom = 120.0
-icon = ExtResource("20_if0jo")
+icon = SubResource("AtlasTexture_snxuf")
 flat = true
 
 [node name="ButtonHideUI" type="Button" parent="ui/Control/Button" unique_id=751494782]
@@ -318,7 +368,7 @@ anchor_left = 38.85
 anchor_top = 0.75
 anchor_right = 41.125
 anchor_bottom = 3.0
-icon = ExtResource("21_50i6c")
+icon = SubResource("AtlasTexture_p2uxa")
 flat = true
 metadata/_edit_use_anchors_ = true
 
@@ -329,7 +379,7 @@ offset_left = 1459.0
 offset_top = 31.0
 offset_right = 1549.0
 offset_bottom = 119.0
-icon = ExtResource("22_et8rn")
+icon = SubResource("AtlasTexture_gi5jc")
 flat = true
 
 [node name="ButtonAutoplay" type="Button" parent="ui/Control/Button" unique_id=1549536777]
@@ -340,7 +390,7 @@ offset_top = 30.0
 offset_right = 1453.0
 offset_bottom = 120.0
 toggle_mode = true
-icon = ExtResource("23_quycx")
+icon = SubResource("AtlasTexture_lpxjx")
 flat = true
 
 [node name="ButtonSkip" type="Button" parent="ui/Control/Button" unique_id=1182187048]
@@ -350,7 +400,7 @@ offset_left = 1268.0
 offset_top = 31.0
 offset_right = 1358.0
 offset_bottom = 120.0
-icon = ExtResource("24_a8axx")
+icon = SubResource("AtlasTexture_15sja")
 flat = true
 
 [node name="ColorRect" type="ColorRect" parent="ui/Control" unique_id=1003995466]
@@ -382,7 +432,7 @@ audio = NodePath("../../../../audio")
 visible = false
 audio = NodePath("../../../../audio")
 
-[node name="Skip" parent="ui/Control/Popups" unique_id=35594976 node_paths=PackedStringArray("manager", "audio") instance=ExtResource("28_86t5s")]
+[node name="Skip" parent="ui/Control/Popups" unique_id=1714257639 node_paths=PackedStringArray("manager", "audio") instance=ExtResource("28_86t5s")]
 visible = false
 manager = NodePath("../../../..")
 audio = NodePath("../../../../audio")
@@ -420,19 +470,21 @@ layer = 999999
 
 [node name="TextureRect" type="TextureRect" parent="Mouse" unique_id=762964183]
 z_index = 999
-offset_right = 40.0
-offset_bottom = 40.0
+anchors_preset = -1
+anchor_right = 0.0296875
+anchor_bottom = 0.05277778
 mouse_filter = 2
-texture = ExtResource("33_bqpwx")
+texture = SubResource("AtlasTexture_t181x")
 expand_mode = 2
 stretch_mode = 2
 script = ExtResource("34_3wm4g")
+metadata/_edit_use_anchors_ = true
 
 [connection signal="gui_input" from="ui/Control" to="." method="_on_control_gui_input"]
 [connection signal="mouse_entered" from="ui/Control/Button/ButtonMenu" to="ui/Control/Button/ButtonMenu" method="_on_mouse_entered"]
 [connection signal="toggled" from="ui/Control/Button/ButtonMenu" to="ui/Control/Button/ButtonMenu" method="_on_toggled"]
-[connection signal="mouse_entered" from="ui/Control/Button/ButtonConfig" to="ui/Control/Button/ButtonMenu" method="_on_button_config_mouse_entered"]
-[connection signal="pressed" from="ui/Control/Button/ButtonConfig" to="." method="_on_settings_button_config_pressed"]
+[connection signal="mouse_entered" from="ui/Control/Button/ButtonSetting" to="ui/Control/Button/ButtonMenu" method="_on_button_config_mouse_entered"]
+[connection signal="pressed" from="ui/Control/Button/ButtonSetting" to="." method="_on_settings_button_config_pressed"]
 [connection signal="mouse_entered" from="ui/Control/Button/ButtonHideUI" to="ui/Control/Button/ButtonMenu" method="_on_button_hide_ui_mouse_entered"]
 [connection signal="pressed" from="ui/Control/Button/ButtonHideUI" to="." method="_on_button_pressed"]
 [connection signal="mouse_entered" from="ui/Control/Button/ButtonHistory" to="ui/Control/Button/ButtonMenu" method="_on_button_history_mouse_entered"]

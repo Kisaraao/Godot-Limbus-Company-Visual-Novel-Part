@@ -1,17 +1,31 @@
 [gd_scene format=3 uid="uid://cvnt2h2x2hml0"]
 
-[ext_resource type="Texture2D" uid="uid://1hmfl7dwobnm" path="res://img/ui/portrait_background.png" id="1_bmw5x"]
 [ext_resource type="Script" uid="uid://de6qga6emxahb" path="res://scripts/Record.cs" id="1_fl1m8"]
 [ext_resource type="Shader" uid="uid://b73n1tdoiwfv0" path="res://shader/outline.gdshader" id="2_fl1m8"]
-[ext_resource type="Texture2D" uid="uid://di7uokcyuq1ir" path="res://img/ui/portrait.png" id="4_bp0cq"]
+[ext_resource type="Texture2D" uid="uid://bboep21yjyvq3" path="res://img/ui/atlas_ui_2.png" id="4_1d2kr"]
 [ext_resource type="FontFile" uid="uid://caltks5x77ake" path="res://font/SarasaUiSC-SemiBold.ttf" id="5_54cvv"]
 [ext_resource type="FontFile" uid="uid://h8qv423ypm73" path="res://font/SarasaUiSC-Bold.ttf" id="6_gufn7"]
-[ext_resource type="Texture2D" uid="uid://dxx420tv6o6tq" path="res://img/ui/btn_play.png" id="7_kq5x1"]
+[ext_resource type="Texture2D" uid="uid://d0o7q5mj1mm4v" path="res://img/ui/atlas_ui_1.png" id="7_1d2kr"]
 [ext_resource type="Script" uid="uid://cl05irxqyem1r" path="res://scripts/RecordVoiceButton.cs" id="9_1d2kr"]
-[ext_resource type="Texture2D" uid="uid://duiqihh2rihpx" path="res://img/ui/line.png" id="9_bp0cq"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_fl1m8"]
+atlas = ExtResource("4_1d2kr")
+region = Rect2(704, 823, 124, 124)
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_jtv0a"]
 shader = ExtResource("2_fl1m8")
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_1d2kr"]
+atlas = ExtResource("4_1d2kr")
+region = Rect2(504, 821, 126, 124)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_bp0cq"]
+atlas = ExtResource("7_1d2kr")
+region = Rect2(84, 92, 63, 63)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_54cvv"]
+atlas = ExtResource("4_1d2kr")
+region = Rect2(0, 723, 1013, 1)
 
 [node name="VBoxContainer" type="VBoxContainer" unique_id=487352536 node_paths=PackedStringArray("content", "name", "portrait", "background", "btn_voice")]
 offset_right = 905.0
@@ -38,7 +52,7 @@ alignment = 1
 [node name="Portrait" type="TextureRect" parent="HBoxContainer/VBoxContainer" unique_id=94053167]
 clip_children = 1
 layout_mode = 2
-texture = ExtResource("1_bmw5x")
+texture = SubResource("AtlasTexture_fl1m8")
 stretch_mode = 3
 metadata/_edit_use_anchors_ = true
 
@@ -46,10 +60,9 @@ metadata/_edit_use_anchors_ = true
 custom_minimum_size = Vector2(126, 126)
 layout_mode = 1
 anchors_preset = -1
-anchor_left = -1.0634921
-anchor_right = 2.6587303
-anchor_bottom = 2.8125887
-offset_bottom = -1.7609863
+anchor_right = 1.0158731
+anchor_bottom = 1.0212858
+offset_bottom = -0.6394348
 scale = Vector2(1, 1.0050749)
 color = Color(0.1764706, 0.101960786, 0.11764706, 1)
 metadata/_edit_use_anchors_ = true
@@ -67,7 +80,7 @@ anchors_preset = -1
 anchor_top = -0.008064547
 anchor_right = 1.0
 anchor_bottom = 1.0
-texture = ExtResource("4_bp0cq")
+texture = SubResource("AtlasTexture_1d2kr")
 stretch_mode = 3
 metadata/_edit_use_anchors_ = true
 
@@ -100,7 +113,7 @@ metadata/_edit_use_anchors_ = true
 custom_minimum_size = Vector2(50, 0)
 layout_mode = 2
 size_flags_vertical = 4
-icon = ExtResource("7_kq5x1")
+icon = SubResource("AtlasTexture_bp0cq")
 flat = true
 icon_alignment = 1
 script = ExtResource("9_1d2kr")
@@ -108,7 +121,7 @@ metadata/_edit_use_anchors_ = true
 
 [node name="TextureRect" type="TextureRect" parent="." unique_id=1018331328]
 layout_mode = 2
-texture = ExtResource("9_bp0cq")
+texture = SubResource("AtlasTexture_54cvv")
 expand_mode = 5
 
 [connection signal="mouse_entered" from="HBoxContainer/Button" to="." method="_on_button_mouse_entered"]

@@ -245,6 +245,7 @@ public partial class GameManager : CanvasLayer
 
 	private void switch_to_selecting()
 	{
+		QueueFree();
 		GetTree().ChangeSceneToPacked(selecting_level_scene);
 	}
 }

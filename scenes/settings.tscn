@@ -1,15 +1,19 @@
 [gd_scene format=3 uid="uid://bbrbulgg3uydo"]
 
-[ext_resource type="Texture2D" uid="uid://bomrik3cx1rtr" path="res://img/ui/history_background.png" id="1_5p8wc"]
 [ext_resource type="Script" uid="uid://7ueax5bclv2o" path="res://scripts/SettingsPopup.cs" id="1_gjs24"]
+[ext_resource type="Texture2D" uid="uid://bboep21yjyvq3" path="res://img/ui/atlas_ui_2.png" id="2_83j8s"]
 [ext_resource type="FontFile" uid="uid://h8qv423ypm73" path="res://font/SarasaUiSC-Bold.ttf" id="2_r6d6q"]
-[ext_resource type="Texture2D" uid="uid://bxi6dn5xyykbt" path="res://img/ui/btn_audio_on.png" id="3_6wm04"]
-[ext_resource type="Texture2D" uid="uid://c6ykh0tambyes" path="res://img/ui/drag_handle.png" id="3_f4mfi"]
-[ext_resource type="Texture2D" uid="uid://bg8yr2ifeg1pd" path="res://img/ui/btn_audio_off.png" id="4_gis3k"]
-[ext_resource type="Texture2D" uid="uid://duiqihh2rihpx" path="res://img/ui/line.png" id="5_es4n0"]
-[ext_resource type="Texture2D" uid="uid://ty0rmu84ljxq" path="res://img/ui/btn_background_long.png" id="7_83j8s"]
+[ext_resource type="Texture2D" uid="uid://d0o7q5mj1mm4v" path="res://img/ui/atlas_ui_1.png" id="4_gjs24"]
 
 [sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_36l1p"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_i5byv"]
+atlas = ExtResource("2_83j8s")
+region = Rect2(0, 0, 1207, 650)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_gjs24"]
+atlas = ExtResource("4_gjs24")
+region = Rect2(1, 100, 41, 46)
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_f4mfi"]
 content_margin_left = 4.0
@@ -31,6 +35,26 @@ content_margin_top = 8.0
 content_margin_right = 4.0
 content_margin_bottom = 8.0
 bg_color = Color(0, 0, 0, 1)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_am25x"]
+atlas = ExtResource("4_gjs24")
+region = Rect2(204, 2, 73, 72)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_gis3k"]
+atlas = ExtResource("4_gjs24")
+region = Rect2(108, 2, 73, 72)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_vqjgx"]
+atlas = ExtResource("2_83j8s")
+region = Rect2(0, 723, 1013, 1)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_f4mfi"]
+atlas = ExtResource("2_83j8s")
+region = Rect2(854, 1078, 462, 62)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_83j8s"]
+atlas = ExtResource("2_83j8s")
+region = Rect2(854, 1078, 462, 62)
 
 [node name="PopupPanel" type="PopupPanel" unique_id=824280376 node_paths=PackedStringArray("total", "bgm", "sound", "voice", "btn_confirm", "btn_default", "body")]
 oversampling_override = 1.0
@@ -64,7 +88,7 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 offset_right = -1167.0
 offset_bottom = -611.0
-texture = ExtResource("1_5p8wc")
+texture = SubResource("AtlasTexture_i5byv")
 metadata/_edit_use_anchors_ = true
 
 [node name="VBoxContainer" type="VBoxContainer" parent="Control/Background" unique_id=1577017470]
@@ -123,10 +147,10 @@ custom_minimum_size = Vector2(500, 25)
 layout_mode = 2
 size_flags_vertical = 4
 layout_direction = 2
-theme_override_icons/grabber = ExtResource("3_f4mfi")
-theme_override_icons/grabber_highlight = ExtResource("3_f4mfi")
-theme_override_icons/grabber_disabled = ExtResource("3_f4mfi")
-theme_override_icons/tick = ExtResource("3_f4mfi")
+theme_override_icons/grabber = SubResource("AtlasTexture_gjs24")
+theme_override_icons/grabber_highlight = SubResource("AtlasTexture_gjs24")
+theme_override_icons/grabber_disabled = SubResource("AtlasTexture_gjs24")
+theme_override_icons/tick = SubResource("AtlasTexture_gjs24")
 theme_override_styles/slider = SubResource("StyleBoxFlat_f4mfi")
 theme_override_styles/grabber_area = SubResource("StyleBoxFlat_es4n0")
 theme_override_styles/grabber_area_highlight = SubResource("StyleBoxFlat_es4n0")
@@ -137,12 +161,12 @@ scrollable = false
 
 [node name="Button" type="CheckButton" parent="Control/Background/VBoxContainer/ScrollContainer/VBoxContainer/Total/VBoxContainer/HBoxContainer" unique_id=466951562]
 layout_mode = 2
-theme_override_icons/checked = ExtResource("4_gis3k")
-theme_override_icons/unchecked = ExtResource("3_6wm04")
+theme_override_icons/checked = SubResource("AtlasTexture_am25x")
+theme_override_icons/unchecked = SubResource("AtlasTexture_gis3k")
 
 [node name="TextureRect" type="TextureRect" parent="Control/Background/VBoxContainer/ScrollContainer/VBoxContainer/Total/VBoxContainer" unique_id=157960485]
 layout_mode = 2
-texture = ExtResource("5_es4n0")
+texture = SubResource("AtlasTexture_vqjgx")
 expand_mode = 5
 
 [node name="BGM" type="HBoxContainer" parent="Control/Background/VBoxContainer/ScrollContainer/VBoxContainer" unique_id=1046299718]
@@ -173,10 +197,10 @@ custom_minimum_size = Vector2(500, 25)
 layout_mode = 2
 size_flags_vertical = 4
 layout_direction = 2
-theme_override_icons/grabber = ExtResource("3_f4mfi")
-theme_override_icons/grabber_highlight = ExtResource("3_f4mfi")
-theme_override_icons/grabber_disabled = ExtResource("3_f4mfi")
-theme_override_icons/tick = ExtResource("3_f4mfi")
+theme_override_icons/grabber = SubResource("AtlasTexture_gjs24")
+theme_override_icons/grabber_highlight = SubResource("AtlasTexture_gjs24")
+theme_override_icons/grabber_disabled = SubResource("AtlasTexture_gjs24")
+theme_override_icons/tick = SubResource("AtlasTexture_gjs24")
 theme_override_styles/slider = SubResource("StyleBoxFlat_f4mfi")
 theme_override_styles/grabber_area = SubResource("StyleBoxFlat_es4n0")
 theme_override_styles/grabber_area_highlight = SubResource("StyleBoxFlat_es4n0")
@@ -187,12 +211,12 @@ scrollable = false
 
 [node name="Button" type="CheckButton" parent="Control/Background/VBoxContainer/ScrollContainer/VBoxContainer/BGM/VBoxContainer/HBoxContainer" unique_id=604482877]
 layout_mode = 2
-theme_override_icons/checked = ExtResource("4_gis3k")
-theme_override_icons/unchecked = ExtResource("3_6wm04")
+theme_override_icons/checked = SubResource("AtlasTexture_am25x")
+theme_override_icons/unchecked = SubResource("AtlasTexture_gis3k")
 
 [node name="TextureRect" type="TextureRect" parent="Control/Background/VBoxContainer/ScrollContainer/VBoxContainer/BGM/VBoxContainer" unique_id=31932117]
 layout_mode = 2
-texture = ExtResource("5_es4n0")
+texture = SubResource("AtlasTexture_vqjgx")
 expand_mode = 5
 
 [node name="Sound" type="HBoxContainer" parent="Control/Background/VBoxContainer/ScrollContainer/VBoxContainer" unique_id=1372335384]
@@ -223,10 +247,10 @@ custom_minimum_size = Vector2(500, 25)
 layout_mode = 2
 size_flags_vertical = 4
 layout_direction = 2
-theme_override_icons/grabber = ExtResource("3_f4mfi")
-theme_override_icons/grabber_highlight = ExtResource("3_f4mfi")
-theme_override_icons/grabber_disabled = ExtResource("3_f4mfi")
-theme_override_icons/tick = ExtResource("3_f4mfi")
+theme_override_icons/grabber = SubResource("AtlasTexture_gjs24")
+theme_override_icons/grabber_highlight = SubResource("AtlasTexture_gjs24")
+theme_override_icons/grabber_disabled = SubResource("AtlasTexture_gjs24")
+theme_override_icons/tick = SubResource("AtlasTexture_gjs24")
 theme_override_styles/slider = SubResource("StyleBoxFlat_f4mfi")
 theme_override_styles/grabber_area = SubResource("StyleBoxFlat_es4n0")
 theme_override_styles/grabber_area_highlight = SubResource("StyleBoxFlat_es4n0")
@@ -237,12 +261,12 @@ scrollable = false
 
 [node name="Button" type="CheckButton" parent="Control/Background/VBoxContainer/ScrollContainer/VBoxContainer/Sound/VBoxContainer/HBoxContainer" unique_id=1919538190]
 layout_mode = 2
-theme_override_icons/checked = ExtResource("4_gis3k")
-theme_override_icons/unchecked = ExtResource("3_6wm04")
+theme_override_icons/checked = SubResource("AtlasTexture_am25x")
+theme_override_icons/unchecked = SubResource("AtlasTexture_gis3k")
 
 [node name="TextureRect" type="TextureRect" parent="Control/Background/VBoxContainer/ScrollContainer/VBoxContainer/Sound/VBoxContainer" unique_id=872928155]
 layout_mode = 2
-texture = ExtResource("5_es4n0")
+texture = SubResource("AtlasTexture_vqjgx")
 expand_mode = 5
 
 [node name="Voice" type="HBoxContainer" parent="Control/Background/VBoxContainer/ScrollContainer/VBoxContainer" unique_id=1832649415]
@@ -273,10 +297,10 @@ custom_minimum_size = Vector2(500, 25)
 layout_mode = 2
 size_flags_vertical = 4
 layout_direction = 2
-theme_override_icons/grabber = ExtResource("3_f4mfi")
-theme_override_icons/grabber_highlight = ExtResource("3_f4mfi")
-theme_override_icons/grabber_disabled = ExtResource("3_f4mfi")
-theme_override_icons/tick = ExtResource("3_f4mfi")
+theme_override_icons/grabber = SubResource("AtlasTexture_gjs24")
+theme_override_icons/grabber_highlight = SubResource("AtlasTexture_gjs24")
+theme_override_icons/grabber_disabled = SubResource("AtlasTexture_gjs24")
+theme_override_icons/tick = SubResource("AtlasTexture_gjs24")
 theme_override_styles/slider = SubResource("StyleBoxFlat_f4mfi")
 theme_override_styles/grabber_area = SubResource("StyleBoxFlat_es4n0")
 theme_override_styles/grabber_area_highlight = SubResource("StyleBoxFlat_es4n0")
@@ -287,12 +311,12 @@ scrollable = false
 
 [node name="Button" type="CheckButton" parent="Control/Background/VBoxContainer/ScrollContainer/VBoxContainer/Voice/VBoxContainer/HBoxContainer" unique_id=983003886]
 layout_mode = 2
-theme_override_icons/checked = ExtResource("4_gis3k")
-theme_override_icons/unchecked = ExtResource("3_6wm04")
+theme_override_icons/checked = SubResource("AtlasTexture_am25x")
+theme_override_icons/unchecked = SubResource("AtlasTexture_gis3k")
 
 [node name="TextureRect" type="TextureRect" parent="Control/Background/VBoxContainer/ScrollContainer/VBoxContainer/Voice/VBoxContainer" unique_id=1994583060]
 layout_mode = 2
-texture = ExtResource("5_es4n0")
+texture = SubResource("AtlasTexture_vqjgx")
 expand_mode = 5
 
 [node name="Default" type="Button" parent="Control/Background/VBoxContainer/ScrollContainer/VBoxContainer" unique_id=165765025]
@@ -306,7 +330,7 @@ theme_override_colors/font_hover_color = Color(0, 0, 0, 1)
 theme_override_fonts/font = ExtResource("2_r6d6q")
 theme_override_font_sizes/font_size = 28
 text = "恢复默认"
-icon = ExtResource("7_83j8s")
+icon = SubResource("AtlasTexture_f4mfi")
 flat = true
 icon_alignment = 1
 expand_icon = true
@@ -325,7 +349,7 @@ theme_override_colors/font_hover_color = Color(0, 0, 0, 1)
 theme_override_fonts/font = ExtResource("2_r6d6q")
 theme_override_font_sizes/font_size = 28
 text = "确认"
-icon = ExtResource("7_83j8s")
+icon = SubResource("AtlasTexture_83j8s")
 flat = true
 icon_alignment = 1
 expand_icon = true
