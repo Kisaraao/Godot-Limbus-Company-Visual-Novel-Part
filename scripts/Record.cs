@@ -16,8 +16,7 @@ public partial class Record : VBoxContainer
 		content.Text = data.content;
 		name.Text = data.speaker.name;
 		background.Color = data.speaker.badge_color;
-		portrait.Texture = data.speaker.textures[0].texture;
-		portrait.Position = data.speaker.portrait_offset;
+		if (data.speaker.portrait != null) portrait.Texture = data.speaker.portrait;
 		btn_voice.Visible = data.voice != null;
 	}
 

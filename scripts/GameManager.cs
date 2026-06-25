@@ -39,6 +39,7 @@ public partial class GameManager : CanvasLayer
 		content.typing_end += () => { typing_end_time = total_time; };
 		ui.GrabFocus();
 
+		history.add_record(new DialogueRecord(story.dialogues[index].speaker, story.dialogues[index].content, story.dialogues[index].voice));
 		// on begin fade
 		if (story.dialogues[index].fade_begin)
 		{

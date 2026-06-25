@@ -1,8 +1,8 @@
 [gd_scene format=3 uid="uid://cvnt2h2x2hml0"]
 
 [ext_resource type="Script" uid="uid://de6qga6emxahb" path="res://scripts/Record.cs" id="1_fl1m8"]
-[ext_resource type="Shader" uid="uid://b73n1tdoiwfv0" path="res://shader/outline.gdshader" id="2_fl1m8"]
 [ext_resource type="Texture2D" uid="uid://bboep21yjyvq3" path="res://img/ui/atlas_ui_2.png" id="4_1d2kr"]
+[ext_resource type="Texture2D" uid="uid://cwoqja0ksw525" path="res://img/character/StoryLog_None_Extra.png" id="4_fl1m8"]
 [ext_resource type="FontFile" uid="uid://caltks5x77ake" path="res://font/SarasaUiSC-SemiBold.ttf" id="5_54cvv"]
 [ext_resource type="FontFile" uid="uid://h8qv423ypm73" path="res://font/SarasaUiSC-Bold.ttf" id="6_gufn7"]
 [ext_resource type="Texture2D" uid="uid://d0o7q5mj1mm4v" path="res://img/ui/atlas_ui_1.png" id="7_1d2kr"]
@@ -11,9 +11,6 @@
 [sub_resource type="AtlasTexture" id="AtlasTexture_fl1m8"]
 atlas = ExtResource("4_1d2kr")
 region = Rect2(704, 823, 124, 124)
-
-[sub_resource type="ShaderMaterial" id="ShaderMaterial_jtv0a"]
-shader = ExtResource("2_fl1m8")
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_1d2kr"]
 atlas = ExtResource("4_1d2kr")
@@ -68,18 +65,23 @@ color = Color(0.1764706, 0.101960786, 0.11764706, 1)
 metadata/_edit_use_anchors_ = true
 
 [node name="Character" type="TextureRect" parent="HBoxContainer/VBoxContainer/Portrait" unique_id=754083268]
-material = SubResource("ShaderMaterial_jtv0a")
 layout_mode = 1
 anchors_preset = -1
-scale = Vector2(0.4, 0.4)
+anchor_left = 0.0793651
+anchor_top = 0.04838713
+anchor_right = 0.89206344
+anchor_bottom = 0.8741936
+offset_right = 153.6
+offset_bottom = 153.59999
+scale = Vector2(0.42, 0.42)
+texture = ExtResource("4_fl1m8")
 metadata/_edit_use_anchors_ = true
 
 [node name="Border" type="TextureRect" parent="HBoxContainer/VBoxContainer/Portrait" unique_id=769841002]
 layout_mode = 1
 anchors_preset = -1
-anchor_top = -0.008064547
 anchor_right = 1.0
-anchor_bottom = 1.0
+anchor_bottom = 1.0080645
 texture = SubResource("AtlasTexture_1d2kr")
 stretch_mode = 3
 metadata/_edit_use_anchors_ = true

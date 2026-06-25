@@ -11,5 +11,5 @@ public partial class Character : Resource
     [Export] public Array<Character_Texture> textures;
     [Export] public Vector2 tex_common_scale = new Vector2(1, 1);
     [Export] public Vector2 tex_common_offset = Vector2.Zero;
-    [Export] public Vector2 portrait_offset = Vector2.Zero;
+    [Export] public Texture2D portrait;
 }
