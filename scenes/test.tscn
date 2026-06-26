@@ -1,0 +1,53 @@
+[gd_scene format=3 uid="uid://geg5tbfn74ns"]
+
+[ext_resource type="Shader" uid="uid://dp8pa7lqac8ie" path="res://shader/test.gdshader" id="1_74lek"]
+[ext_resource type="Texture2D" uid="uid://c4m6nua0dfeak" path="res://img/10916idle.webp" id="1_errlg"]
+[ext_resource type="Texture2D" uid="uid://b70bbm72v2kqa" path="res://img/sactx-0-2048x2048-DXT5_BC3-map_nebulizer_ego_atlas-5876033e.png" id="1_iyx0m"]
+[ext_resource type="Script" uid="uid://deonciv8u1uch" path="res://scripts/test.cs" id="2_bl13t"]
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_iyx0m"]
+shader = ExtResource("1_74lek")
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_bl13t"]
+atlas = ExtResource("1_iyx0m")
+region = Rect2(0, 0, 2048, 705)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_wvhbo"]
+atlas = ExtResource("1_iyx0m")
+region = Rect2(431, 1286, 481, 762)
+
+[node name="Node2D" type="Node2D" unique_id=1976053665]
+
+[node name="ParallaxBackground" type="ParallaxBackground" parent="." unique_id=1984375091]
+
+[node name="ParallaxLayer" type="ParallaxLayer" parent="ParallaxBackground" unique_id=27606938]
+motion_scale = Vector2(0.5, 0.5)
+
+[node name="TextureRect" type="Sprite2D" parent="ParallaxBackground/ParallaxLayer" unique_id=2049197689]
+material = SubResource("ShaderMaterial_iyx0m")
+position = Vector2(958, 919.75)
+scale = Vector2(0.88867193, 0.43617022)
+texture = SubResource("AtlasTexture_bl13t")
+
+[node name="ParallaxLayer2" type="ParallaxLayer" parent="ParallaxBackground" unique_id=1991403733]
+motion_scale = Vector2(0.45, 0.45)
+
+[node name="TextureRect" type="Sprite2D" parent="ParallaxBackground/ParallaxLayer2" unique_id=931826741]
+position = Vector2(914, 632)
+scale = Vector2(0.45, 0.45)
+texture = SubResource("AtlasTexture_wvhbo")
+
+[node name="ParallaxLayer3" type="ParallaxLayer" parent="ParallaxBackground" unique_id=12990092]
+motion_scale = Vector2(0.52, 0.52)
+
+[node name="TextureRect2" type="TextureRect" parent="ParallaxBackground/ParallaxLayer3" unique_id=578680958]
+offset_left = 269.0
+offset_top = 624.0
+offset_right = 670.0
+offset_bottom = 1131.0
+scale = Vector2(0.5, 0.5)
+texture = ExtResource("1_errlg")
+
+[node name="Camera2D" type="Camera2D" parent="." unique_id=184600418]
+position = Vector2(961, 539)
+script = ExtResource("2_bl13t")

@@ -1,5 +1,4 @@
 using Godot;
-using Godot.Collections;
 
 public partial class GameManager : CanvasLayer
 {
@@ -33,7 +32,6 @@ public partial class GameManager : CanvasLayer
 	public override void _Ready()
 	{
 		var begin_timer = GetTree().CreateTimer(0.1);
-		// begin_timer.Timeout += switch_dialogue;
 		timer_cool_down.Timeout += () => switch_cool_down = false;
 		audio.voice.Finished += () => { voice_end_time = total_time; };
 		content.typing_end += () => { typing_end_time = total_time; };
@@ -240,8 +238,10 @@ public partial class GameManager : CanvasLayer
 
 	public void _skip()
 	{
+		filter.fade(filter.Color, new Color("#000000FF"), 0.6f);
 		is_skip = true;
-		CallDeferred(nameof(switch_to_selecting));
+		skip.Hide();
+		filter.fade_tween.Finished += () => CallDeferred(nameof(switch_to_selecting));
 	}
 
 	private void switch_to_selecting()
