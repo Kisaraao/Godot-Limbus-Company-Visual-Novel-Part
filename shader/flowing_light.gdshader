@@ -17,7 +17,7 @@ void fragment() {
 	vec4 light_color = texture(light, light_uv);
 	vec4 res = light_color;
 	float glow = res.r;
-	glow = smoothstep(0.0, 0.35, glow);
+	glow = smoothstep(0.05, 0.35, glow);
 	res = glow * gold_color * 1.75;
 	COLOR = res * COLOR.a;
 }

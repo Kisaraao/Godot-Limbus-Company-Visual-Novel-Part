@@ -5,23 +5,32 @@ public partial class Content : Control
 	private string origin_str;
 	private int current_char_index = 0;
 	public bool typing = false;
+	public double cool_down_time = 0;
 	public double total_time = 0;
 	public double print_speed = 0.04;
 
 	[Export] TextureRect background;
 	[Export] Label content;
-
+	[Export] TextureRect logo;
 	public delegate void EventHandler();
 	public event EventHandler typing_end;
+
+    public override void _Ready()
+    {
+        typing_end += () => {
+			logo.Position = content.Position + content.GetCharacterBounds(content.Text.Length - 1).Position + new Vector2(content.GetThemeFontSize("口") + 10, 0);
+			logo.Show();
+		};
+    }
 
 	public override void _Process(double delta)
 	{
 		if (!typing) return;
-		total_time += delta;
-		while (total_time >= print_speed && current_char_index < origin_str.Length)
+		cool_down_time += delta;
+		while (cool_down_time >= print_speed && current_char_index < origin_str.Length)
 		{
 			content.Text += origin_str[current_char_index++];
-			total_time -= print_speed;
+			cool_down_time -= print_speed;
 		}
 
 		if (current_char_index < origin_str.Length) return;
@@ -35,7 +44,8 @@ public partial class Content : Control
 		origin_str = str;
 		content.Text = "";
 		current_char_index = 0;
-		total_time = 0;
+		cool_down_time = 0;
+		logo.Hide();
 		typing = true;
 	}
 
@@ -44,21 +54,17 @@ public partial class Content : Control
 		typing = false;
 		content.Text = origin_str;
 		current_char_index = 0;
-		total_time = 0;
+		cool_down_time = 0;
+		typing_end.Invoke();
 	}
 
 	public void set_content(Dialogue current)
 	{
 		content.HorizontalAlignment = current.content_horizontal_alignment;
 		print_speed = current.print_speed;
-
-		var screen_width = GetViewport().GetVisibleRect().Size.X;
-		var screen_height = GetViewport().GetVisibleRect().Size.Y;
 		
-		background.Position = new Vector2(
-			(screen_width - background.Texture.GetWidth()) / 2 + current.offset_content.X,
-			screen_height - background.Texture.GetHeight() + current.offset_content.Y
-		);
+		content.Position += current.offset_content;
+		background.Position += current.offset_content;
 
 		Visible = !current.hide_content;
 

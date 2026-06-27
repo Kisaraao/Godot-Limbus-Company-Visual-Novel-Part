@@ -12,9 +12,9 @@ public partial class SettingsPopup : PopupPanel
 	[Export] public Control body;
 
 	public const float DEFAULT_TOTAL = 1.0f;
-	public const float DEFAULT_BGM = 0.75f;
-	public const float DEFAULT_SOUND = 1.0f;
-	public const float DEFAULT_VOICE = 0.8f;
+	public const float DEFAULT_BGM = 0.15f;
+	public const float DEFAULT_SOUND = 0.6f;
+	public const float DEFAULT_VOICE = 0.35f;
 
 	public void _on_total_drag_ended(bool value_changed)
 	{

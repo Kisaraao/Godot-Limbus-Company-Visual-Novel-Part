@@ -7,10 +7,10 @@ public partial class AudioManager : CanvasLayer
 	[Export] public AudioStreamPlayer sound;
 	[Export] public AudioUI ui;
 	
-	public float total_mul;
-	public float bgm_mul;
-	public float sound_mul;
-	public float voice_mul;
+	[Export] public float total_mul;
+	[Export] public float bgm_mul;
+	[Export] public float sound_mul;
+	[Export] public float voice_mul;
 
 	public void set_audio(Dialogue current)
 	{
@@ -35,9 +35,9 @@ public partial class AudioManager : CanvasLayer
 
 	public void updateVolume()
 	{
-		bgm.VolumeDb = 80 * bgm_mul * total_mul - 80;
-		sound.VolumeDb = 80 * sound_mul * total_mul - 80;
-		voice.VolumeDb = 80 * voice_mul * total_mul - 80;
-		ui.VolumeDb = 80 * total_mul - 80;
+		bgm.VolumeLinear = bgm_mul * total_mul;
+		sound.VolumeLinear = sound_mul * total_mul;
+		ui.VolumeLinear = sound_mul * total_mul;
+		voice.VolumeLinear = voice_mul * total_mul;
 	}
 }

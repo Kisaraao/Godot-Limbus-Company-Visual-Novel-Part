@@ -145,10 +145,15 @@ public partial class GameManager : CanvasLayer
 				return;
 			}
 			
-			if (!switch_cool_down)
+			if (!switch_cool_down && index < story.dialogues.Count)
 			{
 				audio.playSound("click");
 				_next();
+			}
+
+			if (index >= story.dialogues.Count)
+			{
+				_skip();
 			}
 		}
 	}
