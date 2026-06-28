@@ -7,7 +7,6 @@ public partial class Record : VBoxContainer
 	[Export] public Label content;
 	[Export] public Label name;
 	[Export] public TextureRect portrait;
-	[Export] public ColorRect background;
 	[Export] public AudioStreamPlayer voice;
 	[Export] public Button btn_voice;
 	[Export] public AudioManager audio;
@@ -15,7 +14,6 @@ public partial class Record : VBoxContainer
 	{
 		content.Text = data.content;
 		name.Text = data.speaker.name;
-		background.Color = data.speaker.badge_color;
 		if (data.speaker.portrait != null) portrait.Texture = data.speaker.portrait;
 		btn_voice.Visible = data.voice != null;
 	}

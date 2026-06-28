@@ -9,6 +9,7 @@ public partial class PopupHisitory : PopupPanel
 	[Export] public AudioManager audio;
 	[Export] public ScrollContainer scroll;
 	[Export] public Control body;
+
 	public void add_record(DialogueRecord data)
 	{
 		Record rc = scene_record.Instantiate<Record>();

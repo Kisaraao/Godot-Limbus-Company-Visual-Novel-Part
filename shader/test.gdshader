@@ -1,20 +1,10 @@
 shader_type canvas_item;
 
+uniform vec2 cam;
+
 void vertex() {
-	// Called for every vertex the material is visible on.
-	if (VERTEX.y < 0.5) {
-		if (VERTEX.x < 0.5){
-			VERTEX.x = -1080.0;
-		}else{
-			VERTEX.x = 1080.0;
-		}
-	}else{
-		if (VERTEX.x < 0.5){
-			VERTEX.x = -1920.0;
-		}else{
-			VERTEX.x = 1920.0;
-		}
-	}
+	//float strength = UV.y + 1.0;
+	//VERTEX.x = VERTEX.x + VERTEX.x * strength * 0.5;
 }
 
 void fragment() {

@@ -7,47 +7,33 @@
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_iyx0m"]
 shader = ExtResource("1_74lek")
+shader_parameter/cam = Vector2(0, 0)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_bl13t"]
 atlas = ExtResource("1_iyx0m")
-region = Rect2(0, 0, 2048, 705)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_wvhbo"]
-atlas = ExtResource("1_iyx0m")
-region = Rect2(431, 1286, 481, 762)
+region = Rect2(0, 0, 2048, 696)
 
 [node name="Node2D" type="Node2D" unique_id=1976053665]
 
-[node name="ParallaxBackground" type="ParallaxBackground" parent="." unique_id=1984375091]
+[node name="CanvasLayer" type="CanvasLayer" parent="." unique_id=256096826]
+follow_viewport_enabled = true
 
-[node name="ParallaxLayer" type="ParallaxLayer" parent="ParallaxBackground" unique_id=27606938]
-motion_scale = Vector2(0.5, 0.5)
-
-[node name="TextureRect" type="Sprite2D" parent="ParallaxBackground/ParallaxLayer" unique_id=2049197689]
+[node name="Floor" type="Sprite2D" parent="CanvasLayer" unique_id=2049197689]
 material = SubResource("ShaderMaterial_iyx0m")
-position = Vector2(958, 919.75)
-scale = Vector2(0.88867193, 0.43617022)
+position = Vector2(-93, 705)
+scale = Vector2(1, 0.5416667)
 texture = SubResource("AtlasTexture_bl13t")
+offset = Vector2(1025, 348)
 
-[node name="ParallaxLayer2" type="ParallaxLayer" parent="ParallaxBackground" unique_id=1991403733]
-motion_scale = Vector2(0.45, 0.45)
-
-[node name="TextureRect" type="Sprite2D" parent="ParallaxBackground/ParallaxLayer2" unique_id=931826741]
-position = Vector2(914, 632)
-scale = Vector2(0.45, 0.45)
-texture = SubResource("AtlasTexture_wvhbo")
-
-[node name="ParallaxLayer3" type="ParallaxLayer" parent="ParallaxBackground" unique_id=12990092]
-motion_scale = Vector2(0.52, 0.52)
-
-[node name="TextureRect2" type="TextureRect" parent="ParallaxBackground/ParallaxLayer3" unique_id=578680958]
-offset_left = 269.0
-offset_top = 624.0
-offset_right = 670.0
-offset_bottom = 1131.0
+[node name="TextureRect2" type="TextureRect" parent="CanvasLayer" unique_id=578680958]
+offset_left = 323.0
+offset_top = 617.0
+offset_right = 724.0
+offset_bottom = 1124.0
 scale = Vector2(0.5, 0.5)
 texture = ExtResource("1_errlg")
 
-[node name="Camera2D" type="Camera2D" parent="." unique_id=184600418]
-position = Vector2(961, 539)
+[node name="Camera2D" type="Camera2D" parent="." unique_id=184600418 node_paths=PackedStringArray("floor")]
+position = Vector2(960, 540)
 script = ExtResource("2_bl13t")
+floor = NodePath("../CanvasLayer/Floor")

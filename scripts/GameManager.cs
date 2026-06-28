@@ -11,7 +11,7 @@ public partial class GameManager : CanvasLayer
 	[Export] CharacterManager character_manager;
 	[Export] AudioManager audio;
 	[Export] Control ui;
-	private int index = 0;
+	[Export] public int index = 0;
 	private bool switch_cool_down = false;
 	private float cool_down_time = 0.5f;
 	private bool lose_focus = false;
@@ -243,7 +243,7 @@ public partial class GameManager : CanvasLayer
 
 	public void _skip()
 	{
-		filter.fade(filter.Color, new Color("#000000FF"), 0.6f);
+		filter.fade(new Color("#00000000"), new Color("#000000FF"), 0.6f);
 		is_skip = true;
 		skip.Hide();
 		filter.fade_tween.Finished += () => CallDeferred(nameof(switch_to_selecting));

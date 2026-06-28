@@ -1,30 +1,33 @@
 [gd_scene format=3 uid="uid://cvnt2h2x2hml0"]
 
 [ext_resource type="Script" uid="uid://de6qga6emxahb" path="res://scripts/Record.cs" id="1_fl1m8"]
-[ext_resource type="Texture2D" uid="uid://bboep21yjyvq3" path="res://img/ui/atlas_ui_2.png" id="4_1d2kr"]
+[ext_resource type="Texture2D" uid="uid://dxut1s0g6itl" path="res://img/ui/StoryUI_Frame_1.png" id="4_bp0cq"]
 [ext_resource type="Texture2D" uid="uid://cwoqja0ksw525" path="res://img/character/StoryLog_None_Extra.png" id="4_fl1m8"]
 [ext_resource type="FontFile" uid="uid://caltks5x77ake" path="res://font/SarasaUiSC-SemiBold.ttf" id="5_54cvv"]
 [ext_resource type="FontFile" uid="uid://h8qv423ypm73" path="res://font/SarasaUiSC-Bold.ttf" id="6_gufn7"]
-[ext_resource type="Texture2D" uid="uid://d0o7q5mj1mm4v" path="res://img/ui/atlas_ui_1.png" id="7_1d2kr"]
 [ext_resource type="Script" uid="uid://cl05irxqyem1r" path="res://scripts/RecordVoiceButton.cs" id="9_1d2kr"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_fl1m8"]
-atlas = ExtResource("4_1d2kr")
-region = Rect2(704, 823, 124, 124)
+atlas = ExtResource("4_bp0cq")
+region = Rect2(1246, 1141, 238, 233)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_1d2kr"]
-atlas = ExtResource("4_1d2kr")
-region = Rect2(504, 821, 126, 124)
+atlas = ExtResource("4_bp0cq")
+region = Rect2(1011, 1146, 231, 226)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_bp0cq"]
-atlas = ExtResource("7_1d2kr")
-region = Rect2(84, 92, 63, 63)
+atlas = ExtResource("4_bp0cq")
+region = Rect2(1615, 597, 162, 164)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_wvhbo"]
+atlas = ExtResource("4_bp0cq")
+region = Rect2(1427, 1011, 132, 131)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_54cvv"]
-atlas = ExtResource("4_1d2kr")
-region = Rect2(0, 723, 1013, 1)
+atlas = ExtResource("4_bp0cq")
+region = Rect2(5, 650, 1013, 1)
 
-[node name="VBoxContainer" type="VBoxContainer" unique_id=487352536 node_paths=PackedStringArray("content", "name", "portrait", "background", "btn_voice")]
+[node name="VBoxContainer" type="VBoxContainer" unique_id=487352536 node_paths=PackedStringArray("content", "name", "portrait", "btn_voice")]
 offset_right = 905.0
 offset_bottom = 245.0
 theme_override_constants/separation = 15
@@ -33,8 +36,7 @@ script = ExtResource("1_fl1m8")
 content = NodePath("HBoxContainer/Label2")
 name = NodePath("HBoxContainer/VBoxContainer/Label")
 portrait = NodePath("HBoxContainer/VBoxContainer/Portrait/Character")
-background = NodePath("HBoxContainer/VBoxContainer/Portrait/Background")
-btn_voice = NodePath("HBoxContainer/Button")
+btn_voice = NodePath("HBoxContainer/Control/Button")
 metadata/_edit_use_anchors_ = true
 
 [node name="HBoxContainer" type="HBoxContainer" parent="." unique_id=1391822526]
@@ -49,39 +51,34 @@ alignment = 1
 [node name="Portrait" type="TextureRect" parent="HBoxContainer/VBoxContainer" unique_id=94053167]
 clip_children = 1
 layout_mode = 2
+offset_transform_enabled = true
 texture = SubResource("AtlasTexture_fl1m8")
-stretch_mode = 3
-metadata/_edit_use_anchors_ = true
-
-[node name="Background" type="ColorRect" parent="HBoxContainer/VBoxContainer/Portrait" unique_id=2004251880]
-custom_minimum_size = Vector2(126, 126)
-layout_mode = 1
-anchors_preset = -1
-anchor_right = 1.0158731
-anchor_bottom = 1.0212858
-offset_bottom = -0.6394348
-scale = Vector2(1, 1.0050749)
-color = Color(0.1764706, 0.101960786, 0.11764706, 1)
+expand_mode = 4
 metadata/_edit_use_anchors_ = true
 
 [node name="Character" type="TextureRect" parent="HBoxContainer/VBoxContainer/Portrait" unique_id=754083268]
 layout_mode = 1
 anchors_preset = -1
-anchor_left = 0.0793651
-anchor_top = 0.04838713
-anchor_right = 0.89206344
-anchor_bottom = 0.8741936
-offset_right = 153.6
-offset_bottom = 153.59999
-scale = Vector2(0.42, 0.42)
+anchor_left = 0.055555556
+anchor_top = 0.055555556
+anchor_right = 0.96984124
+anchor_bottom = 0.96984124
+offset_right = 140.8
+offset_bottom = 140.8
+scale = Vector2(0.45, 0.45)
 texture = ExtResource("4_fl1m8")
 metadata/_edit_use_anchors_ = true
 
 [node name="Border" type="TextureRect" parent="HBoxContainer/VBoxContainer/Portrait" unique_id=769841002]
 layout_mode = 1
 anchors_preset = -1
-anchor_right = 1.0
-anchor_bottom = 1.0080645
+anchor_left = -0.039682537
+anchor_top = 0.015873017
+anchor_right = 1.0676191
+anchor_bottom = 0.99341273
+offset_right = 116.479996
+offset_bottom = 102.829994
+scale = Vector2(0.545, 0.545)
 texture = SubResource("AtlasTexture_1d2kr")
 stretch_mode = 3
 metadata/_edit_use_anchors_ = true
@@ -100,7 +97,7 @@ autowrap_mode = 1
 metadata/_edit_use_anchors_ = true
 
 [node name="Label2" type="Label" parent="HBoxContainer" unique_id=666205904]
-custom_minimum_size = Vector2(700, 0)
+custom_minimum_size = Vector2(600, 0)
 layout_mode = 2
 theme_override_colors/font_color = Color(0, 0, 0, 1)
 theme_override_constants/line_spacing = -3
@@ -111,14 +108,44 @@ vertical_alignment = 1
 autowrap_mode = 3
 metadata/_edit_use_anchors_ = true
 
-[node name="Button" type="Button" parent="HBoxContainer" unique_id=1129285407]
-custom_minimum_size = Vector2(50, 0)
+[node name="Control" type="Control" parent="HBoxContainer" unique_id=1755844461]
+custom_minimum_size = Vector2(126, 0)
 layout_mode = 2
+
+[node name="Button" type="Button" parent="HBoxContainer/Control" unique_id=1129285407]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.20634921
+anchor_top = 0.35135135
+anchor_right = 0.81349206
+anchor_bottom = 0.65019304
+offset_right = 93.5
+offset_bottom = 94.600006
+grow_horizontal = 2
+grow_vertical = 2
+scale = Vector2(0.45, 0.45)
 size_flags_vertical = 4
+offset_transform_enabled = true
 icon = SubResource("AtlasTexture_bp0cq")
 flat = true
 icon_alignment = 1
 script = ExtResource("9_1d2kr")
+metadata/_edit_use_anchors_ = true
+
+[node name="TextureRect" type="TextureRect" parent="HBoxContainer/Control/Button" unique_id=1837567871]
+modulate = Color(0, 0, 0, 1)
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.2
+anchor_top = 0.19767442
+anchor_right = 0.8211765
+anchor_bottom = 0.80697674
+offset_right = 26.399994
+offset_bottom = 26.199997
+grow_horizontal = 2
+grow_vertical = 2
+scale = Vector2(0.8, 0.8)
+texture = SubResource("AtlasTexture_wvhbo")
 metadata/_edit_use_anchors_ = true
 
 [node name="TextureRect" type="TextureRect" parent="." unique_id=1018331328]
@@ -126,7 +153,7 @@ layout_mode = 2
 texture = SubResource("AtlasTexture_54cvv")
 expand_mode = 5
 
-[connection signal="mouse_entered" from="HBoxContainer/Button" to="." method="_on_button_mouse_entered"]
-[connection signal="mouse_entered" from="HBoxContainer/Button" to="HBoxContainer/Button" method="_on_mouse_entered"]
-[connection signal="mouse_exited" from="HBoxContainer/Button" to="HBoxContainer/Button" method="_on_mouse_exited"]
-[connection signal="pressed" from="HBoxContainer/Button" to="." method="_on_button_pressed"]
+[connection signal="mouse_entered" from="HBoxContainer/Control/Button" to="." method="_on_button_mouse_entered"]
+[connection signal="mouse_entered" from="HBoxContainer/Control/Button" to="HBoxContainer/Control/Button" method="_on_mouse_entered"]
+[connection signal="mouse_exited" from="HBoxContainer/Control/Button" to="HBoxContainer/Control/Button" method="_on_mouse_exited"]
+[connection signal="pressed" from="HBoxContainer/Control/Button" to="." method="_on_button_pressed"]

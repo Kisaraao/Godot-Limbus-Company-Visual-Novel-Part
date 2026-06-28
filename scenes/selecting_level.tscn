@@ -6,6 +6,7 @@
 [ext_resource type="Shader" uid="uid://b7667w7djnjml" path="res://shader/flowing_light.gdshader" id="2_yhgp1"]
 [ext_resource type="Texture2D" uid="uid://bvspqtlly8qe7" path="res://img/fx_t_noise_31_hw.png" id="4_vtydu"]
 [ext_resource type="Texture2D" uid="uid://c51u7xqev1ca" path="res://img/图层 2.png" id="5_vtydu"]
+[ext_resource type="PackedScene" uid="uid://dlwn7h13y8ug2" path="res://scenes/battle_begin.tscn" id="7_egjou"]
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_6h710"]
 shader = ExtResource("2_yhgp1")
@@ -79,3 +80,7 @@ offset_right = 42.0
 offset_bottom = 21.0
 texture = ExtResource("2_72tev")
 metadata/_edit_use_anchors_ = true
+
+[node name="Control" parent="." unique_id=541461878 instance=ExtResource("7_egjou")]
+visible = false
+layout_mode = 1

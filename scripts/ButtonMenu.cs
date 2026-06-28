@@ -153,4 +153,19 @@ public partial class ButtonMenu : Button
 		hover.Position = btn_skip.Position;
 		_show_hover();
 	}
+
+	public void _on_history_about_to_popup()
+	{
+		_on_this_exited();
+	}
+
+	public void _on_settings_about_to_popup()
+	{
+		_on_this_exited();
+	}
+
+	public void _on_skip_about_to_popup()
+	{
+		_on_this_exited();
+	}
 }

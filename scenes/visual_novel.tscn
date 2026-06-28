@@ -5,7 +5,6 @@
 [ext_resource type="Texture2D" uid="uid://r25be2riy8vc" path="res://img/background/Story_thumb.webp" id="3_e4veq"]
 [ext_resource type="PackedScene" uid="uid://epwcl1uvd6ff" path="res://scenes/selecting_level.tscn" id="3_t181x"]
 [ext_resource type="Script" uid="uid://c887oxeswxu0q" path="res://scripts/CharacterManager.cs" id="4_pv05h"]
-[ext_resource type="Texture2D" uid="uid://cyqr112fe5jcc" path="res://img/Snipaste_2026-06-27_15-54-04.png" id="5_15sja"]
 [ext_resource type="Texture2D" uid="uid://do54sxjd7smq4" path="res://img/ui/cover.png" id="5_yre48"]
 [ext_resource type="Script" uid="uid://bs1pvs86xgcr6" path="res://scripts/Content.cs" id="6_p2uxa"]
 [ext_resource type="FontFile" uid="uid://caltks5x77ake" path="res://font/SarasaUiSC-SemiBold.ttf" id="8_m7fpp"]
@@ -136,13 +135,6 @@ texture = ExtResource("3_e4veq")
 metadata/_edit_use_anchors_ = true
 metadata/_edit_lock_ = true
 
-[node name="Example" type="TextureRect" parent="Background" unique_id=1503078689]
-visible = false
-offset_right = 40.0
-offset_bottom = 40.0
-texture = ExtResource("5_15sja")
-metadata/_edit_lock_ = true
-
 [node name="characters" type="CanvasLayer" parent="." unique_id=1514502212]
 layer = 3
 follow_viewport_enabled = true
@@ -189,6 +181,7 @@ offset_bottom = 1024.0
 grow_horizontal = 2
 grow_vertical = 2
 scale = Vector2(1.25, 1.25)
+mouse_filter = 2
 texture = SubResource("AtlasTexture_cbdyv")
 metadata/_edit_use_anchors_ = true
 
@@ -206,7 +199,7 @@ theme_override_constants/line_spacing = -3
 theme_override_constants/outline_size = 3
 theme_override_fonts/font = ExtResource("8_m7fpp")
 theme_override_font_sizes/font_size = 28
-text = "......理。"
+text = "如果你想要，就得自己来拿。"
 autowrap_mode = 1
 metadata/_edit_use_anchors_ = true
 
@@ -216,11 +209,12 @@ wait_time = 0.5
 [node name="Logo" type="TextureRect" parent="ui/Control/Content" unique_id=620234019]
 material = SubResource("ShaderMaterial_15sja")
 layout_mode = 0
-offset_left = 472.0
+offset_left = 733.0
 offset_top = 910.0
-offset_right = 716.0
+offset_right = 977.0
 offset_bottom = 1337.0
 scale = Vector2(0.1, 0.1)
+mouse_filter = 2
 texture = SubResource("AtlasTexture_abi3o")
 metadata/_edit_use_anchors_ = true
 
@@ -241,6 +235,7 @@ offset_right = 512.0
 offset_bottom = 962.9998
 rotation = -0.12217305
 scale = Vector2(0.55, 0.75)
+mouse_filter = 2
 texture = SubResource("AtlasTexture_yre48")
 stretch_mode = 2
 metadata/_edit_use_anchors_ = true
@@ -254,6 +249,7 @@ offset_right = 520.0
 offset_bottom = 1178.0
 rotation = -0.12217305
 scale = Vector2(0.25, 0.25)
+mouse_filter = 2
 texture = SubResource("AtlasTexture_j3uxw")
 stretch_mode = 2
 flip_h = true
@@ -269,6 +265,7 @@ anchor_bottom = 1.5032402
 offset_right = -100.60004
 offset_bottom = -57.599976
 scale = Vector2(1.2, 1.2)
+mouse_filter = 2
 texture = SubResource("AtlasTexture_wvhbo")
 flip_h = true
 metadata/_edit_use_anchors_ = true
@@ -283,6 +280,7 @@ anchor_bottom = 0.62873393
 offset_right = -336.0
 offset_bottom = -133.5
 scale = Vector2(1.75, 2.5)
+mouse_filter = 2
 texture = SubResource("AtlasTexture_ifow5")
 metadata/_edit_use_anchors_ = true
 
@@ -301,7 +299,7 @@ theme_override_constants/shadow_offset_x = 1
 theme_override_constants/shadow_offset_y = 1
 theme_override_fonts/font = ExtResource("12_nkaax")
 theme_override_font_sizes/font_size = 22
-text = "执行经理执行经理执行经理执行经理"
+text = "???"
 horizontal_alignment = 1
 vertical_alignment = 1
 autowrap_mode = 1
@@ -322,8 +320,7 @@ theme_override_constants/shadow_offset_x = 1
 theme_override_constants/shadow_offset_y = 1
 theme_override_fonts/font = ExtResource("12_nkaax")
 theme_override_font_sizes/font_size = 32
-text = "维吉里乌斯
-维吉里乌斯"
+text = "维吉里乌斯"
 horizontal_alignment = 1
 vertical_alignment = 1
 autowrap_mode = 1
@@ -350,6 +347,7 @@ offset_right = 757.0
 offset_bottom = 221.0
 rotation = -0.08726646
 scale = Vector2(0.5, 0.5)
+mouse_filter = 2
 texture = SubResource("AtlasTexture_e4veq")
 metadata/_edit_use_anchors_ = true
 
@@ -362,6 +360,7 @@ offset_right = 347.71124
 offset_bottom = 167.0
 rotation = -1.6580628
 scale = Vector2(0.85, 0.85)
+mouse_filter = 2
 texture = SubResource("AtlasTexture_pv05h")
 expand_mode = 1
 metadata/_edit_use_anchors_ = true
@@ -381,8 +380,7 @@ theme_override_constants/shadow_offset_x = 1
 theme_override_constants/shadow_offset_y = 1
 theme_override_fonts/font = ExtResource("12_nkaax")
 theme_override_font_sizes/font_size = 32
-text = "拇指的走廊
-拇指的走廊"
+text = "拇指的走廊！"
 horizontal_alignment = 1
 vertical_alignment = 1
 autowrap_mode = 1
@@ -632,6 +630,9 @@ metadata/_edit_use_anchors_ = true
 [connection signal="mouse_exited" from="ui/Control/Button/ButtonSkip" to="ui/Control/Button/ButtonMenu" method="_on_mouse_exited"]
 [connection signal="pressed" from="ui/Control/Button/ButtonSkip" to="." method="_on_button_skip_pressed"]
 [connection signal="about_to_popup" from="ui/Control/Popups/History" to="." method="_on_history_about_to_popup"]
+[connection signal="about_to_popup" from="ui/Control/Popups/History" to="ui/Control/Button/ButtonMenu" method="_on_history_about_to_popup"]
 [connection signal="popup_hide" from="ui/Control/Popups/History" to="." method="_on_history_popup_hide"]
+[connection signal="about_to_popup" from="ui/Control/Popups/Settings" to="ui/Control/Button/ButtonMenu" method="_on_settings_about_to_popup"]
 [connection signal="popup_hide" from="ui/Control/Popups/Settings" to="." method="_on_settings_popup_hide"]
+[connection signal="about_to_popup" from="ui/Control/Popups/Skip" to="ui/Control/Button/ButtonMenu" method="_on_skip_about_to_popup"]
 [connection signal="popup_hide" from="ui/Control/Popups/Skip" to="." method="_on_skip_popup_hide"]
